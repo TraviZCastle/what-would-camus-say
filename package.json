@@ -20,6 +20,7 @@
     "pretest:e2e": "pnpm build:index",
     "test:e2e": "playwright test",
     "build:index": "node --import tsx scripts/build-index.ts",
+    "content:generate:batch02": "node --import tsx scripts/generate-batch-02.ts",
     "evaluate:retrieval": "node --import tsx scripts/evaluate-retrieval.ts",
     "evaluate:safety": "node --import tsx scripts/evaluate-safety.ts",
     "benchmark:retrieval": "pnpm build:index && node --import tsx scripts/benchmark-retrieval.ts",
@@ -28,7 +29,7 @@
     "content:validate:production": "node --import tsx scripts/validate-content.ts --production",
     "check:architecture": "node scripts/check-architecture.mjs",
     "validate": "pnpm format:check && pnpm lint && pnpm test && pnpm content:validate && pnpm build:index && pnpm evaluate:retrieval && pnpm evaluate:safety && pnpm benchmark:retrieval && pnpm check:architecture",
-    "validate:production": "pnpm validate && pnpm build && pnpm test:e2e"
+    "validate:production": "pnpm validate && pnpm evaluate:retrieval -- --production && pnpm build && pnpm test:e2e"
   },
   "dependencies": {
     "react": "19.2.8",

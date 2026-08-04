@@ -10,8 +10,8 @@ import {
   SourceCatalogSchema,
   SynonymCatalogSchema,
   THEME_IDS,
-  ThoughtCardCollectionSchema,
 } from '../src/content/schema';
+import { loadThoughtCards } from './load-thought-cards';
 
 const projectRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const isProduction = process.argv.includes('--production');
@@ -21,9 +21,7 @@ async function readJson(relativePath: string): Promise<unknown> {
   return JSON.parse(await readFile(absolutePath, 'utf8')) as unknown;
 }
 
-const cards = ThoughtCardCollectionSchema.parse(
-  await readJson('content/cards/seed-cards.json'),
-);
+const cards = await loadThoughtCards(projectRoot);
 const quotes = DirectQuoteCollectionSchema.parse(
   await readJson('content/quotes/quotes.json'),
 );
@@ -39,6 +37,7 @@ const safetyResponses = SafetyResponseCatalogSchema.parse(
 );
 
 const errors: string[] = [];
+const uniqueSituations = new Set(cards.flatMap((card) => card.situations));
 
 function findDuplicates(values: string[]): string[] {
   const seen = new Set<string>();
@@ -48,6 +47,17 @@ function findDuplicates(values: string[]): string[] {
 }
 
 const duplicateCardIds = findDuplicates(cards.map((card) => card.id));
+const duplicateCardTitles = findDuplicates(cards.map((card) => card.title));
+const duplicateCardPrinciples = findDuplicates(cards.map((card) => card.principle));
+const duplicatePerspectives = findDuplicates(
+  cards.flatMap((card) => card.answerBlocks.perspective),
+);
+const duplicateActions = findDuplicates(
+  cards.flatMap((card) => card.answerBlocks.actions),
+);
+const duplicateReflectionQuestions = findDuplicates(
+  cards.flatMap((card) => card.answerBlocks.reflectionQuestions),
+);
 const duplicateQuoteIds = findDuplicates(quotes.map((quote) => quote.id));
 const duplicateSourceIds = findDuplicates(sources.map((source) => source.id));
 const duplicateSafetyRuleIds = findDuplicates(safetyRules.rules.map((rule) => rule.id));
@@ -56,6 +66,14 @@ const duplicateSafetyResponseKeys = findDuplicates(
 );
 
 for (const id of duplicateCardIds) errors.push(`重复思想卡片 ID：${id}`);
+for (const title of duplicateCardTitles) errors.push(`重复思想卡片标题：${title}`);
+for (const principle of duplicateCardPrinciples)
+  errors.push(`重复思想卡片原则：${principle}`);
+for (const perspective of duplicatePerspectives)
+  errors.push(`重复回答观点组件：${perspective}`);
+for (const action of duplicateActions) errors.push(`重复回答行动组件：${action}`);
+for (const question of duplicateReflectionQuestions)
+  errors.push(`重复回答反问组件：${question}`);
 for (const id of duplicateQuoteIds) errors.push(`重复引文 ID：${id}`);
 for (const id of duplicateSourceIds) errors.push(`重复来源 ID：${id}`);
 for (const id of duplicateSafetyRuleIds) errors.push(`重复安全规则 ID：${id}`);
@@ -77,6 +95,26 @@ const quoteIds = new Set(quotes.map((quote) => quote.id));
 const catalogWorks = new Set(sources.map((source) => source.work));
 
 for (const card of cards) {
+  const searchableText = [
+    card.principle,
+    card.explanation,
+    card.boundary,
+    ...card.answerBlocks.perspective,
+    ...card.answerBlocks.boundary,
+    ...card.answerBlocks.actions,
+    ...card.answerBlocks.reflectionQuestions,
+  ].join('\n');
+  for (const forbiddenPhrase of [
+    '我是加缪',
+    '加缪说过',
+    '加缪一定会',
+    '命中注定',
+    '你必须',
+  ]) {
+    if (searchableText.includes(forbiddenPhrase))
+      errors.push(`${card.id} 包含禁止表达：${forbiddenPhrase}`);
+  }
+
   for (const quoteId of card.directQuoteIds) {
     if (!quoteIds.has(quoteId)) errors.push(`${card.id} 引用了不存在的引文：${quoteId}`);
   }
@@ -90,6 +128,8 @@ for (const card of cards) {
 
 if (isProduction) {
   if (cards.length < 300) errors.push(`生产卡片不足 300 张：当前 ${cards.length} 张`);
+  if (uniqueSituations.size < 150)
+    errors.push(`高频现实场景不足 150 个：当前 ${uniqueSituations.size} 个`);
 
   for (const theme of THEME_IDS) {
     const count = cards.filter(
@@ -128,5 +168,5 @@ if (errors.length > 0) {
 }
 
 console.log(
-  `内容校验通过：${cards.length} 张卡片（${cards.filter((card) => card.status === 'approved').length} approved，${cards.filter((card) => card.status === 'review').length} review），覆盖 ${new Set(cards.map((card) => card.theme)).size} 个主主题，${quotes.length} 条直接引文。`,
+  `内容校验通过：${cards.length} 张卡片（${cards.filter((card) => card.status === 'approved').length} approved，${cards.filter((card) => card.status === 'review').length} review），覆盖 ${new Set(cards.map((card) => card.theme)).size} 个主主题、${uniqueSituations.size} 个现实场景，${quotes.length} 条直接引文。`,
 );

@@ -4,10 +4,8 @@ import { fileURLToPath } from 'node:url';
 
 import { beforeAll, describe, expect, it } from 'vitest';
 
-import {
-  SynonymCatalogSchema,
-  ThoughtCardCollectionSchema,
-} from '../../src/content/schema';
+import { loadThoughtCards } from '../../scripts/load-thought-cards';
+import { SynonymCatalogSchema } from '../../src/content/schema';
 import { buildSearchIndex } from '../../src/retrieval/bm25';
 import { retrieveThoughtCards } from '../../src/retrieval/retrieve';
 import type { SearchIndex } from '../../src/retrieval/types';
@@ -16,11 +14,7 @@ const projectRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '
 let index: SearchIndex;
 
 beforeAll(async () => {
-  const cards = ThoughtCardCollectionSchema.parse(
-    JSON.parse(
-      await readFile(path.join(projectRoot, 'content/cards/seed-cards.json'), 'utf8'),
-    ) as unknown,
-  );
+  const cards = await loadThoughtCards(projectRoot);
   const synonyms = SynonymCatalogSchema.parse(
     JSON.parse(
       await readFile(path.join(projectRoot, 'content/synonyms/synonyms.json'), 'utf8'),
@@ -31,7 +25,7 @@ beforeAll(async () => {
 
 describe('weighted BM25 retrieval', () => {
   it('indexes only approved cards', () => {
-    expect(index.cardCount).toBe(23);
+    expect(index.cardCount).toBeGreaterThanOrEqual(23);
     expect(index.documents.every((document) => document.card.status === 'approved')).toBe(
       true,
     );

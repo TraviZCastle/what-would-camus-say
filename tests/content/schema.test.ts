@@ -1,20 +1,16 @@
-import { readFile } from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 import { describe, expect, it } from 'vitest';
 
-import { ThoughtCardCollectionSchema, ThoughtCardSchema } from '../../src/content/schema';
+import { loadThoughtCards } from '../../scripts/load-thought-cards';
+import { THEME_IDS, ThoughtCardSchema } from '../../src/content/schema';
 
 const projectRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..');
 
 describe('thought-card content schema', () => {
-  it('accepts every Phase 1 seed card', async () => {
-    const raw = await readFile(
-      path.join(projectRoot, 'content/cards/seed-cards.json'),
-      'utf8',
-    );
-    const cards = ThoughtCardCollectionSchema.parse(JSON.parse(raw) as unknown);
+  it('accepts every versioned thought card', async () => {
+    const cards = await loadThoughtCards(projectRoot);
 
     expect(cards.length).toBeGreaterThanOrEqual(20);
     expect(new Set(cards.map((card) => card.theme)).size).toBeGreaterThanOrEqual(6);
@@ -32,5 +28,19 @@ describe('thought-card content schema', () => {
     };
 
     expect(ThoughtCardSchema.safeParse(invalidCard).success).toBe(false);
+  });
+
+  it('keeps Phase 5 batch 02 balanced across all themes', async () => {
+    const cards = await loadThoughtCards(projectRoot);
+    const batchCards = cards.filter((card) => card.id.endsWith('-b02'));
+
+    expect(batchCards).toHaveLength(72);
+    for (const theme of THEME_IDS) {
+      expect(
+        batchCards.filter((card) => card.theme === theme),
+        theme,
+      ).toHaveLength(6);
+    }
+    expect(batchCards.every((card) => card.status === 'approved')).toBe(true);
   });
 });

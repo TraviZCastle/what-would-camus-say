@@ -3,18 +3,14 @@ import path from 'node:path';
 import process from 'node:process';
 import { fileURLToPath } from 'node:url';
 
-import { SynonymCatalogSchema, ThoughtCardCollectionSchema } from '../src/content/schema';
+import { SynonymCatalogSchema } from '../src/content/schema';
 import { buildSearchIndex } from '../src/retrieval/bm25';
 import { retrieveThoughtCards } from '../src/retrieval/retrieve';
-
-type GoldItem = {
-  id: string;
-  query: string;
-  expectedCardIds?: string[];
-  expectNoResult?: boolean;
-};
+import { loadRetrievalGold } from './load-retrieval-gold';
+import { loadThoughtCards } from './load-thought-cards';
 
 const projectRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
+const isProduction = process.argv.includes('--production');
 
 async function readJson(relativePath: string): Promise<unknown> {
   return JSON.parse(
@@ -22,13 +18,11 @@ async function readJson(relativePath: string): Promise<unknown> {
   ) as unknown;
 }
 
-const cards = ThoughtCardCollectionSchema.parse(
-  await readJson('content/cards/seed-cards.json'),
-);
+const cards = await loadThoughtCards(projectRoot);
 const synonyms = SynonymCatalogSchema.parse(
   await readJson('content/synonyms/synonyms.json'),
 );
-const gold = (await readJson('evals/retrieval-gold.json')) as GoldItem[];
+const gold = await loadRetrievalGold(projectRoot);
 const index = buildSearchIndex(cards, synonyms);
 
 let relevantTotal = 0;
@@ -60,6 +54,7 @@ for (const item of gold) {
 
 const top3Recall = relevantTotal === 0 ? 0 : relevantTop3Hits / relevantTotal;
 const noResultAccuracy = noResultTotal === 0 ? 1 : noResultHits / noResultTotal;
+const minimumRecall = isProduction ? 0.85 : 0.8;
 
 console.log(
   `检索评测：Top 3 召回率 ${(top3Recall * 100).toFixed(1)}% (${relevantTop3Hits}/${relevantTotal})；无结果准确率 ${(noResultAccuracy * 100).toFixed(1)}% (${noResultHits}/${noResultTotal})。`,
@@ -67,4 +62,9 @@ console.log(
 
 if (misses.length > 0) console.log(`未命中：\n${misses.join('\n')}`);
 
-if (top3Recall < 0.8 || noResultAccuracy < 1) process.exit(1);
+if (isProduction && gold.length < 200) {
+  console.error(`生产检索评测不足 200 条：当前 ${gold.length} 条。`);
+  process.exit(1);
+}
+
+if (top3Recall < minimumRecall || noResultAccuracy < 1) process.exit(1);

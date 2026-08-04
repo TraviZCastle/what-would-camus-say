@@ -2,8 +2,9 @@ import { mkdir, readFile, writeFile } from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 
-import { ThoughtCardCollectionSchema, SynonymCatalogSchema } from '../src/content/schema';
+import { SynonymCatalogSchema } from '../src/content/schema';
 import { buildSearchIndex } from '../src/retrieval/bm25';
+import { loadThoughtCards } from './load-thought-cards';
 
 const projectRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 
@@ -13,9 +14,7 @@ async function readJson(relativePath: string): Promise<unknown> {
   ) as unknown;
 }
 
-const cards = ThoughtCardCollectionSchema.parse(
-  await readJson('content/cards/seed-cards.json'),
-);
+const cards = await loadThoughtCards(projectRoot);
 const synonyms = SynonymCatalogSchema.parse(
   await readJson('content/synonyms/synonyms.json'),
 );

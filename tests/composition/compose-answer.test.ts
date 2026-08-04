@@ -1,22 +1,17 @@
-import { readFile } from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 import { beforeAll, describe, expect, it } from 'vitest';
 
+import { loadThoughtCards } from '../../scripts/load-thought-cards';
 import { composeAnswer } from '../../src/composition/compose-answer';
-import { ThoughtCardCollectionSchema } from '../../src/content/schema';
 import type { ThoughtCard } from '../../src/types/content';
 
 const projectRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..');
 let cards: ThoughtCard[];
 
 beforeAll(async () => {
-  cards = ThoughtCardCollectionSchema.parse(
-    JSON.parse(
-      await readFile(path.join(projectRoot, 'content/cards/seed-cards.json'), 'utf8'),
-    ) as unknown,
-  );
+  cards = await loadThoughtCards(projectRoot);
 });
 
 describe('deterministic answer composition', () => {

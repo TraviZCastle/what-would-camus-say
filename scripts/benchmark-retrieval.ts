@@ -4,25 +4,15 @@ import process from 'node:process';
 import { performance } from 'node:perf_hooks';
 import { fileURLToPath } from 'node:url';
 
-import { z } from 'zod';
-
 import { retrieveThoughtCards } from '../src/retrieval/retrieve';
 import type { SearchIndex } from '../src/retrieval/types';
+import { loadRetrievalGold } from './load-retrieval-gold';
 
 const projectRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
-const EvaluationSchema = z.array(
-  z.object({
-    query: z.string().min(1),
-  }),
-);
 const index = JSON.parse(
   await readFile(path.join(projectRoot, 'public/content/search-index.json'), 'utf8'),
 ) as SearchIndex;
-const questions = EvaluationSchema.parse(
-  JSON.parse(
-    await readFile(path.join(projectRoot, 'evals/retrieval-gold.json'), 'utf8'),
-  ) as unknown,
-).map((item) => item.query);
+const questions = (await loadRetrievalGold(projectRoot)).map((item) => item.query);
 
 for (const question of questions) retrieveThoughtCards(index, question);
 
