@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="日光下的石头">
+  <rect width="64" height="64" rx="14" fill="#eee7da"/>
+  <circle cx="45" cy="19" r="8" fill="#cf563d"/>
+  <path d="M15 45c4-13 8-19 17-19 8 0 12 8 17 19H15Z" fill="#25251f"/>
+</svg>

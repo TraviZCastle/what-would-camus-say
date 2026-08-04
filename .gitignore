@@ -1,0 +1,23 @@
+# Environment and credentials
+.env
+.env.local
+.env*.local
+
+# Dependencies and generated output
+node_modules/
+dist/
+out/
+.next/
+coverage/
+playwright-report/
+test-results/
+
+# Local tooling and deployment metadata
+.vercel/
+.tools/
+.npm-cache/
+.pnpm-store/
+
+# Logs and operating-system files
+*.log
+.DS_Store

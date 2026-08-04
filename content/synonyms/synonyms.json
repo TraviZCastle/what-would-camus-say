@@ -1,0 +1,58 @@
+{
+  "version": 1,
+  "status": "review",
+  "reviewer": "ai-draft-agent",
+  "reviewedAt": "2026-08-04",
+  "entries": [
+    {
+      "term": "没意义",
+      "expansions": ["无意义", "虚无", "为什么继续", "意义感"],
+      "themes": ["meaning", "absurd"]
+    },
+    {
+      "term": "上班",
+      "expansions": ["工作", "职业", "重复劳动", "职场"],
+      "themes": ["work"]
+    },
+    {
+      "term": "辞职",
+      "expansions": ["离开工作", "换工作", "继续或离开"],
+      "themes": ["work", "freedom", "action"]
+    },
+    {
+      "term": "反抗",
+      "expansions": ["拒绝", "说不", "抵抗", "不服从"],
+      "themes": ["revolt", "limits"]
+    },
+    {
+      "term": "孤独",
+      "expansions": ["没人理解", "疏离", "独自承受"],
+      "themes": ["solidarity"]
+    },
+    {
+      "term": "希望",
+      "expansions": ["期待", "会不会变好", "失望", "盼望"],
+      "themes": ["hope"]
+    },
+    {
+      "term": "选择",
+      "expansions": ["决定", "责任", "后果", "自由"],
+      "themes": ["freedom", "action"]
+    },
+    {
+      "term": "妥协",
+      "expansions": ["让步", "退让", "底线", "节制"],
+      "themes": ["limits", "conscience"]
+    },
+    {
+      "term": "评价",
+      "expansions": ["别人怎么看", "认可", "社会角色", "自我判断"],
+      "themes": ["conscience", "freedom"]
+    },
+    {
+      "term": "当下",
+      "expansions": ["现在", "此刻", "日常生活", "感受生活"],
+      "themes": ["happiness"]
+    }
+  ]
+}

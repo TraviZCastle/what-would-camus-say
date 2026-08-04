@@ -1,0 +1,85 @@
+[
+  {
+    "id": "camus-myth-sisyphus-fr",
+    "work": "《西西弗神话》",
+    "author": "Albert Camus",
+    "language": "fr",
+    "sourceType": "primary",
+    "usage": "用于核对荒诞、清醒、反抗、自由、激情与西西弗意象；不在产品中打包原文。",
+    "rightsNotes": "卡片仅使用原创概述，不收录或翻译受版权保护版本中的大段文字。"
+  },
+  {
+    "id": "camus-rebel-fr",
+    "work": "《反抗者》",
+    "author": "Albert Camus",
+    "language": "fr",
+    "sourceType": "primary",
+    "usage": "用于核对反抗、共同尊严、限度、手段与目的以及反对虚无主义暴力。",
+    "rightsNotes": "卡片仅使用原创概述，不收录或翻译受版权保护版本中的大段文字。"
+  },
+  {
+    "id": "camus-plague-fr",
+    "work": "《鼠疫》",
+    "author": "Albert Camus",
+    "language": "fr",
+    "sourceType": "primary",
+    "usage": "用于核对灾难中的共同劳动、见证、责任与有限团结；不把小说人物当成作者直接立场。",
+    "rightsNotes": "只记录主题定位，不复述长段情节或现代译文。"
+  },
+  {
+    "id": "camus-nuptials-fr",
+    "work": "《婚礼集》",
+    "author": "Albert Camus",
+    "language": "fr",
+    "sourceType": "primary",
+    "usage": "用于核对当下、感官生活、自然与不诉诸彼岸的幸福经验。",
+    "rightsNotes": "只使用原创概述，不收录直接引文。"
+  },
+  {
+    "id": "camus-summer-fr",
+    "work": "《夏天集》",
+    "author": "Albert Camus",
+    "language": "fr",
+    "sourceType": "primary",
+    "usage": "用于核对在苦难经验之后仍不否认现实的美与重返当下。",
+    "rightsNotes": "只使用原创概述，不收录直接引文。"
+  },
+  {
+    "id": "camus-neither-victims-executioners-fr",
+    "work": "《既非受害者，也非刽子手》",
+    "author": "Albert Camus",
+    "language": "fr",
+    "sourceType": "primary",
+    "usage": "用于核对拒绝以抽象正义正当化杀戮、克制政治暴力与保持对话。",
+    "rightsNotes": "只使用原创概述，不收录直接引文。"
+  },
+  {
+    "id": "camus-letters-german-friend-fr",
+    "work": "《致一个德国朋友的信》",
+    "author": "Albert Camus",
+    "language": "fr",
+    "sourceType": "primary",
+    "usage": "用于核对在历史冲突中对正义、限度、责任与共同人性的坚持。",
+    "rightsNotes": "只使用原创概述，不收录直接引文。"
+  },
+  {
+    "id": "sep-camus-2021",
+    "work": "Albert Camus (Stanford Encyclopedia of Philosophy)",
+    "author": "Ronald Aronson",
+    "language": "en",
+    "sourceType": "scholarship",
+    "url": "https://plato.stanford.edu/entries/camus/",
+    "usage": "二级校验荒诞推理、反抗、共同价值、团结与政治限度的作品脉络。",
+    "rightsNotes": "仅作研究索引与事实核验，不复制正文。"
+  },
+  {
+    "id": "iep-camus",
+    "work": "Camus, Albert (Internet Encyclopedia of Philosophy)",
+    "author": "David Simpson",
+    "language": "en",
+    "sourceType": "scholarship",
+    "url": "https://iep.utm.edu/albert-camus/",
+    "usage": "二级校验加缪思想发展、荒诞、反抗、人道限度与作品目录。",
+    "rightsNotes": "仅作研究索引与事实核验，不复制正文。"
+  }
+]

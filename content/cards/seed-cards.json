@@ -1,0 +1,993 @@
+[
+  {
+    "id": "absurd-repetitive-work-001",
+    "version": 1,
+    "status": "review",
+    "title": "清醒地面对重复劳动",
+    "theme": "absurd",
+    "secondaryThemes": ["work", "action"],
+    "principle": "荒诞来自人对意义与清晰的要求同世界沉默之间的冲突；意识到这场冲突，并不自动要求停止行动。",
+    "explanation": "重复劳动会让人感到生活被外部节奏占据。加缪式的起点不是仓促制造一个答案，而是不欺骗自己地看清处境、需要与仍可选择的部分。",
+    "boundary": "清醒地继续生活不等于无条件忍受伤害、剥削或不可改变的安排，也不等于必须立刻辞职。",
+    "tensions": ["继续与离开", "清醒与自欺", "生存需要与个人自由"],
+    "counterMisreadings": ["既然荒诞，一切都无所谓", "反抗一定意味着立即辞职"],
+    "keywords": ["上班", "工作", "重复", "无意义", "职业倦怠", "坚持"],
+    "aliases": ["每天都一样", "机械生活", "为什么继续"],
+    "situations": ["对重复工作失去意义感", "想辞职但担心现实后果"],
+    "negativeSignals": ["正在自残", "无法呼吸"],
+    "answerBlocks": {
+      "perspective": [
+        "问题也许不只是这份工作有没有意义，而是你能否在不自欺的情况下重新选择自己的行动。"
+      ],
+      "boundary": ["清醒不要求你把忍耐美化成美德，也不要求你冲动地摧毁现有生活。"],
+      "actions": ["先写下这份工作中你能够改变、暂时不能改变和不能继续接受的三件事。"],
+      "reflectionQuestions": [
+        "你真正无法忍受的是重复本身，还是自己对生活已经失去选择权？"
+      ]
+    },
+    "sources": [
+      {
+        "work": "《西西弗神话》",
+        "section": "荒诞推理、荒诞的自由与西西弗神话",
+        "language": "fr",
+        "sourceType": "primary"
+      }
+    ],
+    "directQuoteIds": [],
+    "rightsStatus": "cleared",
+    "safetyTags": ["meaning", "work"],
+    "reviewer": "ai-draft-agent",
+    "reviewedAt": "2026-08-04",
+    "reviewNotes": "AI 辅助原创概述，未使用直接引文；等待人工核对作品定位和职场适用边界。"
+  },
+  {
+    "id": "meaning-world-silence-001",
+    "version": 1,
+    "status": "review",
+    "title": "不要急着填满世界的沉默",
+    "theme": "meaning",
+    "secondaryThemes": ["absurd", "hope"],
+    "principle": "荒诞不是一句世界毫无价值的结论，而是人要求终极解释、世界却不给出相称回答时持续存在的张力。",
+    "explanation": "当原有目标失效，人容易把暂时找不到答案理解成一切行动都失去价值。加缪的荒诞推理要求保留问题，也保留发问和生活的人。",
+    "boundary": "不诉诸虚假的终极答案，并不否定具体关系、工作、创造和感官经验中的局部价值。",
+    "tensions": ["终极意义与具体价值", "发问与沉默", "诚实与安慰"],
+    "counterMisreadings": ["没有终极意义就没有任何价值", "清醒意味着永远消沉"],
+    "keywords": ["人生意义", "虚无", "迷茫", "没有目标", "活着为什么"],
+    "aliases": ["一切有什么用", "不知道为什么活", "目标突然消失"],
+    "situations": ["长期目标完成后感到空洞", "信念动摇后不知道如何继续"],
+    "negativeSignals": ["想自杀", "不想活了", "结束生命"],
+    "answerBlocks": {
+      "perspective": [
+        "你不必先证明人生具有一个终极答案，才有资格认真对待眼前具体的人和事。"
+      ],
+      "boundary": ["这不是让你假装空洞不存在，也不是断言任何选择都同样值得。"],
+      "actions": ["把今天仍值得你照料的一件具体事写下来，并只为它安排下一步。"],
+      "reflectionQuestions": [
+        "如果暂时不要求一个终极答案，眼前还有什么具体价值不该被你忽略？"
+      ]
+    },
+    "sources": [
+      {
+        "work": "《西西弗神话》",
+        "section": "荒诞推理",
+        "language": "fr",
+        "sourceType": "primary"
+      },
+      {
+        "work": "Albert Camus (Stanford Encyclopedia of Philosophy)",
+        "section": "The Paradoxes of Camus’s Absurdist Philosophy",
+        "language": "en",
+        "sourceType": "scholarship",
+        "url": "https://plato.stanford.edu/entries/camus/"
+      }
+    ],
+    "directQuoteIds": [],
+    "rightsStatus": "cleared",
+    "safetyTags": ["meaning"],
+    "reviewer": "ai-draft-agent",
+    "reviewedAt": "2026-08-04",
+    "reviewNotes": "AI 辅助原创概述；安全分流必须先排除自伤风险，等待人工思想审核。"
+  },
+  {
+    "id": "work-necessity-choice-001",
+    "version": 1,
+    "status": "review",
+    "title": "在必要之中辨认选择",
+    "theme": "work",
+    "secondaryThemes": ["freedom", "action"],
+    "principle": "处境会限制人的选择，但限制不必被误写成完全没有选择；清醒首先要求分清事实约束、他人要求与自己的同意。",
+    "explanation": "现实中的工作决定往往同时包含收入、责任、身份和恐惧。把它们混成一句我别无选择，会遮住仍可调整的范围，也可能低估真正的风险。",
+    "boundary": "辨认选择空间不等于否认经济压力、照护责任或结构性不公，更不等于把所有后果归咎于个人。",
+    "tensions": ["必要与选择", "责任与自由", "现实约束与个人判断"],
+    "counterMisreadings": ["自由就是想做什么就做什么", "处境困难完全是个人选择造成的"],
+    "keywords": ["工作选择", "没得选", "收入", "责任", "换工作", "现实压力"],
+    "aliases": ["只能继续上班", "不敢离职", "被工作困住"],
+    "situations": ["因经济压力留在不喜欢的工作", "在稳定与改变之间犹豫"],
+    "negativeSignals": ["被强迫劳动", "正在遭受暴力"],
+    "answerBlocks": {
+      "perspective": [
+        "你的自由也许不是立刻离开，而是准确说出哪些约束真实存在、哪些决定仍属于你。"
+      ],
+      "boundary": ["承认有限的选择空间，不是在轻描淡写现实压力。"],
+      "actions": ["列出必须维持、可以协商和准备后能够改变的条件，各写一项。"],
+      "reflectionQuestions": [
+        "你说自己没得选时，究竟是哪一个后果让其他选项暂时不可接受？"
+      ]
+    },
+    "sources": [
+      {
+        "work": "《西西弗神话》",
+        "section": "荒诞的自由",
+        "language": "fr",
+        "sourceType": "primary"
+      }
+    ],
+    "directQuoteIds": [],
+    "rightsStatus": "cleared",
+    "safetyTags": ["work"],
+    "reviewer": "ai-draft-agent",
+    "reviewedAt": "2026-08-04",
+    "reviewNotes": "这是从荒诞自由向现实工作问题的编辑性推演，等待人工审核是否过度个人化。"
+  },
+  {
+    "id": "limits-work-harm-001",
+    "version": 1,
+    "status": "review",
+    "title": "坚持不是无限度忍受",
+    "theme": "limits",
+    "secondaryThemes": ["work", "conscience"],
+    "principle": "反抗包含对不可接受之事说不；限度不是软弱，而是拒绝让某个目标吞没人的尊严、身体和共同价值。",
+    "explanation": "面对倦怠或伤害，人可能把继续坚持当成唯一负责任的选择。加缪对限度的强调提醒我们，责任也包括辨认何时手段已经毁坏了要保护的人。",
+    "boundary": "设定限度不等于所有不适都要求离开，也不替代医疗、劳动法律或组织层面的专业支持。",
+    "tensions": ["坚持与自我损耗", "责任与边界", "目标与手段"],
+    "counterMisreadings": ["能忍就是高尚", "有边界就是逃避责任"],
+    "keywords": ["过劳", "加班", "倦怠", "身体撑不住", "底线", "职场伤害"],
+    "aliases": ["要不要继续硬撑", "坚持到崩溃", "工作正在伤害我"],
+    "situations": ["长期过劳影响身体和关系", "把自我牺牲视为唯一责任"],
+    "negativeSignals": ["胸口剧痛", "无法呼吸", "大量出血"],
+    "answerBlocks": {
+      "perspective": [
+        "问题不只是你还能不能撑住，也包括这种坚持是否已经越过了不该被牺牲的限度。"
+      ],
+      "boundary": ["限度需要基于事实判断；出现急性身体危险时，应先寻求现实医疗帮助。"],
+      "actions": ["为接下来七天设定一个可观察的停止条件，并告诉一位能够支持你执行的人。"],
+      "reflectionQuestions": ["你正在保护的目标，是否已经开始毁坏它原本应该服务的人？"]
+    },
+    "sources": [
+      {
+        "work": "《反抗者》",
+        "section": "反抗者与中午的思想",
+        "language": "fr",
+        "sourceType": "primary"
+      }
+    ],
+    "directQuoteIds": [],
+    "rightsStatus": "cleared",
+    "safetyTags": ["work", "medical-boundary"],
+    "reviewer": "ai-draft-agent",
+    "reviewedAt": "2026-08-04",
+    "reviewNotes": "AI 辅助原创概述；等待人工核对限度概念与职业健康边界。"
+  },
+  {
+    "id": "freedom-choice-consequences-001",
+    "version": 1,
+    "status": "review",
+    "title": "把后果带回选择之中",
+    "theme": "freedom",
+    "secondaryThemes": ["action", "conscience"],
+    "principle": "加缪式的自由不是脱离世界的全能，而是在没有终极保证时仍清醒地行动，并承担行动在现实中的后果。",
+    "explanation": "重大决定容易被想象成一次彻底解放，仿佛选择之后所有矛盾都会消失。更诚实的判断会同时看见获得、失去和需要承担的责任。",
+    "boundary": "承担后果不等于接受他人的胁迫或把结构性不公解释为个人失败。",
+    "tensions": ["自由与后果", "决定与保证", "获得与失去"],
+    "counterMisreadings": ["自由意味着没有代价", "没有确定结果就不能行动"],
+    "keywords": ["选择", "自由", "后悔", "代价", "决定", "承担"],
+    "aliases": ["怎么选才不会错", "想要绝对确定", "害怕承担后果"],
+    "situations": ["在两个都不完美的选项之间选择", "因担心后悔长期拖延"],
+    "negativeSignals": ["被迫签字", "正在被勒索"],
+    "answerBlocks": {
+      "perspective": [
+        "你也许无法得到一个没有损失的选择，但可以要求自己不隐瞒每个选项真实带来的后果。"
+      ],
+      "boundary": ["承担不确定性不是要求你独自承担本不属于你的伤害。"],
+      "actions": ["分别写下两个选项最可能的代价，以及其中哪一种代价是你愿意负责的。"],
+      "reflectionQuestions": ["你更想避免的是哪一个具体后果，而不是抽象的选错？"]
+    },
+    "sources": [
+      {
+        "work": "《西西弗神话》",
+        "section": "荒诞的自由",
+        "language": "fr",
+        "sourceType": "primary"
+      }
+    ],
+    "directQuoteIds": [],
+    "rightsStatus": "cleared",
+    "safetyTags": ["decision"],
+    "reviewer": "ai-draft-agent",
+    "reviewedAt": "2026-08-04",
+    "reviewNotes": "AI 辅助原创概述；等待人工核对自由与责任的措辞，避免误归于萨特。"
+  },
+  {
+    "id": "freedom-shared-limit-001",
+    "version": 1,
+    "status": "review",
+    "title": "自由在共同限度前停下",
+    "theme": "freedom",
+    "secondaryThemes": ["limits", "solidarity"],
+    "principle": "反抗维护自由，但当一种自由必须把他人降为工具或牺牲品时，它已经背离了反抗最初保护的共同尊严。",
+    "explanation": "个人摆脱束缚的愿望可以是真实的，却不能仅以愿望强烈就证明所有手段正当。加缪从反抗中寻找共同价值，也因此为自由划出限度。",
+    "boundary": "共同限度不是要求任何人服从不公的秩序，也不是用集体名义取消个人判断。",
+    "tensions": ["个人自由与他人尊严", "解放与伤害", "个人判断与共同价值"],
+    "counterMisreadings": ["我的自由高于所有后果", "只要维护秩序就算有节制"],
+    "keywords": ["自由边界", "伤害别人", "个人权利", "牺牲他人", "自私"],
+    "aliases": ["我有权这么做吗", "为自己活会不会伤害人", "自由有没有底线"],
+    "situations": ["个人决定将重大成本转嫁给他人", "以追求自由为由忽略共同责任"],
+    "negativeSignals": ["我要伤害他", "准备报复"],
+    "answerBlocks": {
+      "perspective": [
+        "你要争取的自由，需要同时经得起一个检验：它是否把别人变成了实现目标的材料。"
+      ],
+      "boundary": ["顾及他人并不要求你放弃所有个人需要，更不要求继续服从伤害。"],
+      "actions": [
+        "在行动前写下最直接承担代价的人，并确认你是否给了对方知情与拒绝的空间。"
+      ],
+      "reflectionQuestions": [
+        "这个选择维护的是共同可承认的自由，还是只把代价移给了别人？"
+      ]
+    },
+    "sources": [
+      {
+        "work": "《反抗者》",
+        "section": "反抗者与中午的思想",
+        "language": "fr",
+        "sourceType": "primary"
+      },
+      {
+        "work": "Camus, Albert (Internet Encyclopedia of Philosophy)",
+        "section": "Themes and Ideas",
+        "language": "en",
+        "sourceType": "scholarship",
+        "url": "https://iep.utm.edu/albert-camus/"
+      }
+    ],
+    "directQuoteIds": [],
+    "rightsStatus": "cleared",
+    "safetyTags": ["violence"],
+    "reviewer": "ai-draft-agent",
+    "reviewedAt": "2026-08-04",
+    "reviewNotes": "AI 辅助原创概述；等待人工核对从反抗共同价值推导自由限度的准确性。"
+  },
+  {
+    "id": "revolt-injustice-without-nihilism-001",
+    "version": 1,
+    "status": "review",
+    "title": "反抗不以毁灭为终点",
+    "theme": "revolt",
+    "secondaryThemes": ["limits", "conscience"],
+    "principle": "反抗从拒绝屈辱和不公开始，但若它把一切价值都交给未来目标，并允许无限伤害当下的人，就会滑向反抗原本拒绝的虚无主义。",
+    "explanation": "愤怒能够指出某种界线被越过，却不能单独证明任何报复手段都正当。加缪关心的是如何在拒绝不公时仍保存人的共同价值。",
+    "boundary": "限制手段不是要求受害者沉默、原谅或放弃追责；面对即时暴力时应先寻求现实安全。",
+    "tensions": ["正义与报复", "反抗与毁灭", "未来目标与当下生命"],
+    "counterMisreadings": ["反抗就是不计代价地报复", "有节制就是向不公投降"],
+    "keywords": ["不公", "反抗", "报复", "愤怒", "服从", "正义"],
+    "aliases": ["凭什么忍下去", "想让对方付出代价", "怎么对抗不公平"],
+    "situations": ["遭遇不公后想采取高风险报复", "在服从与激烈对抗之间摇摆"],
+    "negativeSignals": ["我要伤害他", "准备实施暴力", "正在被打"],
+    "answerBlocks": {
+      "perspective": [
+        "你的愤怒可能正在指出一条真实的界线，但反抗是否成立，还要看它会不会复制自己所拒绝的伤害。"
+      ],
+      "boundary": ["拒绝报复性伤害，不等于放弃取证、求助、申诉或有组织的抵抗。"],
+      "actions": ["先选择一种能留下证据、争取支持且不扩大伤害的表达或申诉方式。"],
+      "reflectionQuestions": ["你准备采用的手段，是否已经否定了你最初想维护的价值？"]
+    },
+    "sources": [
+      {
+        "work": "《反抗者》",
+        "section": "历史的反抗与中午的思想",
+        "language": "fr",
+        "sourceType": "primary"
+      },
+      {
+        "work": "《既非受害者，也非刽子手》",
+        "language": "fr",
+        "sourceType": "primary"
+      }
+    ],
+    "directQuoteIds": [],
+    "rightsStatus": "cleared",
+    "safetyTags": ["violence", "injustice"],
+    "reviewer": "ai-draft-agent",
+    "reviewedAt": "2026-08-04",
+    "reviewNotes": "AI 辅助原创概述；暴力信号必须在检索前进入安全分流。"
+  },
+  {
+    "id": "revolt-no-affirms-value-001",
+    "version": 1,
+    "status": "review",
+    "title": "说不也在肯定某种价值",
+    "theme": "revolt",
+    "secondaryThemes": ["solidarity", "limits"],
+    "principle": "真正的反抗不只是拒绝命令；当一个人说某件事不可接受时，也在肯定有一条对自己和他人都应成立的界线。",
+    "explanation": "边界之所以不是任性，在于它能够说明要保护的共同价值。把拒绝表达为具体界线，比把所有不满混成全面否定更接近加缪所说的反抗。",
+    "boundary": "共同价值不要求每个人处境相同，也不保证对方会理解或尊重你的拒绝。",
+    "tensions": ["拒绝与肯定", "个人边界与共同价值", "反抗与任性"],
+    "counterMisreadings": ["只要说不就是正义", "边界必须得到所有人同意才成立"],
+    "keywords": ["拒绝", "说不", "边界", "不服从", "尊严", "底线"],
+    "aliases": ["我可以拒绝吗", "怎样设边界", "不想再顺从"],
+    "situations": ["需要拒绝不合理要求", "想表达边界但担心自己太自私"],
+    "negativeSignals": ["被迫转账", "有人要杀我"],
+    "answerBlocks": {
+      "perspective": [
+        "你的拒绝更有力量之处，也许不在音量，而在于它清楚保护了哪一条不应被越过的界线。"
+      ],
+      "boundary": ["设下边界不代表你能控制对方的反应，必要时仍需现实支持和安全计划。"],
+      "actions": ["用一句话写清你不能接受的行为、它影响的价值以及你下一步会采取的行动。"],
+      "reflectionQuestions": ["这句不背后，你希望对自己和任何人都成立的价值是什么？"]
+    },
+    "sources": [
+      {
+        "work": "《反抗者》",
+        "section": "反抗者",
+        "language": "fr",
+        "sourceType": "primary"
+      },
+      {
+        "work": "Albert Camus (Stanford Encyclopedia of Philosophy)",
+        "section": "Absurdity, Rebellion, and Murder",
+        "language": "en",
+        "sourceType": "scholarship",
+        "url": "https://plato.stanford.edu/entries/camus/"
+      }
+    ],
+    "directQuoteIds": [],
+    "rightsStatus": "cleared",
+    "safetyTags": ["boundary"],
+    "reviewer": "ai-draft-agent",
+    "reviewedAt": "2026-08-04",
+    "reviewNotes": "AI 辅助原创概述；等待人工核对反抗所肯定的共同价值。"
+  },
+  {
+    "id": "limits-means-ends-001",
+    "version": 1,
+    "status": "review",
+    "title": "目的不能免除手段的审查",
+    "theme": "limits",
+    "secondaryThemes": ["revolt", "action"],
+    "principle": "把正义完全推迟到未来，并用未来目标为当下的一切手段开脱，会让行动失去限度，也让具体的人变成抽象事业的材料。",
+    "explanation": "一个目标可能值得追求，但这不足以证明欺骗、羞辱或伤害必然正当。加缪要求行动在当下就保留它声称要维护的价值。",
+    "boundary": "审查手段不是要求政治或道德行动毫无冲突，也不是假装所有选择都能保持纯洁。",
+    "tensions": ["目的与手段", "未来正义与当下伤害", "行动与纯洁"],
+    "counterMisreadings": ["目的正确就可以不择手段", "有道德限度就只能什么都不做"],
+    "keywords": ["不择手段", "为了大局", "牺牲少数", "手段", "目的", "道德冲突"],
+    "aliases": ["结果好就够了吗", "能不能为了目标撒谎", "是否值得牺牲别人"],
+    "situations": ["为团队目标考虑伤害无辜者的方案", "以长期利益正当化当前欺骗"],
+    "negativeSignals": ["准备实施暴力", "绑架要钱"],
+    "answerBlocks": {
+      "perspective": [
+        "这个目标是否值得，不只由它承诺的结果决定，也由你现在准备用什么方式实现它决定。"
+      ],
+      "boundary": [
+        "现实行动可能无法完全无损，但不能因此取消对伤害范围和替代方案的审查。"
+      ],
+      "actions": [
+        "为当前方案列出直接受损的人，并寻找一个伤害更小、仍能推进目标的替代步骤。"
+      ],
+      "reflectionQuestions": [
+        "如果所有人都用这个目标为同样的手段辩护，你仍会承认它正当吗？"
+      ]
+    },
+    "sources": [
+      {
+        "work": "《反抗者》",
+        "section": "历史的反抗与中午的思想",
+        "language": "fr",
+        "sourceType": "primary"
+      },
+      {
+        "work": "《既非受害者，也非刽子手》",
+        "language": "fr",
+        "sourceType": "primary"
+      }
+    ],
+    "directQuoteIds": [],
+    "rightsStatus": "cleared",
+    "safetyTags": ["violence", "ethics"],
+    "reviewer": "ai-draft-agent",
+    "reviewedAt": "2026-08-04",
+    "reviewNotes": "AI 辅助原创概述；等待人工核对政治伦理向日常决策迁移的边界。"
+  },
+  {
+    "id": "conscience-compromise-limit-001",
+    "version": 1,
+    "status": "review",
+    "title": "妥协需要一条说得出的界线",
+    "theme": "conscience",
+    "secondaryThemes": ["limits", "action"],
+    "principle": "限度思想既反对绝对化，也反对没有界线的顺从；妥协是否可接受，取决于它保留了什么、牺牲了什么以及是否仍可纠正。",
+    "explanation": "现实选择很少完全纯洁。把任何让步都视为背叛会使行动僵化，把任何让步都说成成熟又会逐步抹去底线。",
+    "boundary": "有条件的妥协不保证结果正确，也不要求在暴力、胁迫或重大违法中继续谈判。",
+    "tensions": ["妥协与背叛", "纯洁与有效行动", "弹性与底线"],
+    "counterMisreadings": ["妥协都是懦弱", "现实主义意味着没有底线"],
+    "keywords": ["妥协", "让步", "底线", "原则", "内疚", "现实"],
+    "aliases": ["退一步算背叛吗", "坚持原则还是接受现实", "怎样妥协"],
+    "situations": ["为推进合作考虑有限让步", "担心一次妥协会逐步失去原则"],
+    "negativeSignals": ["被迫签字", "正在被威胁"],
+    "answerBlocks": {
+      "perspective": [
+        "你不必在绝对纯洁和无限退让之间二选一，但需要说清哪条界线一旦越过就会改变行动的性质。"
+      ],
+      "boundary": [
+        "在胁迫和即时危险中，首要任务不是证明自己善于妥协，而是寻求安全与外部支持。"
+      ],
+      "actions": ["把可让步、需交换条件和不可让步各写一项，并为妥协设置复查时间。"],
+      "reflectionQuestions": ["这次让步保留了行动的核心价值，还是让那个价值只剩下名称？"]
+    },
+    "sources": [
+      {
+        "work": "《反抗者》",
+        "section": "中午的思想",
+        "language": "fr",
+        "sourceType": "primary"
+      }
+    ],
+    "directQuoteIds": [],
+    "rightsStatus": "cleared",
+    "safetyTags": ["coercion", "ethics"],
+    "reviewer": "ai-draft-agent",
+    "reviewedAt": "2026-08-04",
+    "reviewNotes": "AI 辅助原创概述；等待人工审核限度思想与妥协建议之间的推演。"
+  },
+  {
+    "id": "solidarity-shared-condition-001",
+    "version": 1,
+    "status": "review",
+    "title": "从个人拒绝走向共同处境",
+    "theme": "solidarity",
+    "secondaryThemes": ["revolt", "meaning"],
+    "principle": "反抗揭示的界线不只属于一个人；当人发现他人的尊严也可能受到同样侵犯时，孤立的拒绝就获得了团结维度。",
+    "explanation": "孤独会让困境看起来完全私人化。加缪的反抗思想把个体经验引向共同价值：不是抹平差异，而是承认某些伤害不应由任何人独自承受。",
+    "boundary": "团结不等于替别人解释感受、要求创伤公开，或假定所有人的处境和风险完全相同。",
+    "tensions": ["个人经验与共同价值", "孤独与团结", "差异与共同处境"],
+    "counterMisreadings": ["团结要求所有人观点一致", "个人痛苦只有加入集体才有价值"],
+    "keywords": ["孤独", "团结", "没人理解", "共同处境", "互助", "支持"],
+    "aliases": ["只有我遇到这种事", "不知道找谁", "想和别人连接"],
+    "situations": ["因不公经历感到被孤立", "想寻求同类支持又担心被定义"],
+    "negativeSignals": ["正在遭受暴力", "孩子正在被伤害"],
+    "answerBlocks": {
+      "perspective": [
+        "你的处境不必因为独特就只能独自承担，其中或许有一条别人也能承认并共同维护的界线。"
+      ],
+      "boundary": ["寻找团结不要求你公开全部经历，也不保证每个群体都适合你。"],
+      "actions": [
+        "选择一个风险较低的对象，只分享你希望得到的具体支持，而不是一次讲完所有经历。"
+      ],
+      "reflectionQuestions": ["在这段经历里，哪一条界线是你希望对任何人都成立的？"]
+    },
+    "sources": [
+      {
+        "work": "《反抗者》",
+        "section": "反抗者",
+        "language": "fr",
+        "sourceType": "primary"
+      }
+    ],
+    "directQuoteIds": [],
+    "rightsStatus": "cleared",
+    "safetyTags": ["isolation", "violence"],
+    "reviewer": "ai-draft-agent",
+    "reviewedAt": "2026-08-04",
+    "reviewNotes": "AI 辅助原创概述；等待人工核对从反抗到团结的思想脉络。"
+  },
+  {
+    "id": "solidarity-witness-action-001",
+    "version": 1,
+    "status": "review",
+    "title": "在无保证时做共同的事",
+    "theme": "solidarity",
+    "secondaryThemes": ["action", "hope"],
+    "principle": "共同面对灾难不需要先保证胜利；诚实地见证现实、完成眼前职责并减少可减少的痛苦，本身就是有限而具体的团结。",
+    "explanation": "当问题巨大到个人无法解决，人容易在救世冲动和彻底无力之间摇摆。《鼠疫》呈现的是一种不夸大自身作用、却仍持续合作的行动。",
+    "boundary": "履行共同责任不等于无限牺牲自己，也不能替代急救、公共服务或专业机构。小说人物的行动也不应被直接标成作者命令。",
+    "tensions": ["无力与行动", "个人贡献与共同劳动", "责任与自我耗尽"],
+    "counterMisreadings": ["不能解决全部就不值得行动", "团结要求一个人承担所有责任"],
+    "keywords": ["无力感", "灾难", "互助", "照顾", "责任", "共同努力"],
+    "aliases": ["我做什么都没用", "问题太大了", "怎样帮助别人"],
+    "situations": ["面对公共困境感到个人行动微不足道", "长期帮助他人后接近耗尽"],
+    "negativeSignals": ["急性医疗危险", "未成年人正在失踪"],
+    "answerBlocks": {
+      "perspective": [
+        "你不必证明自己能解决全部问题，才开始做一件能够减少具体痛苦的共同工作。"
+      ],
+      "boundary": ["有限行动包括承认能力边界，并把超出能力的危险交给现实专业支持。"],
+      "actions": ["确认今天你能完成的一项具体帮助，以及应该转交给哪位更合适的人。"],
+      "reflectionQuestions": ["在不把自己想象成救世者的前提下，你能可靠承担哪一小部分？"]
+    },
+    "sources": [
+      {
+        "work": "《鼠疫》",
+        "section": "共同抗疫、见证与责任主题",
+        "language": "fr",
+        "sourceType": "primary"
+      },
+      {
+        "work": "Albert Camus (Stanford Encyclopedia of Philosophy)",
+        "section": "Murder and Rebellion: The Plague",
+        "language": "en",
+        "sourceType": "scholarship",
+        "url": "https://plato.stanford.edu/entries/camus/"
+      }
+    ],
+    "directQuoteIds": [],
+    "rightsStatus": "cleared",
+    "safetyTags": ["medical-boundary", "care"],
+    "reviewer": "ai-draft-agent",
+    "reviewedAt": "2026-08-04",
+    "reviewNotes": "AI 辅助原创概述；明确小说主题不是作者直接命令，等待文学与伦理审核。"
+  },
+  {
+    "id": "hope-without-appeal-001",
+    "version": 1,
+    "status": "review",
+    "title": "希望不能替代对现实的观看",
+    "theme": "hope",
+    "secondaryThemes": ["absurd", "action"],
+    "principle": "加缪批判的是用超越性保证消解荒诞张力的哲学希望；清醒要求不把尚未发生的好结果当作已经成立的现实。",
+    "explanation": "人在不确定中需要期待，但期待如果承担了全部判断，就可能让人忽略证据、风险和当下可做的事。保留希望可以与承认没有保证同时成立。",
+    "boundary": "不诉诸终极保证不等于禁止计划、治疗期待、政治愿景或人与人之间具体而可检验的信任。",
+    "tensions": ["期待与证据", "希望与保证", "未来与当下"],
+    "counterMisreadings": ["加缪要求人放弃所有希望", "清醒就是预设最坏结果"],
+    "keywords": ["希望", "期待", "会变好", "奇迹", "失望", "保证"],
+    "aliases": ["还要不要抱希望", "一直等对方改变", "相信未来会好吗"],
+    "situations": ["把重要决定建立在对方可能改变上", "因没有保证而不敢行动"],
+    "negativeSignals": ["保证治愈", "保证赚钱"],
+    "answerBlocks": {
+      "perspective": [
+        "你可以期待一个更好的结果，但不能让这个期待代替对现有证据和风险的判断。"
+      ],
+      "boundary": ["清醒不是强迫自己悲观，而是把希望放回它能被现实检验的位置。"],
+      "actions": [
+        "写下支持这个希望的一个事实、反对它的一个事实，以及无论结果如何都可做的一步。"
+      ],
+      "reflectionQuestions": ["如果期待的变化没有发生，你仍愿意怎样保护自己的行动能力？"]
+    },
+    "sources": [
+      {
+        "work": "《西西弗神话》",
+        "section": "哲学自杀与荒诞推理",
+        "language": "fr",
+        "sourceType": "primary"
+      }
+    ],
+    "directQuoteIds": [],
+    "rightsStatus": "cleared",
+    "safetyTags": ["professional-boundary"],
+    "reviewer": "ai-draft-agent",
+    "reviewedAt": "2026-08-04",
+    "reviewNotes": "AI 辅助原创概述；需人工审核哲学希望与日常希望的区分是否清楚。"
+  },
+  {
+    "id": "hope-disappointment-reality-001",
+    "version": 1,
+    "status": "review",
+    "title": "失望之后仍然看见现实",
+    "theme": "hope",
+    "secondaryThemes": ["happiness", "mortality"],
+    "principle": "一个希望破灭，并不证明现实只剩下绝望；清醒可以承认失去，同时拒绝让单一失败替全部经验作结论。",
+    "explanation": "失望会收窄注意力，使未实现的未来遮住仍存在的关系、能力和感官世界。加缪后期文字常把忠于痛苦与忠于现实中的美同时保留下来。",
+    "boundary": "看见仍存在的事物不是要求快速振作、否认哀伤，也不能替代对抑郁或创伤的专业支持。",
+    "tensions": ["失去与仍然存在", "哀伤与当下", "单一失败与全部生活"],
+    "counterMisreadings": ["只要看积极面就能消除痛苦", "一次失败证明未来都不会改变"],
+    "keywords": ["失望", "失败", "希望破灭", "没有未来", "重新开始"],
+    "aliases": ["期待落空", "努力都白费了", "以后不会好了"],
+    "situations": ["长期目标失败后否定全部生活", "关系结束后看不到其他现实"],
+    "negativeSignals": ["不想活了", "结束生命"],
+    "answerBlocks": {
+      "perspective": ["这次失去值得被完整承认，但它不必取得替你概括全部现实的权力。"],
+      "boundary": [
+        "这不是要求你立即积极；如果安全或日常功能正在崩溃，应优先寻求现实支持。"
+      ],
+      "actions": ["今天只记录一件确实失去的事和一件仍然存在的事，不急着让两者互相抵消。"],
+      "reflectionQuestions": [
+        "除了那个没有实现的未来，现实中还有什么不该被这次失败一并抹去？"
+      ]
+    },
+    "sources": [
+      {
+        "work": "《夏天集》",
+        "section": "重返蒂巴萨",
+        "language": "fr",
+        "sourceType": "primary"
+      }
+    ],
+    "directQuoteIds": [],
+    "rightsStatus": "cleared",
+    "safetyTags": ["meaning", "mental-health-boundary"],
+    "reviewer": "ai-draft-agent",
+    "reviewedAt": "2026-08-04",
+    "reviewNotes": "AI 辅助原创概述；需人工复核不把文学主题简化为积极心理学。"
+  },
+  {
+    "id": "happiness-sensory-present-001",
+    "version": 1,
+    "status": "review",
+    "title": "让幸福回到可以经验的当下",
+    "theme": "happiness",
+    "secondaryThemes": ["meaning", "mortality"],
+    "principle": "不诉诸彼岸或终极解释，并不排除幸福；身体、阳光、海与当下世界的直接经验，在加缪早期作品中具有不需额外证明的分量。",
+    "explanation": "当幸福被推迟为完成所有任务后的奖励，生活可能只剩下准备。把注意力带回感官和有限时间，不是制造宏大意义，而是承认已经发生的经验。",
+    "boundary": "感受当下不能解决贫困、疾病、暴力或制度问题，也不要求痛苦中的人强迫自己感恩。",
+    "tensions": ["当下与推迟", "感官经验与抽象目标", "幸福与现实问题"],
+    "counterMisreadings": ["享受当下就能解决所有困境", "追求幸福等于逃避责任"],
+    "keywords": ["幸福", "当下", "享受生活", "总在等待", "感受", "日常"],
+    "aliases": ["什么时候才能快乐", "完成以后再生活", "找不到生活感"],
+    "situations": ["不断推迟休息和生活", "目标很多却感到与日常脱节"],
+    "negativeSignals": ["急性医疗危险", "正在遭受暴力"],
+    "answerBlocks": {
+      "perspective": [
+        "幸福不必等到全部问题解决后才被允许，它也可能是你没有把今天完全交给未来。"
+      ],
+      "boundary": ["当下经验不能替代对现实伤害的处理，也不要求你否认正在发生的痛苦。"],
+      "actions": ["为今天留出十分钟，只做一件能被身体直接感知、且不需要产出的事情。"],
+      "reflectionQuestions": [
+        "你把哪一种本可发生的生活，一直推迟到了某个没有保证的以后？"
+      ]
+    },
+    "sources": [
+      {
+        "work": "《婚礼集》",
+        "section": "蒂巴萨的婚礼",
+        "language": "fr",
+        "sourceType": "primary"
+      }
+    ],
+    "directQuoteIds": [],
+    "rightsStatus": "cleared",
+    "safetyTags": ["wellbeing"],
+    "reviewer": "ai-draft-agent",
+    "reviewedAt": "2026-08-04",
+    "reviewNotes": "AI 辅助原创概述；等待人工核对早期散文的感官经验与幸福主题。"
+  },
+  {
+    "id": "happiness-without-denial-001",
+    "version": 1,
+    "status": "review",
+    "title": "不让幸福以遗忘为代价",
+    "theme": "happiness",
+    "secondaryThemes": ["solidarity", "hope"],
+    "principle": "承认世界的美与承认人的苦难可以同时成立；一种需要遗忘他人痛苦或否认现实才能维持的幸福，并不符合加缪所强调的清醒。",
+    "explanation": "有些人因为世界仍有痛苦而对自己的快乐感到内疚，另一些人则用私人幸福隔绝一切责任。更有限的立场是不让两边互相取消。",
+    "boundary": "允许自己快乐不等于对他人遭遇负责到底，关心苦难也不要求持续暴露于令自己耗尽的信息。",
+    "tensions": ["个人幸福与共同痛苦", "记忆与生活", "关心与耗尽"],
+    "counterMisreadings": ["世界有苦难就不该快乐", "私人幸福可以免除一切共同责任"],
+    "keywords": ["快乐内疚", "苦难", "幸福", "责任", "新闻焦虑", "享受"],
+    "aliases": ["别人很惨我怎么能开心", "关心世界让我耗尽", "快乐是不是自私"],
+    "situations": ["因他人痛苦不允许自己休息", "用私人幸福回避共同责任"],
+    "negativeSignals": ["正在自残", "急性危险"],
+    "answerBlocks": {
+      "perspective": [
+        "你不必靠惩罚自己的快乐来证明关心，也不必靠遗忘他人的痛苦来保存快乐。"
+      ],
+      "boundary": ["共同责任需要可持续的限度，不要求你把全部苦难都变成个人负担。"],
+      "actions": ["同时安排一件恢复自己的事和一件能力范围内回应他人的事。"],
+      "reflectionQuestions": ["什么样的快乐既不依赖遗忘，也不把你耗尽？"]
+    },
+    "sources": [
+      {
+        "work": "《夏天集》",
+        "section": "重返蒂巴萨",
+        "language": "fr",
+        "sourceType": "primary"
+      },
+      {
+        "work": "《鼠疫》",
+        "section": "个人幸福与共同灾难主题",
+        "language": "fr",
+        "sourceType": "primary"
+      }
+    ],
+    "directQuoteIds": [],
+    "rightsStatus": "cleared",
+    "safetyTags": ["wellbeing", "care"],
+    "reviewer": "ai-draft-agent",
+    "reviewedAt": "2026-08-04",
+    "reviewNotes": "AI 辅助原创概述；等待人工复核是否准确保留痛苦与美并存的张力。"
+  },
+  {
+    "id": "mortality-finite-time-001",
+    "version": 1,
+    "status": "review",
+    "title": "死亡意识把时间变得具体",
+    "theme": "mortality",
+    "secondaryThemes": ["absurd", "action"],
+    "principle": "死亡使人的时间保持有限；清醒地意识到有限性，不必导向对生命的否定，也可以迫使选择从抽象以后回到实际可度过的日子。",
+    "explanation": "人会用仿佛时间无限的方式推迟重要关系和行动。加缪对死亡与荒诞的思考拒绝以自我毁灭解决张力，并把注意力带回仍活着的意识。",
+    "boundary": "死亡意识不能被用来催促冲动决定、浪漫化危险或回应自杀意图；出现自伤风险时必须先进入安全分流。",
+    "tensions": ["有限时间与无限推迟", "死亡意识与生命行动", "紧迫与冲动"],
+    "counterMisreadings": ["反正会死所以什么都无所谓", "人生短暂所以任何冒险都值得"],
+    "keywords": ["死亡", "时间不够", "来不及", "生命有限", "后悔", "拖延"],
+    "aliases": ["人终究会死", "害怕来不及", "不想留下遗憾"],
+    "situations": ["因死亡意识焦虑而重新审视时间", "长期推迟重要但可行的行动"],
+    "negativeSignals": ["想自杀", "准备自残", "结束生命"],
+    "answerBlocks": {
+      "perspective": [
+        "有限性不替你规定答案，但它会让无限期推迟也成为一种需要承担后果的选择。"
+      ],
+      "boundary": [
+        "清醒不是制造末日式紧迫；涉及生命安全时应先寻求可信赖的人和专业帮助。"
+      ],
+      "actions": ["从长期拖延的事项中挑一件低风险且可逆的，在本周完成第一个具体动作。"],
+      "reflectionQuestions": [
+        "如果不再假定时间无限，你最不愿继续推迟的具体关系或行动是什么？"
+      ]
+    },
+    "sources": [
+      {
+        "work": "《西西弗神话》",
+        "section": "荒诞推理与荒诞的人",
+        "language": "fr",
+        "sourceType": "primary"
+      }
+    ],
+    "directQuoteIds": [],
+    "rightsStatus": "cleared",
+    "safetyTags": ["self-harm", "mortality"],
+    "reviewer": "ai-draft-agent",
+    "reviewedAt": "2026-08-04",
+    "reviewNotes": "AI 辅助原创概述；本卡不得处理自伤问题，等待安全与思想双重审核。"
+  },
+  {
+    "id": "conscience-role-self-judgment-001",
+    "version": 1,
+    "status": "review",
+    "title": "不把社会角色当成全部判断",
+    "theme": "conscience",
+    "secondaryThemes": ["freedom", "limits"],
+    "principle": "历史、群体和角色会塑造人的责任，却不能自动替个人完成道德判断；拒绝绝对化意味着不把任何抽象身份置于具体人的尊严之上。",
+    "explanation": "职位、家庭身份或群体评价常被用来规定什么才算成功和忠诚。清醒要求检查这些标准实际服务了什么，而不是只因为它们被重复就服从。",
+    "boundary": "个人判断不是宣称自己永远正确，也不免除对承诺、关系和公共规则的责任。",
+    "tensions": ["角色与良知", "评价与自我判断", "忠诚与具体伤害"],
+    "counterMisreadings": ["听从自己就不必考虑别人", "社会角色天然高于个人良知"],
+    "keywords": ["别人评价", "社会角色", "成功标准", "良知", "忠诚", "认可"],
+    "aliases": ["别人怎么看我", "必须做一个好员工", "不符合期待"],
+    "situations": ["为了维持角色做违背良知的事", "把外部评价当作唯一自我标准"],
+    "negativeSignals": ["被威胁服从", "准备实施暴力"],
+    "answerBlocks": {
+      "perspective": [
+        "这个角色可以要求你承担责任，但它不能自动替你决定什么伤害值得被接受。"
+      ],
+      "boundary": ["形成自己的判断不等于忽视承诺，而是要求承诺也接受具体后果的检验。"],
+      "actions": ["把外部期待和你愿意亲自承担的责任分开写下，标出两者真正冲突的一点。"],
+      "reflectionQuestions": [
+        "如果拿掉这个角色的称呼，你仍会承认它要求的行为是正当的吗？"
+      ]
+    },
+    "sources": [
+      {
+        "work": "《反抗者》",
+        "section": "历史的反抗与中午的思想",
+        "language": "fr",
+        "sourceType": "primary"
+      },
+      {
+        "work": "《致一个德国朋友的信》",
+        "language": "fr",
+        "sourceType": "primary"
+      }
+    ],
+    "directQuoteIds": [],
+    "rightsStatus": "cleared",
+    "safetyTags": ["coercion", "ethics"],
+    "reviewer": "ai-draft-agent",
+    "reviewedAt": "2026-08-04",
+    "reviewNotes": "AI 辅助原创概述；等待人工审核角色、历史与个人判断的推演是否过宽。"
+  },
+  {
+    "id": "action-reversible-first-step-001",
+    "version": 1,
+    "status": "review",
+    "title": "在没有保证时先做有限一步",
+    "theme": "action",
+    "secondaryThemes": ["limits", "freedom"],
+    "principle": "没有终极保证并不取消行动；限度思想要求人拒绝全有或全无的绝对方案，在可修正的行动中保留判断与责任。",
+    "explanation": "当决定被想象成一次不可逆的最终宣判，焦虑会迅速扩大。把行动缩小到低风险、可观察和可复查的一步，可以让现实反馈重新进入判断。",
+    "boundary": "有限一步不是拖延所有困难决定；紧急医疗、暴力、欺诈或法律时限需要优先交给现实专业支持。",
+    "tensions": ["行动与保证", "有限一步与最终决定", "试验与拖延"],
+    "counterMisreadings": ["没有把握就什么都别做", "小步骤可以无限代替关键决定"],
+    "keywords": ["行动", "不知道怎么办", "拖延", "第一步", "犹豫", "可逆"],
+    "aliases": ["我该从哪里开始", "害怕做错", "一直想但没有行动"],
+    "situations": ["信息不足时无法迈出第一步", "把所有改变都想成不可逆决定"],
+    "negativeSignals": ["急性医疗危险", "正在遭受暴力", "被迫转账"],
+    "answerBlocks": {
+      "perspective": [
+        "你可能不需要先解决整个问题，而是需要一个仍允许你根据现实修正判断的动作。"
+      ],
+      "boundary": ["可逆性不能成为回避明确危险或法定时限的理由。"],
+      "actions": ["选择一个二十四小时内可完成、失败成本很低且能带来新信息的步骤。"],
+      "reflectionQuestions": [
+        "哪一步既能改变一点现实，又不会要求你假装已经拥有最终答案？"
+      ]
+    },
+    "sources": [
+      {
+        "work": "《反抗者》",
+        "section": "中午的思想",
+        "language": "fr",
+        "sourceType": "primary"
+      }
+    ],
+    "directQuoteIds": [],
+    "rightsStatus": "cleared",
+    "safetyTags": ["professional-boundary", "action"],
+    "reviewer": "ai-draft-agent",
+    "reviewedAt": "2026-08-04",
+    "reviewNotes": "低风险可逆步骤是产品编辑原则对限度思想的应用，不应标成加缪直接主张。"
+  },
+  {
+    "id": "solidarity-relationship-distance-001",
+    "version": 1,
+    "status": "review",
+    "title": "关系中的团结不取消距离",
+    "theme": "solidarity",
+    "secondaryThemes": ["limits", "conscience"],
+    "principle": "团结来自对共同尊严的承认，而不是要求彼此完全融合；保留距离、差异和边界，可以避免关心变成占有或自我消失。",
+    "explanation": "在亲密关系中，人容易把理解对方等同于承担对方全部情绪，把忠诚等同于没有边界。加缪的团结与限度可以支持一种既不冷漠也不吞没彼此的关系。",
+    "boundary": "这是一种思想推演，不是伴侣治疗建议；控制、跟踪、威胁或暴力必须优先进行安全分流。",
+    "tensions": ["亲密与距离", "关心与占有", "团结与自我消失"],
+    "counterMisreadings": ["爱就应该没有边界", "保持距离等于不在乎"],
+    "keywords": ["关系", "孤独", "边界", "亲密", "控制", "理解"],
+    "aliases": ["总要照顾对方情绪", "关系里失去自己", "保持距离是不是冷漠"],
+    "situations": ["在亲密关系中承担对方全部情绪", "因害怕失去关系而放弃边界"],
+    "negativeSignals": ["正在被打", "有人要杀我", "被跟踪威胁"],
+    "answerBlocks": {
+      "perspective": [
+        "真正的团结未必要求你们消除距离，它也可以是双方都不被降为满足彼此需要的工具。"
+      ],
+      "boundary": ["面对控制、威胁或暴力，首要任务是现实安全，而不是用哲学解释关系。"],
+      "actions": ["选一件反复越界的具体行为，用可观察的语言说明你的界线和下一步。"],
+      "reflectionQuestions": [
+        "这段关系中的关心，是否仍允许你们各自作为一个完整的人存在？"
+      ]
+    },
+    "sources": [
+      {
+        "work": "《反抗者》",
+        "section": "反抗者与共同价值",
+        "language": "fr",
+        "sourceType": "primary"
+      },
+      {
+        "work": "《鼠疫》",
+        "section": "分离、共同处境与团结主题",
+        "language": "fr",
+        "sourceType": "primary"
+      }
+    ],
+    "directQuoteIds": [],
+    "rightsStatus": "cleared",
+    "safetyTags": ["relationship", "violence"],
+    "reviewer": "ai-draft-agent",
+    "reviewedAt": "2026-08-04",
+    "reviewNotes": "关系应用属于编辑性推演；等待人工审核，控制与暴力信号必须优先分流。"
+  },
+  {
+    "id": "absurd-failure-without-total-judgment-001",
+    "version": 1,
+    "status": "review",
+    "title": "失败不替全部生活宣判",
+    "theme": "absurd",
+    "secondaryThemes": ["meaning", "action"],
+    "principle": "荒诞推理拒绝从一个无法解决的矛盾跳到对全部生命的终局判断；清醒保留冲突，也保留继续经验和行动的主体。",
+    "explanation": "失败会诱使人把一次结果扩展成对自我和未来的全面结论。加缪式的克制不是否认结果，而是不让结果获得超出证据的终极权力。",
+    "boundary": "拒绝全面否定不等于淡化损失、假装努力一定有回报，或阻止人改变方向。",
+    "tensions": ["一次结果与全部自我", "失败与继续", "事实与终局判断"],
+    "counterMisreadings": ["失败没有任何意义所以不用复盘", "继续就是重复同一条路"],
+    "keywords": ["失败", "没用", "一事无成", "放弃", "自我否定", "重来"],
+    "aliases": ["我彻底失败了", "努力全都白费", "我什么都做不好"],
+    "situations": ["一次重大失败后全面否定自我", "把结果不佳等同于所有未来关闭"],
+    "negativeSignals": ["想自杀", "不想活了"],
+    "answerBlocks": {
+      "perspective": [
+        "这个失败可以改变你的判断，却没有足够证据替你的全部生活作终局宣判。"
+      ],
+      "boundary": ["不做终局判断，不意味着必须按原计划继续，也不要求你立刻恢复信心。"],
+      "actions": ["把失败中已经确定的事实与由此推导出的自我评价分成两列。"],
+      "reflectionQuestions": ["这次结果真正证明了什么，又有哪些结论只是痛苦替你加上的？"]
+    },
+    "sources": [
+      {
+        "work": "《西西弗神话》",
+        "section": "荒诞推理",
+        "language": "fr",
+        "sourceType": "primary"
+      }
+    ],
+    "directQuoteIds": [],
+    "rightsStatus": "cleared",
+    "safetyTags": ["self-harm", "meaning"],
+    "reviewer": "ai-draft-agent",
+    "reviewedAt": "2026-08-04",
+    "reviewNotes": "AI 辅助原创概述；安全分流优先，等待人工核对荒诞推理的现实应用。"
+  },
+  {
+    "id": "action-create-without-guarantee-001",
+    "version": 1,
+    "status": "review",
+    "title": "创造不需要终极保证",
+    "theme": "action",
+    "secondaryThemes": ["absurd", "happiness"],
+    "principle": "在荒诞意识中，创造不是为世界提供最终解释，而是在承认作品有限、结果不确定时仍充分投入一种具体经验。",
+    "explanation": "创作或长期项目常因不能证明最终价值而停滞。加缪谈荒诞创作时强调清醒和有限性：作品无需成为永恒答案，仍可是一种认真生活的方式。",
+    "boundary": "不要求终极保证不等于忽视技能、受众、经济条件和反馈，也不意味着每个项目都必须坚持到底。",
+    "tensions": ["创造与保证", "有限作品与永恒价值", "投入与结果"],
+    "counterMisreadings": ["结果不重要所以无需改进", "真正创作必须完全不考虑现实"],
+    "keywords": ["创作", "项目", "没有价值", "作品", "完美主义", "开始"],
+    "aliases": ["做出来有什么用", "没人看还要继续吗", "害怕作品不够好"],
+    "situations": ["因无法证明作品价值而不开始", "把一次创作当成对人生的最终证明"],
+    "negativeSignals": ["保证赚钱", "投资回报"],
+    "answerBlocks": {
+      "perspective": [
+        "这件作品不必承担证明你一生价值的任务，它可以先成为你清醒而具体地完成的一段经验。"
+      ],
+      "boundary": ["有限不等于随意；你仍可以依据现实反馈决定改进、暂停或结束。"],
+      "actions": ["定义一个一周内能够完成并交给一位真实读者或使用者的小版本。"],
+      "reflectionQuestions": ["如果作品不需要成为永恒证明，你愿意把哪一部分真正做完？"]
+    },
+    "sources": [
+      {
+        "work": "《西西弗神话》",
+        "section": "荒诞的创作",
+        "language": "fr",
+        "sourceType": "primary"
+      }
+    ],
+    "directQuoteIds": [],
+    "rightsStatus": "cleared",
+    "safetyTags": ["creative-work"],
+    "reviewer": "ai-draft-agent",
+    "reviewedAt": "2026-08-04",
+    "reviewNotes": "AI 辅助原创概述；等待人工核对荒诞创作与现实项目建议的边界。"
+  },
+  {
+    "id": "revolt-dialogue-without-surrender-001",
+    "version": 1,
+    "status": "review",
+    "title": "保持对话不等于放弃立场",
+    "theme": "revolt",
+    "secondaryThemes": ["limits", "solidarity"],
+    "principle": "拒绝把对方彻底非人化，是给反抗保留限度的一种方式；对话不是取消冲突，而是拒绝让冲突自动授权无限手段。",
+    "explanation": "在高度对立中，人容易把承认对方仍是人理解为软弱。加缪反对受害者与刽子手的封闭逻辑，试图为既不沉默也不走向杀戮的行动保留空间。",
+    "boundary": "对话不适用于即时暴力、胁迫或无法安全表达的场景，也不要求受害者亲自教育施害者。",
+    "tensions": ["对话与立场", "冲突与非人化", "反抗与安全"],
+    "counterMisreadings": ["愿意对话就是认输", "所有冲突都应该面对面解决"],
+    "keywords": ["对立", "沟通", "争论", "敌人", "立场", "冲突"],
+    "aliases": ["还要不要和对方谈", "沟通是不是软弱", "怎么坚持又不走极端"],
+    "situations": ["公共或组织冲突中考虑是否继续沟通", "愤怒中把对方整体非人化"],
+    "negativeSignals": ["正在被打", "有人要杀我", "被迫谈判"],
+    "answerBlocks": {
+      "perspective": ["你可以保持明确拒绝，同时不把对方彻底变成任何手段都可施加的对象。"],
+      "boundary": ["保持对话有安全前提；在暴力和胁迫中，离开与求助优先于沟通姿态。"],
+      "actions": ["只选择一个可验证的分歧进行书面表达，并提前设定停止沟通的条件。"],
+      "reflectionQuestions": ["怎样坚持你的界线，又不让冲突替你取消对手作为人的地位？"]
+    },
+    "sources": [
+      {
+        "work": "《既非受害者，也非刽子手》",
+        "language": "fr",
+        "sourceType": "primary"
+      },
+      {
+        "work": "《反抗者》",
+        "section": "中午的思想",
+        "language": "fr",
+        "sourceType": "primary"
+      }
+    ],
+    "directQuoteIds": [],
+    "rightsStatus": "cleared",
+    "safetyTags": ["violence", "conflict"],
+    "reviewer": "ai-draft-agent",
+    "reviewedAt": "2026-08-04",
+    "reviewNotes": "AI 辅助原创概述；等待人工核对对话与非暴力限度，安全场景必须优先分流。"
+  }
+]

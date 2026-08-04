@@ -1,0 +1,56 @@
+{
+  "version": 1,
+  "status": "review",
+  "reviewer": "ai-draft-agent",
+  "reviewedAt": "2026-08-04",
+  "rules": [
+    {
+      "id": "self-harm-immediate",
+      "category": "self-harm",
+      "priority": 100,
+      "signals": ["想自杀", "不想活了", "结束生命", "准备自残"],
+      "negativeSignals": ["电影里有人自杀", "讨论自杀哲学"],
+      "responseKey": "crisis-self-harm"
+    },
+    {
+      "id": "violence-immediate",
+      "category": "violence",
+      "priority": 95,
+      "signals": ["正在被打", "有人要杀我", "我要伤害他", "准备报复"],
+      "negativeSignals": ["小说里的暴力", "历史暴力"],
+      "responseKey": "crisis-violence"
+    },
+    {
+      "id": "minor-danger-immediate",
+      "category": "minor-danger",
+      "priority": 98,
+      "signals": ["孩子失踪", "未成年人被威胁", "孩子正在被伤害"],
+      "negativeSignals": [],
+      "responseKey": "crisis-minor-danger"
+    },
+    {
+      "id": "fraud-coercion-immediate",
+      "category": "fraud-coercion",
+      "priority": 85,
+      "signals": ["被勒索", "被迫转账", "绑架要钱", "对方控制我的账户"],
+      "negativeSignals": ["担心普通消费不划算"],
+      "responseKey": "crisis-fraud-coercion"
+    },
+    {
+      "id": "medical-emergency-immediate",
+      "category": "medical-emergency",
+      "priority": 100,
+      "signals": ["无法呼吸", "胸口剧痛", "大量出血", "失去意识"],
+      "negativeSignals": [],
+      "responseKey": "crisis-medical-emergency"
+    },
+    {
+      "id": "professional-advice-boundary",
+      "category": "professional-boundary",
+      "priority": 60,
+      "signals": ["给我诊断", "一定能胜诉吗", "保证赚钱", "该吃什么药"],
+      "negativeSignals": [],
+      "responseKey": "boundary-professional-advice"
+    }
+  ]
+}
