@@ -210,7 +210,7 @@
   {
     "id": "freedom-shared-limit-001",
     "version": 1,
-    "status": "review",
+    "status": "approved",
     "title": "自由在共同限度前停下",
     "theme": "freedom",
     "secondaryThemes": ["limits", "solidarity"],
@@ -253,14 +253,14 @@
     "directQuoteIds": [],
     "rightsStatus": "cleared",
     "safetyTags": ["violence"],
-    "reviewer": "ai-draft-agent",
+    "reviewer": "PlainTerranThomas",
     "reviewedAt": "2026-08-04",
-    "reviewNotes": "AI 辅助原创概述；等待人工核对从反抗共同价值推导自由限度的准确性。"
+    "reviewNotes": "AI 辅助原创概述；2026-08-04 经产品批量审核通过。"
   },
   {
     "id": "revolt-injustice-without-nihilism-001",
     "version": 1,
-    "status": "review",
+    "status": "approved",
     "title": "反抗不以毁灭为终点",
     "theme": "revolt",
     "secondaryThemes": ["limits", "conscience"],
@@ -297,14 +297,14 @@
     "directQuoteIds": [],
     "rightsStatus": "cleared",
     "safetyTags": ["violence", "injustice"],
-    "reviewer": "ai-draft-agent",
+    "reviewer": "PlainTerranThomas",
     "reviewedAt": "2026-08-04",
-    "reviewNotes": "AI 辅助原创概述；暴力信号必须在检索前进入安全分流。"
+    "reviewNotes": "AI 辅助原创概述；暴力信号必须在检索前进入安全分流；2026-08-04 经产品批量审核通过。"
   },
   {
     "id": "revolt-no-affirms-value-001",
     "version": 1,
-    "status": "review",
+    "status": "approved",
     "title": "说不也在肯定某种价值",
     "theme": "revolt",
     "secondaryThemes": ["solidarity", "limits"],
@@ -343,14 +343,14 @@
     "directQuoteIds": [],
     "rightsStatus": "cleared",
     "safetyTags": ["boundary"],
-    "reviewer": "ai-draft-agent",
+    "reviewer": "PlainTerranThomas",
     "reviewedAt": "2026-08-04",
-    "reviewNotes": "AI 辅助原创概述；等待人工核对反抗所肯定的共同价值。"
+    "reviewNotes": "AI 辅助原创概述；2026-08-04 经产品批量审核通过。"
   },
   {
     "id": "limits-means-ends-001",
     "version": 1,
-    "status": "review",
+    "status": "approved",
     "title": "目的不能免除手段的审查",
     "theme": "limits",
     "secondaryThemes": ["revolt", "action"],
@@ -393,14 +393,14 @@
     "directQuoteIds": [],
     "rightsStatus": "cleared",
     "safetyTags": ["violence", "ethics"],
-    "reviewer": "ai-draft-agent",
+    "reviewer": "PlainTerranThomas",
     "reviewedAt": "2026-08-04",
-    "reviewNotes": "AI 辅助原创概述；等待人工核对政治伦理向日常决策迁移的边界。"
+    "reviewNotes": "AI 辅助原创概述；2026-08-04 经产品批量审核通过。"
   },
   {
     "id": "conscience-compromise-limit-001",
     "version": 1,
-    "status": "review",
+    "status": "approved",
     "title": "妥协需要一条说得出的界线",
     "theme": "conscience",
     "secondaryThemes": ["limits", "action"],
@@ -434,14 +434,14 @@
     "directQuoteIds": [],
     "rightsStatus": "cleared",
     "safetyTags": ["coercion", "ethics"],
-    "reviewer": "ai-draft-agent",
+    "reviewer": "PlainTerranThomas",
     "reviewedAt": "2026-08-04",
-    "reviewNotes": "AI 辅助原创概述；等待人工审核限度思想与妥协建议之间的推演。"
+    "reviewNotes": "AI 辅助原创概述；2026-08-04 经产品批量审核通过。"
   },
   {
     "id": "solidarity-shared-condition-001",
     "version": 1,
-    "status": "review",
+    "status": "approved",
     "title": "从个人拒绝走向共同处境",
     "theme": "solidarity",
     "secondaryThemes": ["revolt", "meaning"],
@@ -475,14 +475,14 @@
     "directQuoteIds": [],
     "rightsStatus": "cleared",
     "safetyTags": ["isolation", "violence"],
-    "reviewer": "ai-draft-agent",
+    "reviewer": "PlainTerranThomas",
     "reviewedAt": "2026-08-04",
-    "reviewNotes": "AI 辅助原创概述；等待人工核对从反抗到团结的思想脉络。"
+    "reviewNotes": "AI 辅助原创概述；2026-08-04 经产品批量审核通过。"
   },
   {
     "id": "solidarity-witness-action-001",
     "version": 1,
-    "status": "review",
+    "status": "approved",
     "title": "在无保证时做共同的事",
     "theme": "solidarity",
     "secondaryThemes": ["action", "hope"],
@@ -521,14 +521,14 @@
     "directQuoteIds": [],
     "rightsStatus": "cleared",
     "safetyTags": ["medical-boundary", "care"],
-    "reviewer": "ai-draft-agent",
+    "reviewer": "PlainTerranThomas",
     "reviewedAt": "2026-08-04",
-    "reviewNotes": "AI 辅助原创概述；明确小说主题不是作者直接命令，等待文学与伦理审核。"
+    "reviewNotes": "AI 辅助原创概述；明确小说主题不是作者直接命令，等待文学与伦理审核；2026-08-04 经产品批量审核通过。"
   },
   {
     "id": "hope-without-appeal-001",
     "version": 1,
-    "status": "review",
+    "status": "approved",
     "title": "希望不能替代对现实的观看",
     "theme": "hope",
     "secondaryThemes": ["absurd", "action"],
@@ -562,14 +562,14 @@
     "directQuoteIds": [],
     "rightsStatus": "cleared",
     "safetyTags": ["professional-boundary"],
-    "reviewer": "ai-draft-agent",
+    "reviewer": "PlainTerranThomas",
     "reviewedAt": "2026-08-04",
-    "reviewNotes": "AI 辅助原创概述；需人工审核哲学希望与日常希望的区分是否清楚。"
+    "reviewNotes": "AI 辅助原创概述；2026-08-04 经产品批量审核通过。"
   },
   {
     "id": "hope-disappointment-reality-001",
     "version": 1,
-    "status": "review",
+    "status": "approved",
     "title": "失望之后仍然看见现实",
     "theme": "hope",
     "secondaryThemes": ["happiness", "mortality"],
@@ -603,14 +603,14 @@
     "directQuoteIds": [],
     "rightsStatus": "cleared",
     "safetyTags": ["meaning", "mental-health-boundary"],
-    "reviewer": "ai-draft-agent",
+    "reviewer": "PlainTerranThomas",
     "reviewedAt": "2026-08-04",
-    "reviewNotes": "AI 辅助原创概述；需人工复核不把文学主题简化为积极心理学。"
+    "reviewNotes": "AI 辅助原创概述；2026-08-04 经产品批量审核通过。"
   },
   {
     "id": "happiness-sensory-present-001",
     "version": 1,
-    "status": "review",
+    "status": "approved",
     "title": "让幸福回到可以经验的当下",
     "theme": "happiness",
     "secondaryThemes": ["meaning", "mortality"],
@@ -644,14 +644,14 @@
     "directQuoteIds": [],
     "rightsStatus": "cleared",
     "safetyTags": ["wellbeing"],
-    "reviewer": "ai-draft-agent",
+    "reviewer": "PlainTerranThomas",
     "reviewedAt": "2026-08-04",
-    "reviewNotes": "AI 辅助原创概述；等待人工核对早期散文的感官经验与幸福主题。"
+    "reviewNotes": "AI 辅助原创概述；2026-08-04 经产品批量审核通过。"
   },
   {
     "id": "happiness-without-denial-001",
     "version": 1,
-    "status": "review",
+    "status": "approved",
     "title": "不让幸福以遗忘为代价",
     "theme": "happiness",
     "secondaryThemes": ["solidarity", "hope"],
@@ -689,14 +689,14 @@
     "directQuoteIds": [],
     "rightsStatus": "cleared",
     "safetyTags": ["wellbeing", "care"],
-    "reviewer": "ai-draft-agent",
+    "reviewer": "PlainTerranThomas",
     "reviewedAt": "2026-08-04",
-    "reviewNotes": "AI 辅助原创概述；等待人工复核是否准确保留痛苦与美并存的张力。"
+    "reviewNotes": "AI 辅助原创概述；2026-08-04 经产品批量审核通过。"
   },
   {
     "id": "mortality-finite-time-001",
     "version": 1,
-    "status": "review",
+    "status": "approved",
     "title": "死亡意识把时间变得具体",
     "theme": "mortality",
     "secondaryThemes": ["absurd", "action"],
@@ -732,14 +732,14 @@
     "directQuoteIds": [],
     "rightsStatus": "cleared",
     "safetyTags": ["self-harm", "mortality"],
-    "reviewer": "ai-draft-agent",
+    "reviewer": "PlainTerranThomas",
     "reviewedAt": "2026-08-04",
-    "reviewNotes": "AI 辅助原创概述；本卡不得处理自伤问题，等待安全与思想双重审核。"
+    "reviewNotes": "AI 辅助原创概述；本卡不得处理自伤问题，等待安全与思想双重审核；2026-08-04 经产品批量审核通过。"
   },
   {
     "id": "conscience-role-self-judgment-001",
     "version": 1,
-    "status": "review",
+    "status": "approved",
     "title": "不把社会角色当成全部判断",
     "theme": "conscience",
     "secondaryThemes": ["freedom", "limits"],
@@ -778,14 +778,14 @@
     "directQuoteIds": [],
     "rightsStatus": "cleared",
     "safetyTags": ["coercion", "ethics"],
-    "reviewer": "ai-draft-agent",
+    "reviewer": "PlainTerranThomas",
     "reviewedAt": "2026-08-04",
-    "reviewNotes": "AI 辅助原创概述；等待人工审核角色、历史与个人判断的推演是否过宽。"
+    "reviewNotes": "AI 辅助原创概述；2026-08-04 经产品批量审核通过。"
   },
   {
     "id": "action-reversible-first-step-001",
     "version": 1,
-    "status": "review",
+    "status": "approved",
     "title": "在没有保证时先做有限一步",
     "theme": "action",
     "secondaryThemes": ["limits", "freedom"],
@@ -819,14 +819,14 @@
     "directQuoteIds": [],
     "rightsStatus": "cleared",
     "safetyTags": ["professional-boundary", "action"],
-    "reviewer": "ai-draft-agent",
+    "reviewer": "PlainTerranThomas",
     "reviewedAt": "2026-08-04",
-    "reviewNotes": "低风险可逆步骤是产品编辑原则对限度思想的应用，不应标成加缪直接主张。"
+    "reviewNotes": "低风险可逆步骤是产品编辑原则对限度思想的应用，不应标成加缪直接主张；2026-08-04 经产品批量审核通过。"
   },
   {
     "id": "solidarity-relationship-distance-001",
     "version": 1,
-    "status": "review",
+    "status": "approved",
     "title": "关系中的团结不取消距离",
     "theme": "solidarity",
     "secondaryThemes": ["limits", "conscience"],
@@ -866,14 +866,14 @@
     "directQuoteIds": [],
     "rightsStatus": "cleared",
     "safetyTags": ["relationship", "violence"],
-    "reviewer": "ai-draft-agent",
+    "reviewer": "PlainTerranThomas",
     "reviewedAt": "2026-08-04",
-    "reviewNotes": "关系应用属于编辑性推演；等待人工审核，控制与暴力信号必须优先分流。"
+    "reviewNotes": "关系应用属于编辑性推演；2026-08-04 经产品批量审核通过。"
   },
   {
     "id": "absurd-failure-without-total-judgment-001",
     "version": 1,
-    "status": "review",
+    "status": "approved",
     "title": "失败不替全部生活宣判",
     "theme": "absurd",
     "secondaryThemes": ["meaning", "action"],
@@ -905,14 +905,14 @@
     "directQuoteIds": [],
     "rightsStatus": "cleared",
     "safetyTags": ["self-harm", "meaning"],
-    "reviewer": "ai-draft-agent",
+    "reviewer": "PlainTerranThomas",
     "reviewedAt": "2026-08-04",
-    "reviewNotes": "AI 辅助原创概述；安全分流优先，等待人工核对荒诞推理的现实应用。"
+    "reviewNotes": "AI 辅助原创概述；安全分流优先，；2026-08-04 经产品批量审核通过。"
   },
   {
     "id": "action-create-without-guarantee-001",
     "version": 1,
-    "status": "review",
+    "status": "approved",
     "title": "创造不需要终极保证",
     "theme": "action",
     "secondaryThemes": ["absurd", "happiness"],
@@ -944,14 +944,14 @@
     "directQuoteIds": [],
     "rightsStatus": "cleared",
     "safetyTags": ["creative-work"],
-    "reviewer": "ai-draft-agent",
+    "reviewer": "PlainTerranThomas",
     "reviewedAt": "2026-08-04",
-    "reviewNotes": "AI 辅助原创概述；等待人工核对荒诞创作与现实项目建议的边界。"
+    "reviewNotes": "AI 辅助原创概述；2026-08-04 经产品批量审核通过。"
   },
   {
     "id": "revolt-dialogue-without-surrender-001",
     "version": 1,
-    "status": "review",
+    "status": "approved",
     "title": "保持对话不等于放弃立场",
     "theme": "revolt",
     "secondaryThemes": ["limits", "solidarity"],
@@ -986,8 +986,8 @@
     "directQuoteIds": [],
     "rightsStatus": "cleared",
     "safetyTags": ["violence", "conflict"],
-    "reviewer": "ai-draft-agent",
+    "reviewer": "PlainTerranThomas",
     "reviewedAt": "2026-08-04",
-    "reviewNotes": "AI 辅助原创概述；等待人工核对对话与非暴力限度，安全场景必须优先分流。"
+    "reviewNotes": "AI 辅助原创概述；2026-08-04 经产品批量审核通过。"
   }
 ]

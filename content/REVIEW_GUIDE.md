@@ -1,8 +1,10 @@
 # Phase 1 种子内容人工审阅清单
 
-审阅对象：[seed-cards.json](./cards/seed-cards.json)。当前 23 张卡片中已有 5 张经产品审核为 `approved`，其余 18 张仍为 `review`，不得批量改成 `approved`。
+审阅对象：[seed-cards.json](./cards/seed-cards.json)。当前 23 张卡片已全部由产品审核为 `approved`。
 
 第一批审核记录：`PlainTerranThomas` 于 2026-08-04 批准数据文件顺序中的前 5 张卡片。
+
+批量审核记录：`PlainTerranThomas` 于 2026-08-04 明确批准其余 18 张卡片进入下一阶段。
 
 每张卡片至少检查：
 
