@@ -208,3 +208,127 @@ footer {
     scroll-behavior: auto !important;
   }
 }
+
+.debug-shell {
+  min-height: 100svh;
+  padding: clamp(1.5rem, 5vw, 4rem);
+  background: #f6f1e7;
+}
+
+.debug-header,
+.debug-form,
+.debug-results {
+  width: min(100%, 70rem);
+  margin-inline: auto;
+}
+
+.debug-header h1 {
+  max-width: none;
+  font-size: clamp(2.5rem, 7vw, 5.5rem);
+  line-height: 0.95;
+}
+
+.debug-header > p:last-child {
+  max-width: 45rem;
+  color: #655f54;
+  line-height: 1.7;
+}
+
+.debug-form {
+  display: grid;
+  gap: 0.75rem;
+  margin-top: 2.5rem;
+}
+
+.debug-form label {
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+}
+
+.debug-form textarea {
+  width: 100%;
+  resize: vertical;
+  border: 1px solid rgba(37, 37, 31, 0.35);
+  border-radius: 0.5rem;
+  padding: 1rem;
+  color: inherit;
+  background: #fffdf7;
+  line-height: 1.6;
+}
+
+.debug-form button {
+  justify-self: start;
+  border: 0;
+  border-radius: 999px;
+  padding: 0.8rem 1.2rem;
+  color: #fffdf7;
+  background: #25251f;
+  cursor: pointer;
+}
+
+.debug-form button:disabled {
+  cursor: wait;
+  opacity: 0.55;
+}
+
+.debug-form textarea:focus-visible,
+.debug-form button:focus-visible {
+  outline: 3px solid #cf563d;
+  outline-offset: 3px;
+}
+
+.debug-results {
+  margin-top: 2.5rem;
+}
+
+.debug-summary {
+  display: grid;
+  gap: 0.45rem;
+  border-left: 3px solid #cf563d;
+  padding-left: 1rem;
+  color: #4f4b42;
+  font-size: 0.85rem;
+  line-height: 1.5;
+}
+
+.debug-ranking {
+  display: grid;
+  gap: 0.75rem;
+  margin: 1.5rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.debug-ranking li {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 0.5rem 1rem;
+  border-top: 1px solid rgba(37, 37, 31, 0.2);
+  padding: 1rem 0;
+}
+
+.debug-ranking li div {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 0.75rem;
+}
+
+.debug-ranking code {
+  color: #777063;
+  font-size: 0.72rem;
+}
+
+.debug-ranking li > span {
+  color: #cf563d;
+  font-variant-numeric: tabular-nums;
+  font-weight: 700;
+}
+
+.debug-ranking p {
+  grid-column: 1 / -1;
+  margin: 0;
+  color: #655f54;
+  font-size: 0.76rem;
+  line-height: 1.6;
+}

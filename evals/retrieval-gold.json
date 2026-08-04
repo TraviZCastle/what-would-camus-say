@@ -1,0 +1,252 @@
+[
+  {
+    "id": "work-repeat-01",
+    "query": "每天上班都在做同样的事，我不知道为什么还要继续",
+    "expectedCardIds": ["absurd-repetitive-work-001"]
+  },
+  {
+    "id": "work-repeat-02",
+    "query": "想辞职又担心收入，重复工作让我很麻木",
+    "expectedCardIds": ["absurd-repetitive-work-001", "work-necessity-choice-001"]
+  },
+  {
+    "id": "meaning-silence-01",
+    "query": "人生没有终极意义，那具体生活还有价值吗",
+    "expectedCardIds": ["meaning-world-silence-001"]
+  },
+  {
+    "id": "meaning-silence-02",
+    "query": "原来的目标消失后，我觉得一切都空了",
+    "expectedCardIds": ["meaning-world-silence-001"]
+  },
+  {
+    "id": "work-choice-01",
+    "query": "我必须靠这份工资生活，真的完全没得选吗",
+    "expectedCardIds": ["work-necessity-choice-001"]
+  },
+  {
+    "id": "work-choice-02",
+    "query": "稳定工作和改变之间，我怎样看清现实约束",
+    "expectedCardIds": ["work-necessity-choice-001"]
+  },
+  {
+    "id": "work-limit-01",
+    "query": "加班到身体撑不住，坚持是不是唯一负责的做法",
+    "expectedCardIds": ["limits-work-harm-001"]
+  },
+  {
+    "id": "work-limit-02",
+    "query": "工作正在伤害我，设下底线算逃避吗",
+    "expectedCardIds": ["limits-work-harm-001"]
+  },
+  {
+    "id": "freedom-consequence-01",
+    "query": "两个选择都有代价，我怎么决定才不会后悔",
+    "expectedCardIds": ["freedom-choice-consequences-001"]
+  },
+  {
+    "id": "freedom-consequence-02",
+    "query": "我想做决定，但很害怕承担后果",
+    "expectedCardIds": ["freedom-choice-consequences-001"]
+  },
+  {
+    "id": "freedom-limit-01",
+    "query": "为了自己的自由，可以让别人承担全部代价吗",
+    "expectedCardIds": ["freedom-shared-limit-001"]
+  },
+  {
+    "id": "freedom-limit-02",
+    "query": "我有权追求想要的生活，但会伤害家人怎么办",
+    "expectedCardIds": ["freedom-shared-limit-001"]
+  },
+  {
+    "id": "revolt-harm-01",
+    "query": "遇到不公平我很想报复，怎样反抗才不复制伤害",
+    "expectedCardIds": ["revolt-injustice-without-nihilism-001"]
+  },
+  {
+    "id": "revolt-harm-02",
+    "query": "不服从不公是否意味着可以不计代价",
+    "expectedCardIds": ["revolt-injustice-without-nihilism-001"]
+  },
+  {
+    "id": "revolt-no-01",
+    "query": "我想拒绝不合理要求，但怕自己太自私",
+    "expectedCardIds": ["revolt-no-affirms-value-001"]
+  },
+  {
+    "id": "revolt-no-02",
+    "query": "怎样说不并说明我要保护的底线",
+    "expectedCardIds": ["revolt-no-affirms-value-001"]
+  },
+  {
+    "id": "means-ends-01",
+    "query": "只要目标正确，撒谎和牺牲少数可以吗",
+    "expectedCardIds": ["limits-means-ends-001"]
+  },
+  {
+    "id": "means-ends-02",
+    "query": "为了大局是否可以不择手段",
+    "expectedCardIds": ["limits-means-ends-001"]
+  },
+  {
+    "id": "compromise-01",
+    "query": "妥协是不是背叛自己的原则",
+    "expectedCardIds": ["conscience-compromise-limit-001"]
+  },
+  {
+    "id": "compromise-02",
+    "query": "坚持底线和接受现实之间应该怎么判断",
+    "expectedCardIds": ["conscience-compromise-limit-001"]
+  },
+  {
+    "id": "solidarity-shared-01",
+    "query": "只有我经历这种不公，完全没人理解我",
+    "expectedCardIds": ["solidarity-shared-condition-001"]
+  },
+  {
+    "id": "solidarity-shared-02",
+    "query": "我想找同类互助，但不想公开全部经历",
+    "expectedCardIds": ["solidarity-shared-condition-001"]
+  },
+  {
+    "id": "solidarity-action-01",
+    "query": "世界的问题太大了，我做什么都没用",
+    "expectedCardIds": ["solidarity-witness-action-001"]
+  },
+  {
+    "id": "solidarity-action-02",
+    "query": "帮助别人让我快要耗尽了，我还应该承担多少",
+    "expectedCardIds": ["solidarity-witness-action-001"]
+  },
+  {
+    "id": "hope-appeal-01",
+    "query": "我一直等对方改变，还应该继续抱希望吗",
+    "expectedCardIds": ["hope-without-appeal-001"]
+  },
+  {
+    "id": "hope-appeal-02",
+    "query": "没有保证会变好，我还要行动吗",
+    "expectedCardIds": ["hope-without-appeal-001"]
+  },
+  {
+    "id": "hope-loss-01",
+    "query": "长期目标失败后，我觉得过去的努力全白费了",
+    "expectedCardIds": ["hope-disappointment-reality-001"]
+  },
+  {
+    "id": "hope-loss-02",
+    "query": "关系结束以后，我完全看不到其他未来",
+    "expectedCardIds": ["hope-disappointment-reality-001"]
+  },
+  {
+    "id": "happiness-present-01",
+    "query": "我总想等忙完再生活，到底什么时候才能快乐",
+    "expectedCardIds": ["happiness-sensory-present-001"]
+  },
+  {
+    "id": "happiness-present-02",
+    "query": "完成所有目标之前，我不允许自己休息",
+    "expectedCardIds": ["happiness-sensory-present-001"]
+  },
+  {
+    "id": "happiness-suffering-01",
+    "query": "别人很痛苦，我感到快乐会不会太自私",
+    "expectedCardIds": ["happiness-without-denial-001"]
+  },
+  {
+    "id": "happiness-suffering-02",
+    "query": "关心世界让我耗尽，我还能安心享受生活吗",
+    "expectedCardIds": ["happiness-without-denial-001"]
+  },
+  {
+    "id": "mortality-01",
+    "query": "人终究会死，我还要继续拖延重要的事吗",
+    "expectedCardIds": ["mortality-finite-time-001"]
+  },
+  {
+    "id": "mortality-02",
+    "query": "我害怕时间不够，怎样面对生命有限",
+    "expectedCardIds": ["mortality-finite-time-001"]
+  },
+  {
+    "id": "conscience-role-01",
+    "query": "大家都要求我做一个好员工，但这件事违背良心",
+    "expectedCardIds": ["conscience-role-self-judgment-001"]
+  },
+  {
+    "id": "conscience-role-02",
+    "query": "别人怎么看我，能不能替我决定什么叫成功",
+    "expectedCardIds": ["conscience-role-self-judgment-001"]
+  },
+  {
+    "id": "action-step-01",
+    "query": "我不知道怎么办，能先做什么低风险的小步骤",
+    "expectedCardIds": ["action-reversible-first-step-001"]
+  },
+  {
+    "id": "action-step-02",
+    "query": "我很害怕做错，所以一直犹豫没有行动",
+    "expectedCardIds": ["action-reversible-first-step-001"]
+  },
+  {
+    "id": "relationship-limit-01",
+    "query": "关系里我总要照顾对方情绪，快要失去自己了",
+    "expectedCardIds": ["solidarity-relationship-distance-001"]
+  },
+  {
+    "id": "relationship-limit-02",
+    "query": "在亲密关系里保持距离，是不是代表我不爱对方",
+    "expectedCardIds": ["solidarity-relationship-distance-001"]
+  },
+  {
+    "id": "failure-judgment-01",
+    "query": "一次失败是不是已经证明我一事无成",
+    "expectedCardIds": ["absurd-failure-without-total-judgment-001"]
+  },
+  {
+    "id": "failure-judgment-02",
+    "query": "这次失败让我觉得未来所有道路都关上了",
+    "expectedCardIds": ["absurd-failure-without-total-judgment-001"]
+  },
+  {
+    "id": "creative-action-01",
+    "query": "根本没人看我的作品，做出来又有什么用",
+    "expectedCardIds": ["action-create-without-guarantee-001"]
+  },
+  {
+    "id": "creative-action-02",
+    "query": "我害怕作品不够好，所以一直没有开始创作",
+    "expectedCardIds": ["action-create-without-guarantee-001"]
+  },
+  {
+    "id": "dialogue-revolt-01",
+    "query": "和立场完全相反的人沟通，是不是代表我认输",
+    "expectedCardIds": ["revolt-dialogue-without-surrender-001"]
+  },
+  {
+    "id": "dialogue-revolt-02",
+    "query": "怎样坚持反对，又不把对方彻底当成敌人",
+    "expectedCardIds": ["revolt-dialogue-without-surrender-001"]
+  },
+  {
+    "id": "no-result-cooking",
+    "query": "番茄炒蛋应该怎么做",
+    "expectNoResult": true
+  },
+  {
+    "id": "no-result-weather",
+    "query": "上海明天会不会下雨",
+    "expectNoResult": true
+  },
+  {
+    "id": "no-result-code",
+    "query": "React 中的 useEffect 为什么循环执行",
+    "expectNoResult": true
+  },
+  {
+    "id": "no-result-math",
+    "query": "一元二次方程怎么求根",
+    "expectNoResult": true
+  }
+]

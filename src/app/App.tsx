@@ -1,7 +1,16 @@
+import { RetrievalDebug } from './RetrievalDebug';
+
 const PRODUCT_NOTE =
   '基于加缪作品与思想研究进行的系统推演，不代表加缪本人，也不是加缪原话。';
 
 export function App() {
+  const showRetrievalDebug =
+    import.meta.env.DEV &&
+    typeof window !== 'undefined' &&
+    window.location.hash === '#retrieval-debug';
+
+  if (showRetrievalDebug) return <RetrievalDebug />;
+
   return (
     <main className="shell">
       <div className="sun" aria-hidden="true" />

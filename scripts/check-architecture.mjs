@@ -73,6 +73,10 @@ if (!String(packageJson.scripts?.build).includes('content:validate:production'))
   errors.push('生产 build 必须先运行 content:validate:production');
 }
 
+if (!String(packageJson.scripts?.build).includes('build:index')) {
+  errors.push('生产 build 必须生成浏览器只读检索索引');
+}
+
 if (errors.length > 0) {
   console.error(errors.join('\n'));
   process.exit(1);

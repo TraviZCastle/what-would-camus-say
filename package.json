@@ -8,19 +8,23 @@
     "node": ">=24.0.0"
   },
   "scripts": {
+    "predev": "pnpm build:index",
     "dev": "vite",
-    "build": "pnpm content:validate:production && tsc -b && vite build",
+    "build": "pnpm content:validate:production && pnpm build:index && tsc -b && vite build",
     "preview": "vite preview",
     "lint": "eslint . --max-warnings 0",
     "format": "prettier --write . --ignore-unknown",
     "format:check": "prettier --check . --ignore-unknown",
     "test": "vitest run",
     "test:watch": "vitest",
+    "pretest:e2e": "pnpm build:index",
     "test:e2e": "playwright test",
+    "build:index": "node --import tsx scripts/build-index.ts",
+    "evaluate:retrieval": "node --import tsx scripts/evaluate-retrieval.ts",
     "content:validate": "node --import tsx scripts/validate-content.ts",
     "content:validate:production": "node --import tsx scripts/validate-content.ts --production",
     "check:architecture": "node scripts/check-architecture.mjs",
-    "validate": "pnpm format:check && pnpm lint && pnpm test && pnpm content:validate && pnpm check:architecture",
+    "validate": "pnpm format:check && pnpm lint && pnpm test && pnpm content:validate && pnpm build:index && pnpm evaluate:retrieval && pnpm check:architecture",
     "validate:production": "pnpm validate && pnpm build && pnpm test:e2e"
   },
   "dependencies": {
