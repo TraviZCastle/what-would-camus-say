@@ -94,3 +94,19 @@ test('the core flow is operable by keyboard with managed focus', async ({ page }
   await page.keyboard.press('Enter');
   await expect(question).toBeFocused();
 });
+
+test('method, source, privacy, and boundary details are publicly reachable', async ({
+  page,
+}) => {
+  await page.goto('/');
+  await page.getByRole('link', { name: '方法与边界' }).click();
+
+  await expect(page).toHaveURL(/#method$/);
+  await expect(page.getByRole('heading', { level: 1 })).toHaveText('这不是在模仿加缪');
+  await expect(page.getByRole('heading', { name: '一次回答如何形成' })).toBeVisible();
+  await expect(page.getByRole('heading', { name: '你的问题如何处理' })).toBeVisible();
+  await expect(page.getByRole('heading', { name: '来源目录' })).toBeVisible();
+
+  await page.getByRole('link', { name: '← 返回提问' }).click();
+  await expect(page.getByLabel('现实问题')).toBeVisible();
+});

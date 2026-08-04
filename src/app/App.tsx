@@ -8,6 +8,7 @@ import { normalizeText } from '../retrieval/tokenizer';
 import type { RetrievalResult, SearchIndex } from '../retrieval/types';
 import { routeSafety, type SafetyMatch } from '../safety/route-safety';
 import type { ThemeId } from '../types/content';
+import { MethodPage } from './MethodPage';
 import { RetrievalDebug } from './RetrievalDebug';
 
 const PRODUCT_NOTE =
@@ -88,12 +89,21 @@ function validateQuestion(value: string): string | null {
 }
 
 export function App() {
-  const showRetrievalDebug =
-    import.meta.env.DEV &&
-    typeof window !== 'undefined' &&
-    window.location.hash === '#retrieval-debug';
+  const [hash, setHash] = useState(
+    typeof window === 'undefined' ? '' : window.location.hash,
+  );
 
-  return showRetrievalDebug ? <RetrievalDebug /> : <ProductApp />;
+  useEffect(() => {
+    const updateHash = () => setHash(window.location.hash);
+    window.addEventListener('hashchange', updateHash);
+    return () => window.removeEventListener('hashchange', updateHash);
+  }, []);
+
+  const showRetrievalDebug = import.meta.env.DEV && hash === '#retrieval-debug';
+
+  if (showRetrievalDebug) return <RetrievalDebug />;
+  if (hash === '#method') return <MethodPage />;
+  return <ProductApp />;
 }
 
 function ProductApp() {
@@ -267,6 +277,12 @@ function ProductApp() {
             ))}
           </div>
         </div>
+
+        <details className="how-it-works">
+          <summary>它如何工作</summary>
+          <p>安全检查优先；随后在浏览器内检索已审核卡片，并用固定结构拼装回答。</p>
+          <a href="#method">查看完整方法、来源与隐私说明 →</a>
+        </details>
       </section>
 
       <footer>
@@ -275,6 +291,7 @@ function ProductApp() {
         <span>限度</span>
         <span aria-hidden="true">·</span>
         <span>行动</span>
+        <a href="#method">方法与边界</a>
       </footer>
     </main>
   );

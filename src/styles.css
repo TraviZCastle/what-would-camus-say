@@ -164,7 +164,7 @@ h1 span {
 
 .panel-number {
   margin: 0;
-  color: #cf563d;
+  color: #a33327;
   font-size: 0.72rem;
   font-weight: 800;
   letter-spacing: 0.14em;
@@ -323,6 +323,36 @@ h1 span {
   color: #b94632;
 }
 
+.how-it-works {
+  margin-top: 1.25rem;
+  border-top: 1px solid rgba(37, 37, 31, 0.24);
+  padding-top: 1rem;
+  color: #655f54;
+  font-size: 0.74rem;
+  line-height: 1.65;
+}
+
+.how-it-works summary {
+  color: #25251f;
+  font-weight: 750;
+  cursor: pointer;
+}
+
+.how-it-works p {
+  margin: 0.65rem 0 0.45rem;
+}
+
+.how-it-works a,
+footer a {
+  color: #655f54;
+  text-underline-offset: 0.25em;
+}
+
+.how-it-works a:hover,
+footer a:hover {
+  color: #b94632;
+}
+
 .question-form textarea:focus-visible,
 .primary-button:focus-visible,
 .examples button:focus-visible,
@@ -333,6 +363,18 @@ h1 span {
 .answer-card a:focus-visible {
   outline: 3px solid #cf563d;
   outline-offset: 3px;
+}
+
+.how-it-works summary:focus-visible,
+.how-it-works a:focus-visible,
+footer a:focus-visible,
+.method-shell a:focus-visible {
+  outline: 3px solid #cf563d;
+  outline-offset: 3px;
+}
+
+.product-shell footer a {
+  margin-left: auto;
 }
 
 .result-shell {
@@ -392,7 +434,7 @@ h1 span {
 }
 
 .answer-section > span {
-  color: #cf563d;
+  color: #a33327;
   font-size: 0.72rem;
   font-weight: 800;
   letter-spacing: 0.14em;
@@ -596,6 +638,142 @@ h1 span {
   color: #655f54;
 }
 
+.method-shell {
+  width: min(100% - 2rem, 66rem);
+  margin-inline: auto;
+  padding: clamp(2rem, 6vw, 5rem) 0;
+}
+
+.method-header {
+  border-bottom: 2px solid #25251f;
+  padding-bottom: clamp(2.5rem, 6vw, 5rem);
+}
+
+.method-header .eyebrow {
+  margin-top: clamp(3rem, 8vw, 7rem);
+}
+
+.method-header h1 {
+  max-width: 10ch;
+  font-size: clamp(3.5rem, 9vw, 7.6rem);
+  line-height: 0.88;
+}
+
+.method-header > p:last-child {
+  max-width: 48rem;
+  margin: clamp(2rem, 5vw, 3.5rem) 0 0;
+  color: #4f4b42;
+  font-family: Georgia, 'Noto Serif SC', serif;
+  font-size: clamp(1rem, 2vw, 1.2rem);
+  line-height: 1.9;
+}
+
+.method-section {
+  display: grid;
+  grid-template-columns: 3rem minmax(0, 1fr);
+  gap: 1rem;
+  border-bottom: 1px solid rgba(37, 37, 31, 0.25);
+  padding: clamp(2.5rem, 6vw, 4.5rem) 0;
+}
+
+.method-section h2 {
+  margin: 0;
+  font-family: Georgia, 'Times New Roman', 'Noto Serif SC', serif;
+  font-size: clamp(1.8rem, 4vw, 2.8rem);
+  font-weight: 400;
+}
+
+.method-section > div > p {
+  max-width: 48rem;
+  margin: 1rem 0 0;
+  color: #4f4b42;
+  line-height: 1.85;
+}
+
+.method-steps {
+  display: grid;
+  gap: 0;
+  margin: 1.5rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.method-steps li {
+  display: grid;
+  grid-template-columns: minmax(10rem, 0.4fr) minmax(0, 1fr);
+  gap: 1.5rem;
+  border-top: 1px solid rgba(37, 37, 31, 0.2);
+  padding: 1.15rem 0;
+}
+
+.method-steps strong {
+  font-family: Georgia, 'Noto Serif SC', serif;
+  font-weight: 400;
+}
+
+.method-steps span {
+  color: #655f54;
+  font-size: 0.88rem;
+  line-height: 1.7;
+}
+
+.method-sources ul {
+  margin: 2rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.method-sources li {
+  display: grid;
+  grid-template-columns: minmax(13rem, 0.65fr) minmax(0, 1fr);
+  gap: 1.5rem;
+  border-top: 1px solid rgba(37, 37, 31, 0.2);
+  padding: 1.15rem 0;
+}
+
+.method-sources li > div {
+  display: grid;
+  align-content: start;
+  gap: 0.35rem;
+}
+
+.method-sources strong {
+  font-family: Georgia, 'Noto Serif SC', serif;
+  font-weight: 400;
+}
+
+.method-sources a {
+  text-decoration-color: #cf563d;
+  text-underline-offset: 0.2em;
+}
+
+.method-sources span {
+  color: #655f54;
+  font-size: 0.7rem;
+}
+
+.method-sources li p {
+  margin: 0;
+  color: #655f54;
+  font-size: 0.84rem;
+  line-height: 1.7;
+}
+
+.method-footer {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: 2rem;
+  align-items: start;
+  padding-top: 2rem;
+  line-height: 1.6;
+}
+
+.method-footer > span {
+  justify-self: end;
+  max-width: 33rem;
+  text-align: right;
+}
+
 .status {
   display: inline-flex;
   align-items: center;
@@ -641,7 +819,7 @@ footer {
   grid-column: 1 / -1;
   align-items: center;
   gap: 0.75rem;
-  color: #777063;
+  color: #655f54;
   font-size: 0.72rem;
   font-weight: 700;
   letter-spacing: 0.18em;
@@ -719,6 +897,31 @@ footer {
 
   .safety-actions {
     grid-template-columns: 2.5rem minmax(0, 1fr);
+  }
+
+  .method-shell {
+    width: min(100% - 2.5rem, 66rem);
+    padding-top: 1.5rem;
+  }
+
+  .method-header h1 {
+    font-size: clamp(3.5rem, 17vw, 5.5rem);
+  }
+
+  .method-section {
+    grid-template-columns: 2rem minmax(0, 1fr);
+  }
+
+  .method-steps li,
+  .method-sources li,
+  .method-footer {
+    grid-template-columns: 1fr;
+    gap: 0.55rem;
+  }
+
+  .method-footer > span {
+    justify-self: start;
+    text-align: left;
   }
 
   .result-header {

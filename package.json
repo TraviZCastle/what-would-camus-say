@@ -22,11 +22,12 @@
     "build:index": "node --import tsx scripts/build-index.ts",
     "evaluate:retrieval": "node --import tsx scripts/evaluate-retrieval.ts",
     "evaluate:safety": "node --import tsx scripts/evaluate-safety.ts",
+    "benchmark:retrieval": "pnpm build:index && node --import tsx scripts/benchmark-retrieval.ts",
     "audit:accessibility": "node scripts/audit-accessibility.mjs",
     "content:validate": "node --import tsx scripts/validate-content.ts",
     "content:validate:production": "node --import tsx scripts/validate-content.ts --production",
     "check:architecture": "node scripts/check-architecture.mjs",
-    "validate": "pnpm format:check && pnpm lint && pnpm test && pnpm content:validate && pnpm build:index && pnpm evaluate:retrieval && pnpm evaluate:safety && pnpm check:architecture",
+    "validate": "pnpm format:check && pnpm lint && pnpm test && pnpm content:validate && pnpm build:index && pnpm evaluate:retrieval && pnpm evaluate:safety && pnpm benchmark:retrieval && pnpm check:architecture",
     "validate:production": "pnpm validate && pnpm build && pnpm test:e2e"
   },
   "dependencies": {
