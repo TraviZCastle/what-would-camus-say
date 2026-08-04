@@ -28,6 +28,15 @@ body {
   min-height: 100vh;
 }
 
+::selection {
+  color: #fffdf7;
+  background: #b94632;
+}
+
+a {
+  color: inherit;
+}
+
 button,
 input,
 textarea {
@@ -107,6 +116,408 @@ h1 span {
   font-family: Georgia, 'Noto Serif SC', serif;
   font-size: clamp(1.05rem, 2vw, 1.35rem);
   line-height: 1.8;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.product-shell {
+  grid-template-columns: minmax(0, 1.15fr) minmax(21rem, 31rem);
+  align-items: center;
+}
+
+.product-shell .intro {
+  align-self: center;
+}
+
+.product-shell h1 {
+  font-size: clamp(3.4rem, 7.8vw, 7.6rem);
+}
+
+.transparency-note {
+  max-width: 34rem;
+  margin: 1.1rem 0 0;
+  color: #777063;
+  font-size: 0.78rem;
+  line-height: 1.65;
+}
+
+.question-panel {
+  align-self: center;
+  border-top: 2px solid #25251f;
+  border-bottom: 1px solid rgba(37, 37, 31, 0.28);
+  padding: 1.5rem 0 1.65rem;
+}
+
+.question-panel > div:first-child {
+  position: relative;
+  padding-left: 3rem;
+}
+
+.panel-number {
+  margin: 0;
+  color: #cf563d;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+}
+
+.question-panel .panel-number {
+  position: absolute;
+  top: 0.3rem;
+  left: 0;
+}
+
+.question-panel h2,
+.result-shell h2 {
+  margin: 0;
+  font-family: Georgia, 'Times New Roman', 'Noto Serif SC', serif;
+  font-weight: 400;
+}
+
+.question-panel h2 {
+  font-size: clamp(1.8rem, 3.2vw, 2.7rem);
+  line-height: 1.15;
+}
+
+.question-panel > div:first-child > p:last-child {
+  margin: 0.65rem 0 0;
+  color: #655f54;
+  font-size: 0.86rem;
+  line-height: 1.7;
+}
+
+.question-form {
+  margin-top: 1.35rem;
+}
+
+.question-form textarea {
+  display: block;
+  width: 100%;
+  min-height: 9rem;
+  resize: vertical;
+  border: 1px solid rgba(37, 37, 31, 0.4);
+  border-radius: 0;
+  padding: 1rem;
+  color: #25251f;
+  background: rgba(255, 253, 247, 0.62);
+  font-family: Georgia, 'Noto Serif SC', serif;
+  font-size: 1rem;
+  line-height: 1.7;
+  transition:
+    border-color 160ms ease,
+    background 160ms ease;
+}
+
+.question-form textarea::placeholder {
+  color: #8b8477;
+}
+
+.question-form textarea:hover {
+  border-color: rgba(37, 37, 31, 0.72);
+}
+
+.question-form textarea[aria-invalid='true'] {
+  border-color: #a33327;
+}
+
+.form-meta {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 0.45rem;
+  color: #777063;
+  font-size: 0.7rem;
+}
+
+.count-error,
+.form-error {
+  color: #922e24;
+}
+
+.form-error {
+  min-height: 1.25rem;
+  margin: 0.35rem 0 0;
+  font-size: 0.76rem;
+  line-height: 1.5;
+}
+
+.primary-button,
+.feedback button,
+.related-themes button {
+  border: 1px solid #25251f;
+  cursor: pointer;
+}
+
+.primary-button {
+  width: 100%;
+  margin-top: 0.35rem;
+  padding: 0.9rem 1.25rem;
+  color: #fffdf7;
+  background: #25251f;
+  font-size: 0.84rem;
+  font-weight: 750;
+  letter-spacing: 0.08em;
+  transition:
+    color 160ms ease,
+    background 160ms ease;
+}
+
+.primary-button:hover:not(:disabled) {
+  color: #25251f;
+  background: transparent;
+}
+
+.primary-button:disabled {
+  cursor: wait;
+  opacity: 0.58;
+}
+
+.examples {
+  margin-top: 1.35rem;
+}
+
+.examples > p {
+  margin: 0 0 0.65rem;
+  color: #777063;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+}
+
+.examples > div {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+}
+
+.examples button,
+.text-button {
+  border: 0;
+  padding: 0;
+  color: #655f54;
+  background: none;
+  cursor: pointer;
+}
+
+.examples button {
+  max-width: 100%;
+  border-bottom: 1px solid rgba(37, 37, 31, 0.22);
+  padding: 0.4rem 0.15rem;
+  overflow: hidden;
+  font-size: 0.72rem;
+  text-align: left;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.examples button:hover,
+.text-button:hover {
+  color: #b94632;
+}
+
+.question-form textarea:focus-visible,
+.primary-button:focus-visible,
+.examples button:focus-visible,
+.text-button:focus-visible,
+.related-themes button:focus-visible,
+.feedback button:focus-visible,
+.explanation-details summary:focus-visible,
+.answer-card a:focus-visible {
+  outline: 3px solid #cf563d;
+  outline-offset: 3px;
+}
+
+.result-shell {
+  width: min(100% - 2rem, 66rem);
+  margin-inline: auto;
+  padding: clamp(2rem, 5vw, 5rem) 0;
+}
+
+.result-header {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(16rem, 24rem);
+  gap: 1rem 3rem;
+  align-items: end;
+  border-bottom: 2px solid #25251f;
+  padding-bottom: 2rem;
+}
+
+.result-header .text-button {
+  grid-column: 1 / -1;
+  justify-self: start;
+  font-size: 0.78rem;
+}
+
+.result-header .eyebrow {
+  grid-column: 1 / -1;
+  margin: 1rem 0 0;
+}
+
+.result-header h1 {
+  max-width: none;
+  font-size: clamp(3rem, 7vw, 6.6rem);
+  line-height: 0.9;
+}
+
+.submitted-question {
+  margin: 0;
+  border-left: 1px solid rgba(37, 37, 31, 0.4);
+  padding-left: 1.5rem;
+  color: #4f4b42;
+  font-family: Georgia, 'Noto Serif SC', serif;
+  font-size: clamp(1rem, 2vw, 1.25rem);
+  line-height: 1.75;
+}
+
+.answer-card {
+  margin-top: 0;
+}
+
+.answer-section,
+.sources-section,
+.no-result {
+  display: grid;
+  grid-template-columns: 3rem minmax(0, 1fr);
+  gap: 0 1rem;
+  border-bottom: 1px solid rgba(37, 37, 31, 0.24);
+  padding: clamp(1.5rem, 4vw, 2.6rem) 0;
+}
+
+.answer-section > span {
+  color: #cf563d;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+}
+
+.answer-section h2,
+.sources-section h2,
+.no-result h2 {
+  font-size: clamp(1.4rem, 2.8vw, 2rem);
+}
+
+.answer-section p,
+.no-result p {
+  max-width: 46rem;
+  margin: 0.8rem 0 0;
+  color: #4f4b42;
+  font-family: Georgia, 'Noto Serif SC', serif;
+  font-size: clamp(1rem, 1.7vw, 1.12rem);
+  line-height: 1.9;
+}
+
+.answer-section-perspective {
+  position: relative;
+  background: rgba(255, 253, 247, 0.46);
+}
+
+.answer-section-perspective::before {
+  position: absolute;
+  inset: 0 calc(50% - 50vw);
+  z-index: -1;
+  background: rgba(255, 253, 247, 0.46);
+  content: '';
+}
+
+.sources-section ul {
+  display: grid;
+  gap: 0.5rem;
+  margin: 0.8rem 0 0;
+  padding: 0;
+  color: #655f54;
+  font-size: 0.82rem;
+  line-height: 1.65;
+  list-style: none;
+}
+
+.sources-section a {
+  text-decoration-color: #cf563d;
+  text-underline-offset: 0.2em;
+}
+
+.explanation-details {
+  border-bottom: 1px solid rgba(37, 37, 31, 0.24);
+  padding: 1.35rem 0;
+  color: #655f54;
+  font-size: 0.82rem;
+  line-height: 1.7;
+}
+
+.explanation-details summary {
+  color: #25251f;
+  font-weight: 750;
+  cursor: pointer;
+}
+
+.explanation-details p {
+  max-width: 46rem;
+  margin: 0.8rem 0 0;
+}
+
+.related-themes,
+.feedback {
+  padding: 2rem 0;
+}
+
+.related-themes h2,
+.feedback h2 {
+  font-size: 1rem;
+  font-family: inherit;
+  font-weight: 750;
+}
+
+.related-themes > div,
+.feedback > div {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin-top: 0.9rem;
+}
+
+.related-themes button,
+.feedback button {
+  min-height: 2.65rem;
+  border-radius: 999px;
+  padding: 0.65rem 1rem;
+  color: #25251f;
+  background: transparent;
+  font-size: 0.78rem;
+}
+
+.related-themes button:hover,
+.feedback button:hover,
+.feedback button[aria-pressed='true'] {
+  color: #fffdf7;
+  background: #25251f;
+}
+
+.feedback {
+  border-top: 1px solid rgba(37, 37, 31, 0.24);
+}
+
+.feedback > p,
+.result-disclaimer {
+  color: #777063;
+  font-size: 0.72rem;
+  line-height: 1.6;
+}
+
+.feedback > p {
+  margin: 0.8rem 0 0;
+}
+
+.result-disclaimer {
+  margin: 2.5rem 0 0;
+  border-top: 2px solid #25251f;
+  padding-top: 1.25rem;
 }
 
 .status {
@@ -194,6 +605,53 @@ footer {
 
   .notice {
     max-width: 32rem;
+  }
+
+  .product-shell {
+    grid-template: auto auto auto / 1fr;
+  }
+
+  .product-shell .intro {
+    padding-top: 5.5rem;
+  }
+
+  .product-shell h1 {
+    font-size: clamp(3.7rem, 18vw, 6.2rem);
+  }
+
+  .question-panel {
+    align-self: start;
+  }
+
+  .examples > div {
+    display: grid;
+  }
+
+  .result-shell {
+    width: min(100% - 2.5rem, 66rem);
+    padding-top: 1.5rem;
+  }
+
+  .result-header {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
+
+  .result-header h1 {
+    font-size: clamp(3rem, 15vw, 5rem);
+  }
+
+  .submitted-question {
+    border-top: 1px solid rgba(37, 37, 31, 0.28);
+    border-left: 0;
+    padding-top: 1.25rem;
+    padding-left: 0;
+  }
+
+  .answer-section,
+  .sources-section,
+  .no-result {
+    grid-template-columns: 2rem minmax(0, 1fr);
   }
 
   footer {
