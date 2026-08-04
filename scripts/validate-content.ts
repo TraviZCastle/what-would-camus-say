@@ -102,5 +102,5 @@ if (errors.length > 0) {
 }
 
 console.log(
-  `内容校验通过：${cards.length} 张卡片，覆盖 ${new Set(cards.map((card) => card.theme)).size} 个主主题，${quotes.length} 条直接引文。`,
+  `内容校验通过：${cards.length} 张卡片（${cards.filter((card) => card.status === 'approved').length} approved，${cards.filter((card) => card.status === 'review').length} review），覆盖 ${new Set(cards.map((card) => card.theme)).size} 个主主题，${quotes.length} 条直接引文。`,
 );

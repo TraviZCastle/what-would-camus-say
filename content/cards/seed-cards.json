@@ -2,7 +2,7 @@
   {
     "id": "absurd-repetitive-work-001",
     "version": 1,
-    "status": "review",
+    "status": "approved",
     "title": "清醒地面对重复劳动",
     "theme": "absurd",
     "secondaryThemes": ["work", "action"],
@@ -36,14 +36,14 @@
     "directQuoteIds": [],
     "rightsStatus": "cleared",
     "safetyTags": ["meaning", "work"],
-    "reviewer": "ai-draft-agent",
+    "reviewer": "PlainTerranThomas",
     "reviewedAt": "2026-08-04",
-    "reviewNotes": "AI 辅助原创概述，未使用直接引文；等待人工核对作品定位和职场适用边界。"
+    "reviewNotes": "AI 辅助原创概述，未使用直接引文；2026-08-04 经产品审核通过。"
   },
   {
     "id": "meaning-world-silence-001",
     "version": 1,
-    "status": "review",
+    "status": "approved",
     "title": "不要急着填满世界的沉默",
     "theme": "meaning",
     "secondaryThemes": ["absurd", "hope"],
@@ -84,14 +84,14 @@
     "directQuoteIds": [],
     "rightsStatus": "cleared",
     "safetyTags": ["meaning"],
-    "reviewer": "ai-draft-agent",
+    "reviewer": "PlainTerranThomas",
     "reviewedAt": "2026-08-04",
-    "reviewNotes": "AI 辅助原创概述；安全分流必须先排除自伤风险，等待人工思想审核。"
+    "reviewNotes": "AI 辅助原创概述；安全分流必须先排除自伤风险；2026-08-04 经产品审核通过。"
   },
   {
     "id": "work-necessity-choice-001",
     "version": 1,
-    "status": "review",
+    "status": "approved",
     "title": "在必要之中辨认选择",
     "theme": "work",
     "secondaryThemes": ["freedom", "action"],
@@ -125,14 +125,14 @@
     "directQuoteIds": [],
     "rightsStatus": "cleared",
     "safetyTags": ["work"],
-    "reviewer": "ai-draft-agent",
+    "reviewer": "PlainTerranThomas",
     "reviewedAt": "2026-08-04",
-    "reviewNotes": "这是从荒诞自由向现实工作问题的编辑性推演，等待人工审核是否过度个人化。"
+    "reviewNotes": "这是从荒诞自由向现实工作问题的编辑性推演；2026-08-04 经产品审核通过。"
   },
   {
     "id": "limits-work-harm-001",
     "version": 1,
-    "status": "review",
+    "status": "approved",
     "title": "坚持不是无限度忍受",
     "theme": "limits",
     "secondaryThemes": ["work", "conscience"],
@@ -164,14 +164,14 @@
     "directQuoteIds": [],
     "rightsStatus": "cleared",
     "safetyTags": ["work", "medical-boundary"],
-    "reviewer": "ai-draft-agent",
+    "reviewer": "PlainTerranThomas",
     "reviewedAt": "2026-08-04",
-    "reviewNotes": "AI 辅助原创概述；等待人工核对限度概念与职业健康边界。"
+    "reviewNotes": "AI 辅助原创概述；2026-08-04 经产品审核通过。"
   },
   {
     "id": "freedom-choice-consequences-001",
     "version": 1,
-    "status": "review",
+    "status": "approved",
     "title": "把后果带回选择之中",
     "theme": "freedom",
     "secondaryThemes": ["action", "conscience"],
@@ -203,9 +203,9 @@
     "directQuoteIds": [],
     "rightsStatus": "cleared",
     "safetyTags": ["decision"],
-    "reviewer": "ai-draft-agent",
+    "reviewer": "PlainTerranThomas",
     "reviewedAt": "2026-08-04",
-    "reviewNotes": "AI 辅助原创概述；等待人工核对自由与责任的措辞，避免误归于萨特。"
+    "reviewNotes": "AI 辅助原创概述；保留与萨特式责任措辞的区分；2026-08-04 经产品审核通过。"
   },
   {
     "id": "freedom-shared-limit-001",

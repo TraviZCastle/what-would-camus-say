@@ -18,7 +18,9 @@ describe('thought-card content schema', () => {
 
     expect(cards.length).toBeGreaterThanOrEqual(20);
     expect(new Set(cards.map((card) => card.theme)).size).toBeGreaterThanOrEqual(6);
-    expect(cards.every((card) => card.status === 'review')).toBe(true);
+    expect(
+      cards.every((card) => card.status === 'review' || card.status === 'approved'),
+    ).toBe(true);
   });
 
   it('rejects a card without a traceable source', () => {
