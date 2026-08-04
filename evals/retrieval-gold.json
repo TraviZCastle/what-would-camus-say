@@ -107,7 +107,10 @@
   {
     "id": "solidarity-shared-02",
     "query": "我想找同类互助，但不想公开全部经历",
-    "expectedCardIds": ["solidarity-shared-condition-001"]
+    "expectedCardIds": [
+      "solidarity-shared-condition-001",
+      "solidarity-mutual-aid-without-saviorism-b03"
+    ]
   },
   {
     "id": "solidarity-action-01",

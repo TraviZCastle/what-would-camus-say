@@ -43,4 +43,18 @@ describe('thought-card content schema', () => {
     }
     expect(batchCards.every((card) => card.status === 'approved')).toBe(true);
   });
+
+  it('keeps Phase 5 batch 03 balanced across all themes', async () => {
+    const cards = await loadThoughtCards(projectRoot);
+    const batchCards = cards.filter((card) => card.id.endsWith('-b03'));
+
+    expect(batchCards).toHaveLength(96);
+    for (const theme of THEME_IDS) {
+      expect(
+        batchCards.filter((card) => card.theme === theme),
+        theme,
+      ).toHaveLength(8);
+    }
+    expect(batchCards.every((card) => card.status === 'approved')).toBe(true);
+  });
 });

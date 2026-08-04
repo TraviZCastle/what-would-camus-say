@@ -1,0 +1,482 @@
+[
+  {
+    "id": "batch03-meaning-retirement-purpose",
+    "query": "退休以后觉得自己没用了，我现在该怎样判断？",
+    "expectedCardIds": ["meaning-retirement-purpose-b03"]
+  },
+  {
+    "id": "batch03-meaning-empty-nest-identity",
+    "query": "孩子离家后我不知道为什么活，我现在该怎样判断？",
+    "expectedCardIds": ["meaning-empty-nest-identity-b03"]
+  },
+  {
+    "id": "batch03-meaning-migration-identity",
+    "query": "搬到新地方后不知道自己属于哪里，我现在该怎样判断？",
+    "expectedCardIds": ["meaning-migration-identity-b03"]
+  },
+  {
+    "id": "batch03-meaning-unseen-creative-work",
+    "query": "作品没人看还有必要做吗，我现在该怎样判断？",
+    "expectedCardIds": ["meaning-unseen-creative-work-b03"]
+  },
+  {
+    "id": "batch03-meaning-ordinary-friendship",
+    "query": "朋友只是偶尔见面还有意义吗，我现在该怎样判断？",
+    "expectedCardIds": ["meaning-ordinary-friendship-b03"]
+  },
+  {
+    "id": "batch03-meaning-moral-injury",
+    "query": "做错重要的事后觉得人生没价值，我现在该怎样判断？",
+    "expectedCardIds": ["meaning-moral-injury-b03"]
+  },
+  {
+    "id": "batch03-meaning-learning-without-utility",
+    "query": "学不能赚钱的东西有意义吗，我现在该怎样判断？",
+    "expectedCardIds": ["meaning-learning-without-utility-b03"]
+  },
+  {
+    "id": "batch03-meaning-dream-collapse",
+    "query": "多年梦想实现不了了怎么办，我现在该怎样判断？",
+    "expectedCardIds": ["meaning-dream-collapse-b03"]
+  },
+  {
+    "id": "batch03-absurd-repetitive-complaints",
+    "query": "每天回答同样投诉感觉很荒谬，我现在该怎样判断？",
+    "expectedCardIds": ["absurd-repetitive-complaints-b03"]
+  },
+  {
+    "id": "batch03-absurd-commute-delays",
+    "query": "每天堵车晚点让我很崩溃，我现在该怎样判断？",
+    "expectedCardIds": ["absurd-commute-delays-b03"]
+  },
+  {
+    "id": "batch03-absurd-algorithmic-metrics",
+    "query": "系统分数决定工作让我觉得荒谬，我现在该怎样判断？",
+    "expectedCardIds": ["absurd-algorithmic-metrics-b03"]
+  },
+  {
+    "id": "batch03-absurd-random-accident",
+    "query": "无缘无故遇到倒霉事怎么接受，我现在该怎样判断？",
+    "expectedCardIds": ["absurd-random-accident-b03"]
+  },
+  {
+    "id": "batch03-absurd-contradictory-rules",
+    "query": "领导什么都要又不给资源，我现在该怎样判断？",
+    "expectedCardIds": ["absurd-contradictory-rules-b03"]
+  },
+  {
+    "id": "batch03-absurd-waiting-for-closure",
+    "query": "对方不解释我就走不出来，我现在该怎样判断？",
+    "expectedCardIds": ["absurd-waiting-for-closure-b03"]
+  },
+  {
+    "id": "batch03-absurd-household-maintenance",
+    "query": "家务做完又乱到底有什么意义，我现在该怎样判断？",
+    "expectedCardIds": ["absurd-household-maintenance-b03"]
+  },
+  {
+    "id": "batch03-absurd-chance-and-luck",
+    "query": "为什么别人运气好我没有，我现在该怎样判断？",
+    "expectedCardIds": ["absurd-chance-and-luck-b03"]
+  },
+  {
+    "id": "batch03-work-remote-isolation",
+    "query": "在家上班越来越孤独，我现在该怎样判断？",
+    "expectedCardIds": ["work-remote-isolation-b03"]
+  },
+  {
+    "id": "batch03-work-toxic-competition",
+    "query": "同事都在互相踩我该怎么办，我现在该怎样判断？",
+    "expectedCardIds": ["work-toxic-competition-b03"]
+  },
+  {
+    "id": "batch03-work-layoff-survivor-guilt",
+    "query": "同事被裁我留下来很内疚，我现在该怎样判断？",
+    "expectedCardIds": ["work-layoff-survivor-guilt-b03"]
+  },
+  {
+    "id": "batch03-work-salary-versus-values",
+    "query": "工资很高但工作违背价值观，我现在该怎样判断？",
+    "expectedCardIds": ["work-salary-versus-values-b03"]
+  },
+  {
+    "id": "batch03-work-delegation-control",
+    "query": "什么都不放心交给别人，我现在该怎样判断？",
+    "expectedCardIds": ["work-delegation-control-b03"]
+  },
+  {
+    "id": "batch03-work-first-job-disillusionment",
+    "query": "刚工作就发现理想破灭了，我现在该怎样判断？",
+    "expectedCardIds": ["work-first-job-disillusionment-b03"]
+  },
+  {
+    "id": "batch03-work-retirement-transition",
+    "query": "快退休了很害怕失去工作，我现在该怎样判断？",
+    "expectedCardIds": ["work-retirement-transition-b03"]
+  },
+  {
+    "id": "batch03-work-meaningful-work-exploitation",
+    "query": "因为工作有意义就该免费加班吗，我现在该怎样判断？",
+    "expectedCardIds": ["work-meaningful-work-exploitation-b03"]
+  },
+  {
+    "id": "batch03-freedom-financial-independence",
+    "query": "是不是有足够钱才算自由，我现在该怎样判断？",
+    "expectedCardIds": ["freedom-financial-independence-b03"]
+  },
+  {
+    "id": "batch03-freedom-chosen-solitude",
+    "query": "我喜欢一个人是不是在逃避，我现在该怎样判断？",
+    "expectedCardIds": ["freedom-chosen-solitude-b03"]
+  },
+  {
+    "id": "batch03-freedom-parenthood-decision",
+    "query": "我到底要不要孩子，我现在该怎样判断？",
+    "expectedCardIds": ["freedom-parenthood-decision-b03"]
+  },
+  {
+    "id": "batch03-freedom-education-switch",
+    "query": "学了几年想换专业是不是太晚，我现在该怎样判断？",
+    "expectedCardIds": ["freedom-education-switch-b03"]
+  },
+  {
+    "id": "batch03-freedom-public-identity-disclosure",
+    "query": "不公开自己的身份是不是不诚实，我现在该怎样判断？",
+    "expectedCardIds": ["freedom-public-identity-disclosure-b03"]
+  },
+  {
+    "id": "batch03-freedom-declining-opportunity",
+    "query": "别人都羡慕的机会我却不想要，我现在该怎样判断？",
+    "expectedCardIds": ["freedom-declining-opportunity-b03"]
+  },
+  {
+    "id": "batch03-freedom-debt-commitments",
+    "query": "欠着贷款觉得完全不自由，我现在该怎样判断？",
+    "expectedCardIds": ["freedom-debt-commitments-b03"]
+  },
+  {
+    "id": "batch03-freedom-digital-attention",
+    "query": "总被手机控制怎么找回自由，我现在该怎样判断？",
+    "expectedCardIds": ["freedom-digital-attention-b03"]
+  },
+  {
+    "id": "batch03-revolt-unfair-grading",
+    "query": "老师打分不公平怎么反抗，我现在该怎样判断？",
+    "expectedCardIds": ["revolt-unfair-grading-b03"]
+  },
+  {
+    "id": "batch03-revolt-tenant-repair-conflict",
+    "query": "房东一直不维修我该怎么反抗，我现在该怎样判断？",
+    "expectedCardIds": ["revolt-tenant-repair-conflict-b03"]
+  },
+  {
+    "id": "batch03-revolt-consumer-complaint",
+    "query": "商家不认账该怎么维权，我现在该怎样判断？",
+    "expectedCardIds": ["revolt-consumer-complaint-b03"]
+  },
+  {
+    "id": "batch03-revolt-whistleblowing-preparation",
+    "query": "发现公司问题该不该举报，我现在该怎样判断？",
+    "expectedCardIds": ["revolt-whistleblowing-preparation-b03"]
+  },
+  {
+    "id": "batch03-revolt-discriminatory-joke",
+    "query": "有人开歧视玩笑我该说什么，我现在该怎样判断？",
+    "expectedCardIds": ["revolt-discriminatory-joke-b03"]
+  },
+  {
+    "id": "batch03-revolt-community-rule-challenge",
+    "query": "小区规定不合理怎么推动改变，我现在该怎样判断？",
+    "expectedCardIds": ["revolt-community-rule-challenge-b03"]
+  },
+  {
+    "id": "batch03-revolt-creative-censorship",
+    "query": "作品因为观点被撤下怎么办，我现在该怎样判断？",
+    "expectedCardIds": ["revolt-creative-censorship-b03"]
+  },
+  {
+    "id": "batch03-revolt-family-inheritance-conflict",
+    "query": "家里分配不公平还让我别计较，我现在该怎样判断？",
+    "expectedCardIds": ["revolt-family-inheritance-conflict-b03"]
+  },
+  {
+    "id": "batch03-limits-news-consumption",
+    "query": "不刷新闻就觉得自己很冷漠，我现在该怎样判断？",
+    "expectedCardIds": ["limits-news-consumption-b03"]
+  },
+  {
+    "id": "batch03-limits-social-media-boundary",
+    "query": "网上每条评论都想回复怎么办，我现在该怎样判断？",
+    "expectedCardIds": ["limits-social-media-boundary-b03"]
+  },
+  {
+    "id": "batch03-limits-family-lending",
+    "query": "家人总借钱我不好意思拒绝，我现在该怎样判断？",
+    "expectedCardIds": ["limits-family-lending-b03"]
+  },
+  {
+    "id": "batch03-limits-volunteer-overcommitment",
+    "query": "做志愿者做到精疲力尽，我现在该怎样判断？",
+    "expectedCardIds": ["limits-volunteer-overcommitment-b03"]
+  },
+  {
+    "id": "batch03-limits-conversation-pause",
+    "query": "吵架时该不该先停下来，我现在该怎样判断？",
+    "expectedCardIds": ["limits-conversation-pause-b03"]
+  },
+  {
+    "id": "batch03-limits-ambition-scope-creep",
+    "query": "项目越做越大永远完不成，我现在该怎样判断？",
+    "expectedCardIds": ["limits-ambition-scope-creep-b03"]
+  },
+  {
+    "id": "batch03-limits-parenting-sacrifice",
+    "query": "当父母后为自己花时间很内疚，我现在该怎样判断？",
+    "expectedCardIds": ["limits-parenting-sacrifice-b03"]
+  },
+  {
+    "id": "batch03-limits-forgiveness-boundary",
+    "query": "别人都让我原谅但我做不到，我现在该怎样判断？",
+    "expectedCardIds": ["limits-forgiveness-boundary-b03"]
+  },
+  {
+    "id": "batch03-solidarity-new-city-loneliness",
+    "query": "搬到新城市一直交不到朋友，我现在该怎样判断？",
+    "expectedCardIds": ["solidarity-new-city-loneliness-b03"]
+  },
+  {
+    "id": "batch03-solidarity-mutual-aid-without-saviorism",
+    "query": "想帮人却怕变成自我感动，我现在该怎样判断？",
+    "expectedCardIds": ["solidarity-mutual-aid-without-saviorism-b03"]
+  },
+  {
+    "id": "batch03-solidarity-unemployed-friend",
+    "query": "朋友失业了我该怎么陪他，我现在该怎样判断？",
+    "expectedCardIds": ["solidarity-unemployed-friend-b03"]
+  },
+  {
+    "id": "batch03-solidarity-group-conflict-repair",
+    "query": "团队吵翻后怎样重新合作，我现在该怎样判断？",
+    "expectedCardIds": ["solidarity-group-conflict-repair-b03"]
+  },
+  {
+    "id": "batch03-solidarity-caregiving-rotation",
+    "query": "家里照护老人全压在我身上，我现在该怎样判断？",
+    "expectedCardIds": ["solidarity-caregiving-rotation-b03"]
+  },
+  {
+    "id": "batch03-solidarity-remote-community",
+    "query": "网上认识的朋友算真正共同体吗，我现在该怎样判断？",
+    "expectedCardIds": ["solidarity-remote-community-b03"]
+  },
+  {
+    "id": "batch03-solidarity-allyship-listening",
+    "query": "想支持弱势群体但怕抢话，我现在该怎样判断？",
+    "expectedCardIds": ["solidarity-allyship-listening-b03"]
+  },
+  {
+    "id": "batch03-solidarity-accepting-help",
+    "query": "失败后不想让任何人帮我，我现在该怎样判断？",
+    "expectedCardIds": ["solidarity-accepting-help-b03"]
+  },
+  {
+    "id": "batch03-hope-fertility-uncertainty",
+    "query": "等生育治疗结果不敢抱希望，我现在该怎样判断？",
+    "expectedCardIds": ["hope-fertility-uncertainty-b03"]
+  },
+  {
+    "id": "batch03-hope-exam-result-waiting",
+    "query": "考试结果没出来总觉得会失败，我现在该怎样判断？",
+    "expectedCardIds": ["hope-exam-result-waiting-b03"]
+  },
+  {
+    "id": "batch03-hope-rebuilding-trust",
+    "query": "失信以后还可能重新信任吗，我现在该怎样判断？",
+    "expectedCardIds": ["hope-rebuilding-trust-b03"]
+  },
+  {
+    "id": "batch03-hope-long-debt-path",
+    "query": "债要还很多年看不到希望，我现在该怎样判断？",
+    "expectedCardIds": ["hope-long-debt-path-b03"]
+  },
+  {
+    "id": "batch03-hope-creative-audience",
+    "query": "一直发作品却没有观众怎么办，我现在该怎样判断？",
+    "expectedCardIds": ["hope-creative-audience-b03"]
+  },
+  {
+    "id": "batch03-hope-after-disaster-rebuild",
+    "query": "经历灾害后怎么重新有希望，我现在该怎样判断？",
+    "expectedCardIds": ["hope-after-disaster-rebuild-b03"]
+  },
+  {
+    "id": "batch03-hope-aging-new-beginning",
+    "query": "年纪大了再开始还有希望吗，我现在该怎样判断？",
+    "expectedCardIds": ["hope-aging-new-beginning-b03"]
+  },
+  {
+    "id": "batch03-hope-political-disappointment",
+    "query": "公共行动失败后很绝望，我现在该怎样判断？",
+    "expectedCardIds": ["hope-political-disappointment-b03"]
+  },
+  {
+    "id": "batch03-happiness-ordinary-meal",
+    "query": "每天吃饭都像完成任务，我现在该怎样判断？",
+    "expectedCardIds": ["happiness-ordinary-meal-b03"]
+  },
+  {
+    "id": "batch03-happiness-urban-nature",
+    "query": "住在城市里感觉离自然很远，我现在该怎样判断？",
+    "expectedCardIds": ["happiness-urban-nature-b03"]
+  },
+  {
+    "id": "batch03-happiness-play-without-mastery",
+    "query": "兴趣爱好总被我做成比赛，我现在该怎样判断？",
+    "expectedCardIds": ["happiness-play-without-mastery-b03"]
+  },
+  {
+    "id": "batch03-happiness-celebrating-others",
+    "query": "朋友成功我又高兴又嫉妒，我现在该怎样判断？",
+    "expectedCardIds": ["happiness-celebrating-others-b03"]
+  },
+  {
+    "id": "batch03-happiness-enjoying-solitude",
+    "query": "一个人过周末是不是很失败，我现在该怎样判断？",
+    "expectedCardIds": ["happiness-enjoying-solitude-b03"]
+  },
+  {
+    "id": "batch03-happiness-family-ritual",
+    "query": "家人越来越疏远怎么重新联系，我现在该怎样判断？",
+    "expectedCardIds": ["happiness-family-ritual-b03"]
+  },
+  {
+    "id": "batch03-happiness-body-limit-sensory-joy",
+    "query": "身体不如以前还能怎么快乐，我现在该怎样判断？",
+    "expectedCardIds": ["happiness-body-limit-sensory-joy-b03"]
+  },
+  {
+    "id": "batch03-happiness-seasonal-impermanence",
+    "query": "一想到快乐会结束就开心不起来，我现在该怎样判断？",
+    "expectedCardIds": ["happiness-seasonal-impermanence-b03"]
+  },
+  {
+    "id": "batch03-mortality-unfinished-projects",
+    "query": "想到很多事来不及做就焦虑，我现在该怎样判断？",
+    "expectedCardIds": ["mortality-unfinished-projects-b03"]
+  },
+  {
+    "id": "batch03-mortality-pet-loss",
+    "query": "宠物去世别人说不值得难过，我现在该怎样判断？",
+    "expectedCardIds": ["mortality-pet-loss-b03"]
+  },
+  {
+    "id": "batch03-mortality-friend-moving-away",
+    "query": "好朋友要搬走我很难接受，我现在该怎样判断？",
+    "expectedCardIds": ["mortality-friend-moving-away-b03"]
+  },
+  {
+    "id": "batch03-mortality-inherited-objects",
+    "query": "舍不得丢逝者的任何东西，我现在该怎样判断？",
+    "expectedCardIds": ["mortality-inherited-objects-b03"]
+  },
+  {
+    "id": "batch03-mortality-finite-career-years",
+    "query": "职业时间不多还想做很多事，我现在该怎样判断？",
+    "expectedCardIds": ["mortality-finite-career-years-b03"]
+  },
+  {
+    "id": "batch03-mortality-anticipatory-grief",
+    "query": "亲人病重我每天都在害怕失去，我现在该怎样判断？",
+    "expectedCardIds": ["mortality-anticipatory-grief-b03"]
+  },
+  {
+    "id": "batch03-mortality-funeral-conflict",
+    "query": "家人因为葬礼安排吵起来了，我现在该怎样判断？",
+    "expectedCardIds": ["mortality-funeral-conflict-b03"]
+  },
+  {
+    "id": "batch03-mortality-digital-legacy",
+    "query": "去世后网上账号该怎么办，我现在该怎样判断？",
+    "expectedCardIds": ["mortality-digital-legacy-b03"]
+  },
+  {
+    "id": "batch03-conscience-expense-report",
+    "query": "同事让我一起虚增报销怎么办，我现在该怎样判断？",
+    "expectedCardIds": ["conscience-expense-report-b03"]
+  },
+  {
+    "id": "batch03-conscience-friend-asks-lie",
+    "query": "朋友让我帮他撒谎该怎么办，我现在该怎样判断？",
+    "expectedCardIds": ["conscience-friend-asks-lie-b03"]
+  },
+  {
+    "id": "batch03-conscience-academic-cheating",
+    "query": "同学都在作弊我不做会吃亏，我现在该怎样判断？",
+    "expectedCardIds": ["conscience-academic-cheating-b03"]
+  },
+  {
+    "id": "batch03-conscience-ghostwriting-plagiarism",
+    "query": "来不及了能不能找人代写，我现在该怎样判断？",
+    "expectedCardIds": ["conscience-ghostwriting-plagiarism-b03"]
+  },
+  {
+    "id": "batch03-conscience-conflict-of-interest",
+    "query": "评审对象是熟人要不要说明，我现在该怎样判断？",
+    "expectedCardIds": ["conscience-conflict-of-interest-b03"]
+  },
+  {
+    "id": "batch03-conscience-loyalty-versus-harmed-person",
+    "query": "好同事被指伤害别人我该站哪边，我现在该怎样判断？",
+    "expectedCardIds": ["conscience-loyalty-versus-harmed-person-b03"]
+  },
+  {
+    "id": "batch03-conscience-donation-source",
+    "query": "来路有争议的捐款该不该收，我现在该怎样判断？",
+    "expectedCardIds": ["conscience-donation-source-b03"]
+  },
+  {
+    "id": "batch03-conscience-environmental-cost",
+    "query": "工作项目污染很大但我没决定权，我现在该怎样判断？",
+    "expectedCardIds": ["conscience-environmental-cost-b03"]
+  },
+  {
+    "id": "batch03-action-difficult-email",
+    "query": "一封重要邮件改了很多遍不敢发，我现在该怎样判断？",
+    "expectedCardIds": ["action-difficult-email-b03"]
+  },
+  {
+    "id": "batch03-action-first-budget-step",
+    "query": "财务太乱不知道预算从哪开始，我现在该怎样判断？",
+    "expectedCardIds": ["action-first-budget-step-b03"]
+  },
+  {
+    "id": "batch03-action-decluttering-decision",
+    "query": "东西太多完全不知道怎么整理，我现在该怎样判断？",
+    "expectedCardIds": ["action-decluttering-decision-b03"]
+  },
+  {
+    "id": "batch03-action-new-skill-practice",
+    "query": "想学新东西但怕自己太差，我现在该怎样判断？",
+    "expectedCardIds": ["action-new-skill-practice-b03"]
+  },
+  {
+    "id": "batch03-action-conflict-meeting",
+    "query": "要和冲突的人开会怎么准备，我现在该怎样判断？",
+    "expectedCardIds": ["action-conflict-meeting-b03"]
+  },
+  {
+    "id": "batch03-action-seeking-mentorship",
+    "query": "想请教前辈但不敢联系，我现在该怎样判断？",
+    "expectedCardIds": ["action-seeking-mentorship-b03"]
+  },
+  {
+    "id": "batch03-action-project-cancellation",
+    "query": "项目不该继续但没人敢叫停，我现在该怎样判断？",
+    "expectedCardIds": ["action-project-cancellation-b03"]
+  },
+  {
+    "id": "batch03-action-community-proposal",
+    "query": "有社区改善想法但不知道怎么提出，我现在该怎样判断？",
+    "expectedCardIds": ["action-community-proposal-b03"]
+  }
+]
