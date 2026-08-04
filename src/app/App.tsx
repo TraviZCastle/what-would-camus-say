@@ -6,6 +6,7 @@ import { loadSearchIndex } from '../retrieval/client';
 import { retrieveThoughtCards } from '../retrieval/retrieve';
 import { normalizeText } from '../retrieval/tokenizer';
 import type { RetrievalResult, SearchIndex } from '../retrieval/types';
+import { routeSafety, type SafetyMatch } from '../safety/route-safety';
 import type { ThemeId } from '../types/content';
 import { RetrievalDebug } from './RetrievalDebug';
 
@@ -51,11 +52,20 @@ const THEME_QUESTIONS: Record<ThemeId, string> = {
   action: '我害怕做错，眼下能先做哪一个低风险的步骤？',
 };
 
-type SubmittedResult = {
+type RegularSubmittedResult = {
+  kind: 'answer';
   question: string;
   retrieval: RetrievalResult;
   answer: ComposedAnswer | null;
 };
+
+type SafetySubmittedResult = {
+  kind: 'safety';
+  question: string;
+  safety: SafetyMatch;
+};
+
+type SubmittedResult = RegularSubmittedResult | SafetySubmittedResult;
 
 type FeedbackValue = 'helpful' | 'not-helpful';
 
@@ -132,18 +142,25 @@ function ProductApp() {
       questionRef.current?.focus();
       return;
     }
+    const trimmedQuestion = question.trim();
+    const safety = routeSafety(trimmedQuestion);
+    if (safety) {
+      setFeedback(null);
+      setSubmitted({ kind: 'safety', question: trimmedQuestion, safety });
+      return;
+    }
+
     if (!index) {
       setInputError(indexError || '思想索引仍在加载，请稍后再试。');
       return;
     }
 
-    const trimmedQuestion = question.trim();
     const retrieval = retrieveThoughtCards(index, trimmedQuestion);
     const answer = retrieval.mainCard
       ? composeAnswer(trimmedQuestion, retrieval.mainCard)
       : null;
     setFeedback(null);
-    setSubmitted({ question: trimmedQuestion, retrieval, answer });
+    setSubmitted({ kind: 'answer', question: trimmedQuestion, retrieval, answer });
   }
 
   function reset(nextQuestion = '') {
@@ -156,7 +173,7 @@ function ProductApp() {
 
   function recordFeedback(value: FeedbackValue) {
     setFeedback(value);
-    const cardId = submitted?.retrieval.mainCard?.id;
+    const cardId = submitted?.kind === 'answer' ? submitted.retrieval.mainCard?.id : null;
     if (!cardId) return;
     try {
       localStorage.setItem(`camus-feedback:${cardId}`, value);
@@ -166,7 +183,13 @@ function ProductApp() {
   }
 
   if (submitted) {
-    return (
+    return submitted.kind === 'safety' ? (
+      <SafetyView
+        submitted={submitted}
+        resultHeadingRef={resultHeadingRef}
+        onReset={reset}
+      />
+    ) : (
       <ResultView
         submitted={submitted}
         feedback={feedback}
@@ -258,12 +281,58 @@ function ProductApp() {
 }
 
 type ResultViewProps = {
-  submitted: SubmittedResult;
+  submitted: RegularSubmittedResult;
   feedback: FeedbackValue | null;
   resultHeadingRef: RefObject<HTMLHeadingElement | null>;
   onFeedback: (value: FeedbackValue) => void;
   onReset: (nextQuestion?: string) => void;
 };
+
+type SafetyViewProps = {
+  submitted: SafetySubmittedResult;
+  resultHeadingRef: RefObject<HTMLHeadingElement | null>;
+  onReset: (nextQuestion?: string) => void;
+};
+
+function SafetyView({ submitted, resultHeadingRef, onReset }: SafetyViewProps) {
+  const { response } = submitted.safety;
+
+  return (
+    <main className={`safety-shell safety-${response.urgency}`}>
+      <header className="safety-header">
+        <button className="text-button" type="button" onClick={() => onReset()}>
+          ← 返回首页
+        </button>
+        <p className="eyebrow">安全优先 · 此次未执行哲学检索</p>
+        <h1 ref={resultHeadingRef} tabIndex={-1}>
+          {response.title}
+        </h1>
+        <p>{response.acknowledgment}</p>
+      </header>
+
+      <section className="safety-actions" aria-labelledby="safety-actions-title">
+        <p className="panel-number" aria-hidden="true">
+          现在
+        </p>
+        <div>
+          <h2 id="safety-actions-title">
+            {response.urgency === 'crisis' ? '请立即做这些事' : '建议这样处理'}
+          </h2>
+          <ol>
+            {response.actions.map((action) => (
+              <li key={action}>{action}</li>
+            ))}
+          </ol>
+        </div>
+      </section>
+
+      <p className="safety-closing">{response.closing}</p>
+      <p className="result-disclaimer">
+        本页只提供安全分流信息，不提供医疗、法律或财务专业服务；如有即时危险，请联系当地紧急服务。
+      </p>
+    </main>
+  );
+}
 
 function ResultView({
   submitted,

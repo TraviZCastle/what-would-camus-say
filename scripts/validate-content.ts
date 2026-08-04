@@ -5,6 +5,7 @@ import { fileURLToPath } from 'node:url';
 
 import {
   DirectQuoteCollectionSchema,
+  SafetyResponseCatalogSchema,
   SafetyRuleCatalogSchema,
   SourceCatalogSchema,
   SynonymCatalogSchema,
@@ -30,7 +31,12 @@ const sources = SourceCatalogSchema.parse(await readJson('content/sources/source
 const synonyms = SynonymCatalogSchema.parse(
   await readJson('content/synonyms/synonyms.json'),
 );
-SafetyRuleCatalogSchema.parse(await readJson('content/safety/rules.json'));
+const safetyRules = SafetyRuleCatalogSchema.parse(
+  await readJson('content/safety/rules.json'),
+);
+const safetyResponses = SafetyResponseCatalogSchema.parse(
+  await readJson('content/safety/responses.json'),
+);
 
 const errors: string[] = [];
 
@@ -44,10 +50,28 @@ function findDuplicates(values: string[]): string[] {
 const duplicateCardIds = findDuplicates(cards.map((card) => card.id));
 const duplicateQuoteIds = findDuplicates(quotes.map((quote) => quote.id));
 const duplicateSourceIds = findDuplicates(sources.map((source) => source.id));
+const duplicateSafetyRuleIds = findDuplicates(safetyRules.rules.map((rule) => rule.id));
+const duplicateSafetyResponseKeys = findDuplicates(
+  safetyResponses.responses.map((response) => response.key),
+);
 
 for (const id of duplicateCardIds) errors.push(`重复思想卡片 ID：${id}`);
 for (const id of duplicateQuoteIds) errors.push(`重复引文 ID：${id}`);
 for (const id of duplicateSourceIds) errors.push(`重复来源 ID：${id}`);
+for (const id of duplicateSafetyRuleIds) errors.push(`重复安全规则 ID：${id}`);
+for (const key of duplicateSafetyResponseKeys) errors.push(`重复安全回答 key：${key}`);
+
+const responseByKey = new Map(
+  safetyResponses.responses.map((response) => [response.key, response]),
+);
+for (const rule of safetyRules.rules) {
+  const response = responseByKey.get(rule.responseKey);
+  if (!response) {
+    errors.push(`${rule.id} 引用了不存在的安全回答：${rule.responseKey}`);
+  } else if (response.category !== rule.category) {
+    errors.push(`${rule.id} 与安全回答 ${rule.responseKey} 的类别不一致`);
+  }
+}
 
 const quoteIds = new Set(quotes.map((quote) => quote.id));
 const catalogWorks = new Set(sources.map((source) => source.work));
@@ -85,6 +109,8 @@ if (isProduction) {
   }
 
   if (synonyms.status !== 'approved') errors.push('同义词表尚未 approved');
+  if (safetyRules.status !== 'approved') errors.push('安全规则尚未 approved');
+  if (safetyResponses.status !== 'approved') errors.push('安全回答文案尚未 approved');
 } else {
   const coveredThemes = new Set(
     cards.flatMap((card) => [card.theme, ...card.secondaryThemes]),

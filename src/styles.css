@@ -520,6 +520,82 @@ h1 span {
   padding-top: 1.25rem;
 }
 
+.safety-shell {
+  width: min(100% - 2rem, 58rem);
+  margin-inline: auto;
+  padding: clamp(2rem, 7vw, 6rem) 0;
+}
+
+.safety-header {
+  border-bottom: 2px solid #25251f;
+  padding-bottom: clamp(2rem, 5vw, 3.5rem);
+}
+
+.safety-header .eyebrow {
+  margin-top: clamp(3rem, 8vw, 6rem);
+  color: #a33327;
+}
+
+.safety-header h1 {
+  max-width: 11ch;
+  color: #25251f;
+  font-size: clamp(3rem, 8vw, 6.8rem);
+  line-height: 0.92;
+}
+
+.safety-header > p:last-child {
+  max-width: 42rem;
+  margin: clamp(1.5rem, 4vw, 2.5rem) 0 0;
+  color: #4f4b42;
+  font-family: Georgia, 'Noto Serif SC', serif;
+  font-size: clamp(1rem, 2vw, 1.2rem);
+  line-height: 1.85;
+}
+
+.safety-actions {
+  display: grid;
+  grid-template-columns: 4rem minmax(0, 1fr);
+  gap: 1rem;
+  border-bottom: 1px solid rgba(37, 37, 31, 0.28);
+  padding: clamp(2rem, 5vw, 3.5rem) 0;
+}
+
+.safety-actions h2 {
+  margin: 0;
+  font-family: Georgia, 'Times New Roman', 'Noto Serif SC', serif;
+  font-size: clamp(1.6rem, 3.2vw, 2.4rem);
+  font-weight: 400;
+}
+
+.safety-actions ol {
+  display: grid;
+  gap: 1rem;
+  margin: 1.25rem 0 0;
+  padding-left: 1.3rem;
+  color: #4f4b42;
+  font-size: clamp(0.95rem, 1.6vw, 1.08rem);
+  line-height: 1.8;
+}
+
+.safety-actions li::marker {
+  color: #cf563d;
+  font-weight: 800;
+}
+
+.safety-closing {
+  margin: 2rem 0 0;
+  border-left: 3px solid #cf563d;
+  padding-left: 1.1rem;
+  color: #4f4b42;
+  font-family: Georgia, 'Noto Serif SC', serif;
+  line-height: 1.8;
+}
+
+.safety-boundary .safety-header .eyebrow,
+.safety-boundary .safety-actions li::marker {
+  color: #655f54;
+}
+
 .status {
   display: inline-flex;
   align-items: center;
@@ -630,6 +706,19 @@ footer {
   .result-shell {
     width: min(100% - 2.5rem, 66rem);
     padding-top: 1.5rem;
+  }
+
+  .safety-shell {
+    width: min(100% - 2.5rem, 58rem);
+    padding-top: 1.5rem;
+  }
+
+  .safety-header h1 {
+    font-size: clamp(3rem, 15vw, 5rem);
+  }
+
+  .safety-actions {
+    grid-template-columns: 2.5rem minmax(0, 1fr);
   }
 
   .result-header {

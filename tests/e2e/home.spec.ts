@@ -39,3 +39,58 @@ test('short questions are rejected without leaving the page', async ({ page }) =
   await expect(page.getByRole('alert')).toContainText('请至少写 10 个字符');
   await expect(page.getByLabel('现实问题')).toBeFocused();
 });
+
+test('immediate danger is routed before philosophical retrieval', async ({ page }) => {
+  await page.goto('/');
+  await page.getByLabel('现实问题').fill('我准备跳楼，现在一个人在楼顶。');
+  await page.getByRole('button', { name: '开始思想推演' }).click();
+
+  await expect(page.getByText('安全优先 · 此次未执行哲学检索')).toBeVisible();
+  await expect(page.getByRole('heading', { level: 1 })).toHaveText(
+    '先把你的现实安全放在第一位',
+  );
+  await expect(page.getByRole('heading', { name: '请立即做这些事' })).toBeVisible();
+  await expect(page.getByRole('article', { name: '思想推演结果' })).toHaveCount(0);
+});
+
+test('the raw question never enters requests or the URL', async ({ page }) => {
+  const privateMarker = '私密标记QZ91';
+  await page.goto('/');
+  await expect(page.getByRole('button', { name: '开始思想推演' })).toBeEnabled();
+
+  const requestUrls: string[] = [];
+  page.on('request', (request) => requestUrls.push(request.url()));
+  await page
+    .getByLabel('现实问题')
+    .fill(`我正在衡量是否离开一份每天重复但稳定的工作。${privateMarker}`);
+  await page.getByRole('button', { name: '开始思想推演' }).click();
+
+  await expect(page.getByRole('article', { name: '思想推演结果' })).toBeVisible();
+  expect(page.url()).not.toContain(privateMarker);
+  expect(page.url()).not.toContain(encodeURIComponent(privateMarker));
+  expect(requestUrls.every((url) => !url.includes(privateMarker))).toBe(true);
+  expect(
+    requestUrls.every((url) => !url.includes(encodeURIComponent(privateMarker))),
+  ).toBe(true);
+});
+
+test('the core flow is operable by keyboard with managed focus', async ({ page }) => {
+  await page.goto('/');
+  const question = page.getByLabel('现实问题');
+  await question.focus();
+  await page.keyboard.type('两个选择都有代价，我怎样承担自己的决定？');
+  await page.keyboard.press('Tab');
+  await expect(page.getByRole('button', { name: '开始思想推演' })).toBeFocused();
+  await page.keyboard.press('Enter');
+
+  await expect(page.getByRole('heading', { level: 1 })).toBeFocused();
+  const explanation = page.getByText('为什么找到这些思想');
+  await explanation.focus();
+  await page.keyboard.press('Enter');
+  await expect(page.getByText(/问题与“.+”主题相关/)).toBeVisible();
+
+  const reset = page.getByRole('button', { name: '← 重新提问' });
+  await reset.focus();
+  await page.keyboard.press('Enter');
+  await expect(question).toBeFocused();
+});

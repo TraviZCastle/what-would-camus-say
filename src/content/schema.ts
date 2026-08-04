@@ -23,6 +23,14 @@ export const RightsStatusSchema = z.enum([
   'unknown',
 ]);
 export const ThemeIdSchema = z.enum(THEME_IDS);
+export const SafetyCategorySchema = z.enum([
+  'self-harm',
+  'violence',
+  'minor-danger',
+  'fraud-coercion',
+  'medical-emergency',
+  'professional-boundary',
+]);
 
 export const SourceRefSchema = z.strictObject({
   work: z.string().min(1),
@@ -121,18 +129,31 @@ export const SafetyRuleCatalogSchema = z.strictObject({
     .array(
       z.strictObject({
         id: z.string().regex(/^[a-z0-9]+(?:-[a-z0-9]+)*$/),
-        category: z.enum([
-          'self-harm',
-          'violence',
-          'minor-danger',
-          'fraud-coercion',
-          'medical-emergency',
-          'professional-boundary',
-        ]),
+        category: SafetyCategorySchema,
         priority: z.int().min(1).max(100),
         signals: NonEmptyStringArraySchema,
         negativeSignals: z.array(z.string().min(1)),
         responseKey: z.string().min(1),
+      }),
+    )
+    .min(1),
+});
+
+export const SafetyResponseCatalogSchema = z.strictObject({
+  version: z.int().positive(),
+  status: ReviewStatusSchema,
+  reviewer: z.string().min(1),
+  reviewedAt: z.string().regex(/^\d{4}-\d{2}-\d{2}$/),
+  responses: z
+    .array(
+      z.strictObject({
+        key: z.string().regex(/^[a-z0-9]+(?:-[a-z0-9]+)*$/),
+        category: SafetyCategorySchema,
+        urgency: z.enum(['crisis', 'boundary']),
+        title: z.string().min(1),
+        acknowledgment: z.string().min(1),
+        actions: NonEmptyStringArraySchema,
+        closing: z.string().min(1),
       }),
     )
     .min(1),
