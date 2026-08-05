@@ -1,0 +1,732 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Local visual direction prototype for What Would Camus Say"
+    />
+    <title>What Would Camus Say — Visual Prototype 01</title>
+    <style>
+      :root {
+        color: #e7e4de;
+        background: #0a0a09;
+        font-family:
+          Inter,
+          ui-sans-serif,
+          -apple-system,
+          BlinkMacSystemFont,
+          'Segoe UI',
+          sans-serif;
+        font-synthesis: none;
+        --ink: #0a0a09;
+        --paper: #e7e4de;
+        --muted: #aaa69e;
+        --line: rgba(231, 228, 222, 0.28);
+        --ember: #f05a28;
+        --ember-light: #ffd28f;
+        --ember-x: 51.25%;
+        --ember-y: 57.9%;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html {
+        min-width: 320px;
+        background: var(--ink);
+      }
+
+      body {
+        margin: 0;
+        min-width: 320px;
+        min-height: 100svh;
+        overflow-x: hidden;
+        background:
+          radial-gradient(circle at 74% 35%, #252522 0, transparent 38rem), var(--ink);
+      }
+
+      button,
+      textarea {
+        font: inherit;
+      }
+
+      button {
+        cursor: pointer;
+      }
+
+      .page {
+        display: grid;
+        min-height: 100svh;
+        place-items: center;
+        overflow: hidden;
+      }
+
+      .stage {
+        position: relative;
+        width: min(100vw, 150svh);
+        aspect-ratio: 3 / 2;
+        overflow: hidden;
+        isolation: isolate;
+        background: #10100f;
+        box-shadow: 0 0 5rem rgba(0, 0, 0, 0.66);
+      }
+
+      .stage::before {
+        position: absolute;
+        inset: 0;
+        z-index: 2;
+        pointer-events: none;
+        background:
+          linear-gradient(90deg, rgba(0, 0, 0, 0.7), transparent 57%),
+          linear-gradient(
+            180deg,
+            rgba(0, 0, 0, 0.35),
+            transparent 26%,
+            transparent 72%,
+            rgba(0, 0, 0, 0.62)
+          );
+        content: '';
+      }
+
+      .stage::after {
+        position: absolute;
+        inset: -50%;
+        z-index: 6;
+        pointer-events: none;
+        opacity: 0.14;
+        background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.86' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.65'/%3E%3C/svg%3E");
+        animation: grain 0.24s steps(2) infinite;
+        content: '';
+        mix-blend-mode: soft-light;
+      }
+
+      .portrait {
+        position: absolute;
+        inset: 0;
+        z-index: 1;
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        filter: contrast(1.03) brightness(0.9);
+      }
+
+      .topbar {
+        position: absolute;
+        top: clamp(1.15rem, 2.6vw, 2.5rem);
+        right: clamp(1.2rem, 3vw, 3rem);
+        left: clamp(1.2rem, 3vw, 3rem);
+        z-index: 10;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        border-bottom: 1px solid var(--line);
+        padding-bottom: 0.8rem;
+        color: rgba(231, 228, 222, 0.86);
+        font-size: clamp(0.54rem, 0.72vw, 0.72rem);
+        font-weight: 650;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+      }
+
+      .topbar strong {
+        color: #fff;
+        font-weight: 750;
+      }
+
+      .topbar span:last-child {
+        color: var(--muted);
+      }
+
+      .copy {
+        position: absolute;
+        top: 18%;
+        left: clamp(1.2rem, 5vw, 5rem);
+        z-index: 9;
+        width: min(42%, 38rem);
+      }
+
+      .kicker {
+        display: flex;
+        align-items: center;
+        gap: 0.8rem;
+        margin: 0 0 clamp(1rem, 2vw, 1.8rem);
+        color: rgba(231, 228, 222, 0.74);
+        font-size: clamp(0.56rem, 0.75vw, 0.74rem);
+        font-weight: 700;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+      }
+
+      .kicker::before {
+        width: 1.8rem;
+        height: 1px;
+        background: var(--ember);
+        content: '';
+      }
+
+      h1 {
+        max-width: 7.2ch;
+        margin: 0;
+        color: #f2f0eb;
+        font-family: Georgia, 'Times New Roman', 'Noto Serif SC', serif;
+        font-size: clamp(3.2rem, 7vw, 7rem);
+        font-weight: 400;
+        letter-spacing: -0.075em;
+        line-height: 0.84;
+        text-wrap: balance;
+      }
+
+      h1 em {
+        display: block;
+        color: #bdb9b1;
+        font-weight: 400;
+      }
+
+      .intro {
+        max-width: 30rem;
+        margin: clamp(1.3rem, 3vw, 2.5rem) 0 0;
+        color: rgba(231, 228, 222, 0.82);
+        font-family: Georgia, 'Noto Serif SC', serif;
+        font-size: clamp(0.8rem, 1.15vw, 1.05rem);
+        line-height: 1.8;
+      }
+
+      .cta {
+        display: inline-flex;
+        align-items: center;
+        gap: 1.8rem;
+        margin-top: clamp(1.2rem, 2.6vw, 2.3rem);
+        border: 1px solid rgba(231, 228, 222, 0.7);
+        padding: clamp(0.72rem, 1.2vw, 1rem) clamp(1rem, 1.8vw, 1.6rem);
+        color: var(--paper);
+        background: rgba(8, 8, 7, 0.24);
+        font-size: clamp(0.64rem, 0.8vw, 0.78rem);
+        font-weight: 720;
+        letter-spacing: 0.1em;
+        backdrop-filter: blur(8px);
+        transition: 180ms ease;
+      }
+
+      .cta:hover,
+      .cta:focus-visible {
+        color: var(--ink);
+        background: var(--paper);
+      }
+
+      .cta:focus-visible,
+      .close:focus-visible,
+      .submit:focus-visible,
+      textarea:focus-visible {
+        outline: 2px solid var(--ember-light);
+        outline-offset: 4px;
+      }
+
+      .edition {
+        position: absolute;
+        right: clamp(1.2rem, 3vw, 3rem);
+        bottom: clamp(1rem, 2.4vw, 2.4rem);
+        z-index: 9;
+        color: rgba(231, 228, 222, 0.57);
+        font-size: clamp(0.5rem, 0.7vw, 0.68rem);
+        letter-spacing: 0.16em;
+        text-align: right;
+        text-transform: uppercase;
+      }
+
+      .edition strong {
+        display: block;
+        margin-top: 0.35rem;
+        color: rgba(231, 228, 222, 0.92);
+        font-family: Georgia, serif;
+        font-size: clamp(0.76rem, 1vw, 1rem);
+        font-weight: 400;
+        letter-spacing: 0.05em;
+        text-transform: none;
+      }
+
+      .ember-system {
+        position: absolute;
+        top: var(--ember-y);
+        left: var(--ember-x);
+        z-index: 8;
+        width: 0;
+        height: 0;
+        pointer-events: none;
+        mix-blend-mode: screen;
+      }
+
+      .ember {
+        position: absolute;
+        width: clamp(0.32rem, 0.65vw, 0.68rem);
+        height: clamp(0.32rem, 0.65vw, 0.68rem);
+        border-radius: 50%;
+        background: radial-gradient(
+          circle,
+          #fff 0 8%,
+          #ffd28f 16%,
+          #ff6b2b 38%,
+          rgba(198, 40, 10, 0.46) 62%,
+          transparent 72%
+        );
+        box-shadow:
+          0 0 0.3rem rgba(255, 204, 128, 0.95),
+          0 0 0.85rem rgba(240, 90, 40, 0.8),
+          0 0 1.7rem rgba(216, 50, 20, 0.35);
+        transform: translate(-50%, -50%);
+        animation: emberPulse 1.6s ease-in-out infinite alternate;
+      }
+
+      .ember::before,
+      .ember::after {
+        position: absolute;
+        top: 45%;
+        left: 45%;
+        width: 0.13rem;
+        height: 0.13rem;
+        border-radius: 50%;
+        background: var(--ember-light);
+        box-shadow: 0 0 0.35rem var(--ember);
+        content: '';
+        opacity: 0;
+      }
+
+      .ember::before {
+        animation: spark 2.7s ease-out 0.3s infinite;
+      }
+
+      .ember::after {
+        animation: spark 3.2s ease-out 1.6s infinite;
+      }
+
+      .smoke {
+        position: absolute;
+        bottom: 0.1rem;
+        left: -0.08rem;
+        width: clamp(1.2rem, 2.2vw, 2.4rem);
+        height: clamp(3.5rem, 8vw, 8rem);
+        border: clamp(0.08rem, 0.13vw, 0.15rem) solid rgba(238, 238, 232, 0.46);
+        border-right-color: transparent;
+        border-bottom-color: transparent;
+        border-radius: 58% 42% 55% 45%;
+        filter: blur(clamp(0.18rem, 0.32vw, 0.38rem));
+        opacity: 0;
+        transform-origin: 50% 100%;
+      }
+
+      .smoke-one {
+        animation: smokeRise 5.4s ease-out infinite;
+      }
+
+      .smoke-two {
+        width: clamp(1.6rem, 2.8vw, 3rem);
+        height: clamp(4rem, 9vw, 9rem);
+        animation: smokeRise 6.2s ease-out 1.8s infinite;
+      }
+
+      .smoke-three {
+        width: clamp(1rem, 2vw, 2.1rem);
+        height: clamp(3.2rem, 7vw, 7rem);
+        animation: smokeRise 5.8s ease-out 3.6s infinite;
+      }
+
+      .drawer {
+        position: fixed;
+        inset: 0 0 0 auto;
+        z-index: 30;
+        display: grid;
+        grid-template-rows: auto 1fr auto;
+        width: min(100%, 34rem);
+        padding: clamp(1.4rem, 4vw, 3.2rem);
+        border-left: 1px solid rgba(231, 228, 222, 0.22);
+        color: var(--paper);
+        background: linear-gradient(180deg, #121210, #070707 72%);
+        box-shadow: -1.5rem 0 5rem rgba(0, 0, 0, 0.55);
+        transform: translateX(105%);
+        transition: transform 420ms cubic-bezier(0.22, 1, 0.36, 1);
+      }
+
+      .drawer[data-open='true'] {
+        transform: translateX(0);
+      }
+
+      .drawer-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        border-bottom: 1px solid rgba(231, 228, 222, 0.2);
+        padding-bottom: 1rem;
+        font-size: 0.7rem;
+        font-weight: 700;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+      }
+
+      .close {
+        border: 0;
+        padding: 0.25rem;
+        color: inherit;
+        background: none;
+        font-size: 1.25rem;
+      }
+
+      .form-copy {
+        align-self: center;
+      }
+
+      .form-copy h2 {
+        max-width: 8ch;
+        margin: 0;
+        font-family: Georgia, 'Noto Serif SC', serif;
+        font-size: clamp(2.6rem, 7vw, 4.6rem);
+        font-weight: 400;
+        letter-spacing: -0.06em;
+        line-height: 0.96;
+      }
+
+      .form-copy p {
+        max-width: 27rem;
+        margin: 1.5rem 0 2rem;
+        color: var(--muted);
+        font-family: Georgia, 'Noto Serif SC', serif;
+        line-height: 1.8;
+      }
+
+      textarea {
+        display: block;
+        width: 100%;
+        min-height: 10rem;
+        resize: vertical;
+        border: 1px solid rgba(231, 228, 222, 0.38);
+        border-radius: 0;
+        padding: 1rem;
+        color: var(--paper);
+        background: rgba(0, 0, 0, 0.42);
+        font-family: Georgia, 'Noto Serif SC', serif;
+        font-size: 1rem;
+        line-height: 1.7;
+      }
+
+      textarea::placeholder {
+        color: #77736c;
+      }
+
+      .submit {
+        width: 100%;
+        margin-top: 0.8rem;
+        border: 1px solid var(--paper);
+        padding: 1rem;
+        color: var(--ink);
+        background: var(--paper);
+        font-size: 0.78rem;
+        font-weight: 750;
+        letter-spacing: 0.1em;
+      }
+
+      .drawer-note {
+        margin: 0;
+        border-top: 1px solid rgba(231, 228, 222, 0.2);
+        padding-top: 1rem;
+        color: #817d75;
+        font-size: 0.68rem;
+        line-height: 1.6;
+      }
+
+      .scrim {
+        position: fixed;
+        inset: 0;
+        z-index: 20;
+        border: 0;
+        padding: 0;
+        visibility: hidden;
+        opacity: 0;
+        background: rgba(0, 0, 0, 0.72);
+        cursor: default;
+        transition:
+          opacity 300ms ease,
+          visibility 300ms ease;
+      }
+
+      .scrim[data-open='true'] {
+        visibility: visible;
+        opacity: 1;
+      }
+
+      @keyframes emberPulse {
+        0% {
+          opacity: 0.72;
+          transform: translate(-50%, -50%) scale(0.78);
+        }
+        35% {
+          opacity: 1;
+          transform: translate(-50%, -50%) scale(1.14);
+        }
+        100% {
+          opacity: 0.84;
+          transform: translate(-50%, -50%) scale(0.92);
+        }
+      }
+
+      @keyframes spark {
+        0%,
+        74% {
+          opacity: 0;
+          transform: translate(0, 0) scale(0.5);
+        }
+        78% {
+          opacity: 1;
+        }
+        100% {
+          opacity: 0;
+          transform: translate(-1.1rem, -1.6rem) scale(0.1);
+        }
+      }
+
+      @keyframes smokeRise {
+        0% {
+          opacity: 0;
+          transform: translate(-30%, 0) rotate(-8deg) scale(0.45, 0.28);
+        }
+        12% {
+          opacity: 0.38;
+        }
+        48% {
+          opacity: 0.24;
+          transform: translate(-78%, -46%) rotate(-24deg) scale(0.8, 0.84);
+        }
+        100% {
+          opacity: 0;
+          transform: translate(-118%, -125%) rotate(13deg) scale(1.4, 1.72);
+        }
+      }
+
+      @keyframes grain {
+        0% {
+          transform: translate(0, 0);
+        }
+        25% {
+          transform: translate(3%, -2%);
+        }
+        50% {
+          transform: translate(-2%, 4%);
+        }
+        75% {
+          transform: translate(4%, 2%);
+        }
+        100% {
+          transform: translate(-3%, -4%);
+        }
+      }
+
+      @media (max-width: 720px) {
+        body {
+          overflow-x: hidden;
+          background: #0c0c0b;
+        }
+
+        .page {
+          display: block;
+          min-height: 100svh;
+        }
+
+        .stage {
+          width: 100%;
+          min-height: 100svh;
+          aspect-ratio: auto;
+          overflow: visible;
+          background: #0c0c0b;
+        }
+
+        .stage::before {
+          position: fixed;
+          background:
+            linear-gradient(
+              180deg,
+              rgba(0, 0, 0, 0.12),
+              rgba(0, 0, 0, 0.05) 30%,
+              #0c0c0b 58%
+            ),
+            linear-gradient(90deg, rgba(0, 0, 0, 0.42), transparent 74%);
+        }
+
+        .stage::after {
+          position: fixed;
+        }
+
+        .portrait {
+          position: relative;
+          display: block;
+          width: 100%;
+          height: auto;
+        }
+
+        .topbar {
+          position: absolute;
+          top: 1rem;
+          right: 1rem;
+          left: 1rem;
+        }
+
+        .topbar span:last-child {
+          display: none;
+        }
+
+        .copy {
+          position: relative;
+          top: auto;
+          left: auto;
+          width: auto;
+          margin-top: -12vw;
+          padding: 0 1.25rem 5rem;
+        }
+
+        .kicker {
+          margin-bottom: 1rem;
+        }
+
+        h1 {
+          max-width: 7.3ch;
+          font-size: clamp(3.7rem, 18vw, 6rem);
+        }
+
+        .intro {
+          max-width: 28rem;
+          font-size: 0.96rem;
+        }
+
+        .cta {
+          width: 100%;
+          justify-content: space-between;
+          margin-top: 1.5rem;
+        }
+
+        .edition {
+          display: none;
+        }
+
+        .ember-system {
+          top: 38.6vw;
+          left: var(--ember-x);
+        }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        *,
+        *::before,
+        *::after {
+          animation-duration: 0.001ms !important;
+          animation-iteration-count: 1 !important;
+          scroll-behavior: auto !important;
+        }
+
+        .smoke-one {
+          opacity: 0.22;
+          transform: translate(-58%, -46%) rotate(-15deg) scale(0.8);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main class="page">
+      <section class="stage" aria-labelledby="hero-title">
+        <img
+          class="portrait"
+          src="./assets/camus-hero-v1.png"
+          alt="A black-and-white portrait of Albert Camus in a dark overcoat with a lit cigarette"
+        />
+
+        <header class="topbar">
+          <strong>WWCS / 01</strong>
+          <span>Clarity · Measure · Action</span>
+        </header>
+
+        <div class="copy">
+          <p class="kicker">A thought for the present</p>
+          <h1 id="hero-title">What would <em>Camus say?</em></h1>
+          <p class="intro">
+            Bring a real dilemma into the space between clarity, limits, and action.
+            Receive a traceable thought exercise with explicit boundaries.
+          </p>
+          <button class="cta" type="button" data-open-drawer>
+            <span>Describe your dilemma</span>
+            <span aria-hidden="true">↗</span>
+          </button>
+        </div>
+
+        <div class="ember-system" aria-hidden="true">
+          <span class="ember"></span>
+          <span class="smoke smoke-one"></span>
+          <span class="smoke smoke-two"></span>
+          <span class="smoke smoke-three"></span>
+        </div>
+
+        <p class="edition">
+          Prototype / August 2026
+          <strong>Not Camus's words — a traceable interpretation.</strong>
+        </p>
+      </section>
+    </main>
+
+    <button
+      class="scrim"
+      type="button"
+      aria-label="Close question panel"
+      data-scrim
+    ></button>
+    <aside class="drawer" aria-labelledby="question-title" data-drawer data-open="false">
+      <header class="drawer-header">
+        <span>Begin / 01</span>
+        <button class="close" type="button" aria-label="Close" data-close-drawer>
+          ×
+        </button>
+      </header>
+      <div class="form-copy">
+        <h2 id="question-title">What are you facing?</h2>
+        <p>
+          Describe the situation, choice, or conflict in concrete terms. Your question
+          stays in this browser.
+        </p>
+        <label
+          for="question"
+          style="position: absolute; width: 1px; height: 1px; overflow: hidden"
+          >Real-life dilemma</label
+        >
+        <textarea
+          id="question"
+          placeholder="For example: Every day at work feels the same, and I no longer know why I should continue."
+        ></textarea>
+        <button class="submit" type="button">Begin the thought exercise →</button>
+      </div>
+      <p class="drawer-note">
+        Visual prototype. This is a systematic interpretation based on Camus's works and
+        scholarship. It does not represent Camus and does not use his words.
+      </p>
+    </aside>
+
+    <script>
+      const drawer = document.querySelector('[data-drawer]');
+      const scrim = document.querySelector('[data-scrim]');
+      const question = document.querySelector('#question');
+
+      function setDrawer(open) {
+        drawer.dataset.open = String(open);
+        scrim.dataset.open = String(open);
+        document.body.style.overflow = open ? 'hidden' : '';
+        if (open) window.setTimeout(() => question.focus(), 440);
+      }
+
+      document
+        .querySelector('[data-open-drawer]')
+        .addEventListener('click', () => setDrawer(true));
+      document
+        .querySelector('[data-close-drawer]')
+        .addEventListener('click', () => setDrawer(false));
+      scrim.addEventListener('click', () => setDrawer(false));
+      document.addEventListener('keydown', (event) => {
+        if (event.key === 'Escape') setDrawer(false);
+      });
+    </script>
+  </body>
+</html>

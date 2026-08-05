@@ -1,19 +1,27 @@
 import type { SearchIndex } from './types';
+import type { AppLanguage } from '../i18n/language';
 
-let indexPromise: Promise<SearchIndex> | null = null;
+const indexPromises: Partial<Record<AppLanguage, Promise<SearchIndex>>> = {};
 
-export function loadSearchIndex(): Promise<SearchIndex> {
-  indexPromise ??= fetch('/content/search-index.json', {
+export function loadSearchIndex(language: AppLanguage = 'zh'): Promise<SearchIndex> {
+  indexPromises[language] ??= fetch(`/content/search-index.${language}.json`, {
     cache: 'force-cache',
     credentials: 'same-origin',
-  }).then(async (response) => {
-    if (!response.ok) throw new Error(`检索索引加载失败：${response.status}`);
-    const value = (await response.json()) as Partial<SearchIndex>;
-    if (value.version !== 1 || !Array.isArray(value.documents)) {
-      throw new Error('检索索引格式不受支持');
-    }
-    return value as SearchIndex;
-  });
+  })
+    .then(async (response) => {
+      if (!response.ok) {
+        throw new Error(`Search index failed to load: ${response.status}`);
+      }
+      const value = (await response.json()) as Partial<SearchIndex>;
+      if (value.version !== 1 || !Array.isArray(value.documents)) {
+        throw new Error('Unsupported search index format');
+      }
+      return value as SearchIndex;
+    })
+    .catch((error: unknown) => {
+      delete indexPromises[language];
+      throw error;
+    });
 
-  return indexPromise;
+  return indexPromises[language];
 }

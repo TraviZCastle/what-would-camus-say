@@ -2,59 +2,30 @@ import { useEffect, useRef, useState, type FormEvent, type RefObject } from 'rea
 
 import { composeAnswer } from '../composition/compose-answer';
 import type { ComposedAnswer } from '../composition/types';
+import {
+  EXAMPLE_QUESTIONS,
+  MESSAGES,
+  THEME_LABELS,
+  THEME_QUESTIONS,
+  localizeSafetyResponse,
+} from '../i18n/messages';
+import {
+  applyDocumentLanguage,
+  detectQuestionLanguage,
+  getInitialLanguage,
+  type AppLanguage,
+} from '../i18n/language';
 import { loadSearchIndex } from '../retrieval/client';
 import { retrieveThoughtCards } from '../retrieval/retrieve';
 import { normalizeText } from '../retrieval/tokenizer';
 import type { RetrievalResult, SearchIndex } from '../retrieval/types';
 import { routeSafety, type SafetyMatch } from '../safety/route-safety';
-import type { ThemeId } from '../types/content';
 import { MethodPage } from './MethodPage';
 import { RetrievalDebug } from './RetrievalDebug';
 
-const PRODUCT_NOTE =
-  '基于加缪作品与思想研究进行的系统推演，不代表加缪本人，也不是加缪原话。';
-
-const EXAMPLE_QUESTIONS = [
-  '每天重复上班，我不知道为什么还要继续。',
-  '两个选择都有代价，我怎样判断自己愿意承担哪一种？',
-  '面对明显的不公，我怎样反抗才不会复制同样的伤害？',
-  '我总想等一切完成以后再开始生活，这有什么问题？',
-  '一次失败以后，我觉得之前所有努力都失去了价值。',
-  '关系里我总在照顾对方，怎样保留自己的边界？',
-] as const;
-
-const THEME_LABELS: Record<ThemeId, string> = {
-  meaning: '意义',
-  absurd: '荒诞',
-  work: '工作',
-  freedom: '自由',
-  revolt: '反抗',
-  limits: '限度',
-  solidarity: '团结',
-  hope: '希望',
-  happiness: '幸福',
-  mortality: '死亡意识',
-  conscience: '良知',
-  action: '行动',
-};
-
-const THEME_QUESTIONS: Record<ThemeId, string> = {
-  meaning: '当原来的目标消失以后，我该怎样理解生活的价值？',
-  absurd: '每天都在重复同样的生活，我为什么还要继续？',
-  work: '我想离开现在的工作，但现实压力让我不敢行动。',
-  freedom: '两个选择都有代价，我怎样承担自己的决定？',
-  revolt: '面对不公平，我怎样拒绝又不扩大伤害？',
-  limits: '坚持到什么程度会越过不应该牺牲的界线？',
-  solidarity: '我感到没有人理解，怎样寻找不过度暴露自己的支持？',
-  hope: '没有任何保证会变好，我还应该抱有希望吗？',
-  happiness: '我总把生活推迟到以后，怎样重新感受当下？',
-  mortality: '意识到生命有限以后，我不想再无限推迟重要的事。',
-  conscience: '外界期待和我的良知冲突时，我该怎样判断？',
-  action: '我害怕做错，眼下能先做哪一个低风险的步骤？',
-};
-
 type RegularSubmittedResult = {
   kind: 'answer';
+  language: AppLanguage;
   question: string;
   retrieval: RetrievalResult;
   answer: ComposedAnswer | null;
@@ -62,28 +33,29 @@ type RegularSubmittedResult = {
 
 type SafetySubmittedResult = {
   kind: 'safety';
+  language: AppLanguage;
   question: string;
   safety: SafetyMatch;
 };
 
 type SubmittedResult = RegularSubmittedResult | SafetySubmittedResult;
-
 type FeedbackValue = 'helpful' | 'not-helpful';
 
 function characterLength(value: string): number {
   return Array.from(value).length;
 }
 
-function validateQuestion(value: string): string | null {
+function validateQuestion(value: string, language: AppLanguage): string | null {
+  const copy = MESSAGES[language].errors;
   const trimmed = value.trim();
   const length = characterLength(trimmed);
-  if (length === 0) return '请先写下一个具体的现实问题。';
-  if (length < 10) return '请至少写 10 个字符，补充你的处境、选择或冲突。';
-  if (length > 300) return '问题请控制在 300 个字符以内，只保留最重要的处境与冲突。';
+  if (length === 0) return copy.empty;
+  if (length < 10) return copy.short;
+  if (length > 300) return copy.long;
 
   const meaningfulCharacters = Array.from(normalizeText(trimmed).replace(/\s/g, ''));
   if (meaningfulCharacters.length < 4 || new Set(meaningfulCharacters).size < 2) {
-    return '暂时无法理解这个问题，请换成一句完整、具体的描述。';
+    return copy.unclear;
   }
   return null;
 }
@@ -92,6 +64,7 @@ export function App() {
   const [hash, setHash] = useState(
     typeof window === 'undefined' ? '' : window.location.hash,
   );
+  const [language, setLanguage] = useState<AppLanguage>(getInitialLanguage);
 
   useEffect(() => {
     const updateHash = () => setHash(window.location.hash);
@@ -99,78 +72,200 @@ export function App() {
     return () => window.removeEventListener('hashchange', updateHash);
   }, []);
 
+  useEffect(() => applyDocumentLanguage(language), [language]);
+
   const showRetrievalDebug = import.meta.env.DEV && hash === '#retrieval-debug';
 
   if (showRetrievalDebug) return <RetrievalDebug />;
-  if (hash === '#method') return <MethodPage />;
-  return <ProductApp />;
+  if (hash === '#method') return <MethodPage language={language} />;
+  return <ProductApp language={language} onLanguageChange={setLanguage} />;
 }
 
-function ProductApp() {
-  const [index, setIndex] = useState<SearchIndex | null>(null);
-  const [indexError, setIndexError] = useState('');
+type ProductAppProps = {
+  language: AppLanguage;
+  onLanguageChange: (language: AppLanguage) => void;
+};
+
+function ProductApp({ language, onLanguageChange }: ProductAppProps) {
+  const [indexes, setIndexes] = useState<Partial<Record<AppLanguage, SearchIndex>>>({});
+  const [indexErrors, setIndexErrors] = useState<Partial<Record<AppLanguage, string>>>(
+    {},
+  );
   const [question, setQuestion] = useState('');
   const [inputError, setInputError] = useState('');
   const [submitted, setSubmitted] = useState<SubmittedResult | null>(null);
   const [feedback, setFeedback] = useState<FeedbackValue | null>(null);
+  const [drawerOpen, setDrawerOpen] = useState(false);
   const questionRef = useRef<HTMLTextAreaElement>(null);
+  const drawerRef = useRef<HTMLElement>(null);
+  const openDrawerRef = useRef<HTMLButtonElement>(null);
   const resultHeadingRef = useRef<HTMLHeadingElement>(null);
+  const copy = MESSAGES[language];
+  const index = indexes[language] ?? null;
+  const indexError = indexErrors[language] ?? '';
 
   useEffect(() => {
     let active = true;
-    loadSearchIndex()
-      .then((loadedIndex) => {
-        if (active) setIndex(loadedIndex);
-      })
-      .catch((error: unknown) => {
-        if (active) {
-          setIndexError(
-            error instanceof Error ? error.message : '思想索引加载失败，请刷新页面。',
-          );
-        }
-      });
+    if (!indexes[language] && !indexErrors[language]) {
+      loadSearchIndex(language)
+        .then((loadedIndex) => {
+          if (active) {
+            setIndexes((current) => ({ ...current, [language]: loadedIndex }));
+          }
+        })
+        .catch((error: unknown) => {
+          if (active) {
+            setIndexErrors((current) => ({
+              ...current,
+              [language]:
+                error instanceof Error ? error.message : copy.errors.indexFailed,
+            }));
+          }
+        });
+    }
     return () => {
       active = false;
     };
-  }, []);
+  }, [copy.errors.indexFailed, indexErrors, indexes, language]);
+
+  useEffect(() => {
+    const otherLanguage: AppLanguage = language === 'zh' ? 'en' : 'zh';
+    if (indexes[otherLanguage] || indexErrors[otherLanguage]) return;
+
+    let active = true;
+    const preload = () => {
+      loadSearchIndex(otherLanguage)
+        .then((loadedIndex) => {
+          if (active) {
+            setIndexes((current) => ({ ...current, [otherLanguage]: loadedIndex }));
+          }
+        })
+        .catch(() => {
+          // A failed background preload is retried when that language becomes active.
+        });
+    };
+
+    const windowWithIdle = window as Window & {
+      requestIdleCallback?: (callback: () => void) => number;
+      cancelIdleCallback?: (id: number) => void;
+    };
+    const idleId = windowWithIdle.requestIdleCallback?.(preload);
+    const timeoutId = idleId === undefined ? window.setTimeout(preload, 700) : undefined;
+
+    return () => {
+      active = false;
+      if (idleId !== undefined) windowWithIdle.cancelIdleCallback?.(idleId);
+      if (timeoutId !== undefined) window.clearTimeout(timeoutId);
+    };
+  }, [indexErrors, indexes, language]);
 
   useEffect(() => {
     if (submitted) resultHeadingRef.current?.focus();
   }, [submitted]);
 
-  function chooseQuestion(value: string) {
+  useEffect(() => {
+    if (!drawerOpen) return;
+    const previousOverflow = document.body.style.overflow;
+    document.body.style.overflow = 'hidden';
+    const frame = requestAnimationFrame(() => questionRef.current?.focus());
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') {
+        setDrawerOpen(false);
+        requestAnimationFrame(() => openDrawerRef.current?.focus());
+      }
+      if (event.key === 'Tab' && drawerRef.current) {
+        const focusable = Array.from(
+          drawerRef.current.querySelectorAll<HTMLElement>(
+            'button:not(:disabled), textarea:not(:disabled), summary, a[href]',
+          ),
+        ).filter((element) => element.offsetParent !== null);
+        const first = focusable[0];
+        const last = focusable.at(-1);
+        if (event.shiftKey && document.activeElement === first) {
+          event.preventDefault();
+          last?.focus();
+        } else if (!event.shiftKey && document.activeElement === last) {
+          event.preventDefault();
+          first?.focus();
+        }
+      }
+    };
+    document.addEventListener('keydown', handleKeyDown);
+    return () => {
+      cancelAnimationFrame(frame);
+      document.body.style.overflow = previousOverflow;
+      document.removeEventListener('keydown', handleKeyDown);
+    };
+  }, [drawerOpen]);
+
+  function updateQuestion(value: string) {
     setQuestion(value);
-    setInputError('');
+    if (inputError) setInputError('');
+    const detected = detectQuestionLanguage(value, language);
+    if (detected !== language) onLanguageChange(detected);
+  }
+
+  function openDrawer(nextQuestion?: string) {
+    if (nextQuestion !== undefined) updateQuestion(nextQuestion);
+    setDrawerOpen(true);
+  }
+
+  function closeDrawer() {
+    setDrawerOpen(false);
+    requestAnimationFrame(() => openDrawerRef.current?.focus());
+  }
+
+  function chooseQuestion(value: string) {
+    updateQuestion(value);
     requestAnimationFrame(() => questionRef.current?.focus());
   }
 
   function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
-    const validationError = validateQuestion(question);
+    const submittedLanguage = detectQuestionLanguage(question, language);
+    if (submittedLanguage !== language) {
+      onLanguageChange(submittedLanguage);
+    }
+    const validationError = validateQuestion(question, submittedLanguage);
     if (validationError) {
       setInputError(validationError);
       questionRef.current?.focus();
       return;
     }
+
     const trimmedQuestion = question.trim();
     const safety = routeSafety(trimmedQuestion);
     if (safety) {
+      setDrawerOpen(false);
       setFeedback(null);
-      setSubmitted({ kind: 'safety', question: trimmedQuestion, safety });
+      setSubmitted({
+        kind: 'safety',
+        language: submittedLanguage,
+        question: trimmedQuestion,
+        safety,
+      });
       return;
     }
 
-    if (!index) {
-      setInputError(indexError || '思想索引仍在加载，请稍后再试。');
+    const submittedIndex = indexes[submittedLanguage];
+    if (!submittedIndex) {
+      setInputError(indexErrors[submittedLanguage] || copy.errors.indexLoading);
       return;
     }
 
-    const retrieval = retrieveThoughtCards(index, trimmedQuestion);
+    const retrieval = retrieveThoughtCards(submittedIndex, trimmedQuestion);
     const answer = retrieval.mainCard
-      ? composeAnswer(trimmedQuestion, retrieval.mainCard)
+      ? composeAnswer(trimmedQuestion, retrieval.mainCard, submittedLanguage)
       : null;
+    setDrawerOpen(false);
     setFeedback(null);
-    setSubmitted({ kind: 'answer', question: trimmedQuestion, retrieval, answer });
+    setSubmitted({
+      kind: 'answer',
+      language: submittedLanguage,
+      question: trimmedQuestion,
+      retrieval,
+      answer,
+    });
   }
 
   function reset(nextQuestion = '') {
@@ -178,7 +273,11 @@ function ProductApp() {
     setQuestion(nextQuestion);
     setInputError('');
     setFeedback(null);
-    requestAnimationFrame(() => questionRef.current?.focus());
+    if (nextQuestion) {
+      const detected = detectQuestionLanguage(nextQuestion, language);
+      if (detected !== language) onLanguageChange(detected);
+    }
+    setDrawerOpen(true);
   }
 
   function recordFeedback(value: FeedbackValue) {
@@ -211,88 +310,143 @@ function ProductApp() {
   }
 
   return (
-    <main className="shell product-shell">
-      <div className="sun" aria-hidden="true" />
-      <section className="intro" aria-labelledby="page-title">
-        <p className="eyebrow">从加缪思想看</p>
-        <h1 id="page-title">
-          What Would
-          <span>Camus Say?</span>
-        </h1>
-        <p className="lead">描述一个现实困境，获得一次有来源、有边界的思想推演。</p>
-        <p className="transparency-note">{PRODUCT_NOTE}</p>
-      </section>
+    <main className="hero-page">
+      <section className="hero-stage" aria-labelledby="hero-title" inert={drawerOpen}>
+        <img
+          className="hero-portrait"
+          src="/assets/camus-hero-v1.jpg"
+          alt={copy.heroAlt}
+        />
+        <header className="hero-topbar">
+          <strong>WWCS / 01</strong>
+          <span>{copy.principles}</span>
+        </header>
 
-      <section className="question-panel" aria-labelledby="question-title">
-        <div>
-          <p className="panel-number" aria-hidden="true">
-            01
-          </p>
-          <h2 id="question-title">你正在面对什么？</h2>
-          <p>写下具体处境、选择或冲突。每次提交都是一次独立推演。</p>
-        </div>
-
-        <form className="question-form" onSubmit={handleSubmit} noValidate>
-          <label className="sr-only" htmlFor="question">
-            现实问题
-          </label>
-          <textarea
-            ref={questionRef}
-            id="question"
-            value={question}
-            onChange={(event) => {
-              setQuestion(event.target.value);
-              if (inputError) setInputError('');
-            }}
-            aria-describedby="question-help question-error"
-            aria-invalid={Boolean(inputError)}
-            placeholder="例如：每天重复上班，我不知道为什么还要继续。"
-            rows={6}
-          />
-          <div className="form-meta">
-            <span id="question-help">10–300 个字符</span>
-            <span className={characterLength(question.trim()) > 300 ? 'count-error' : ''}>
-              {characterLength(question.trim())}/300
-            </span>
-          </div>
-          <p id="question-error" className="form-error" role="alert">
-            {inputError || indexError}
-          </p>
+        <div className="hero-copy">
+          <p className="hero-kicker">{copy.heroKicker}</p>
+          <h1 id="hero-title">
+            What would <em>Camus say?</em>
+          </h1>
+          <p className="hero-intro">{copy.heroIntro}</p>
           <button
-            className="primary-button"
-            type="submit"
-            disabled={!index && !indexError}
+            ref={openDrawerRef}
+            className="hero-cta"
+            type="button"
+            onClick={() => openDrawer()}
+            aria-haspopup="dialog"
+            aria-expanded={drawerOpen}
           >
-            {index ? '开始思想推演' : indexError ? '索引加载失败' : '正在准备思想索引…'}
+            <span>{copy.heroAction}</span>
+            <span aria-hidden="true">↗</span>
           </button>
-        </form>
-
-        <div className="examples" aria-label="示例问题">
-          <p>也可以从这里开始</p>
-          <div>
-            {EXAMPLE_QUESTIONS.map((example) => (
-              <button key={example} type="button" onClick={() => chooseQuestion(example)}>
-                {example}
-              </button>
-            ))}
-          </div>
         </div>
 
-        <details className="how-it-works">
-          <summary>它如何工作</summary>
-          <p>安全检查优先；随后在浏览器内检索已审核卡片，并用固定结构拼装回答。</p>
-          <a href="#method">查看完整方法、来源与隐私说明 →</a>
-        </details>
+        <div className="ember-system" aria-hidden="true">
+          <span className="ember" />
+          <span className="smoke smoke-one" />
+          <span className="smoke smoke-two" />
+          <span className="smoke smoke-three" />
+        </div>
+
+        <p className="hero-edition">
+          {copy.edition}
+          <strong>{copy.productNote}</strong>
+        </p>
       </section>
 
-      <footer>
-        <span>清醒</span>
-        <span aria-hidden="true">·</span>
-        <span>限度</span>
-        <span aria-hidden="true">·</span>
-        <span>行动</span>
-        <a href="#method">方法与边界</a>
-      </footer>
+      <button
+        className="drawer-scrim"
+        type="button"
+        aria-label={copy.closePanel}
+        data-open={drawerOpen}
+        onClick={closeDrawer}
+        tabIndex={-1}
+      />
+      <aside
+        ref={drawerRef}
+        className="question-drawer"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="question-title"
+        data-open={drawerOpen}
+        inert={!drawerOpen}
+      >
+        <header className="drawer-header">
+          <span>{copy.drawerLabel}</span>
+          <span className="auto-language" aria-live="polite">
+            {language === 'zh' ? '自动识别：中文' : 'Auto-detected: English'}
+          </span>
+          <button
+            className="drawer-close"
+            type="button"
+            onClick={closeDrawer}
+            aria-label={copy.closePanel}
+          >
+            ×
+          </button>
+        </header>
+
+        <div className="drawer-content">
+          <h2 id="question-title">{copy.questionTitle}</h2>
+          <p>{copy.questionIntro}</p>
+          <form className="question-form" onSubmit={handleSubmit} noValidate>
+            <label className="sr-only" htmlFor="question">
+              {copy.questionLabel}
+            </label>
+            <textarea
+              ref={questionRef}
+              id="question"
+              value={question}
+              onChange={(event) => updateQuestion(event.target.value)}
+              aria-describedby="question-help question-error"
+              aria-invalid={Boolean(inputError)}
+              placeholder={copy.placeholder}
+              rows={6}
+            />
+            <div className="form-meta">
+              <span id="question-help">{copy.countHint}</span>
+              <span
+                className={characterLength(question.trim()) > 300 ? 'count-error' : ''}
+              >
+                {characterLength(question.trim())}/300
+              </span>
+            </div>
+            <p id="question-error" className="form-error" role="alert">
+              {inputError || indexError}
+            </p>
+            <button
+              className="primary-button"
+              type="submit"
+              disabled={!index && !indexError}
+            >
+              {index ? copy.start : indexError ? copy.loadFailed : copy.loading}
+            </button>
+          </form>
+
+          <div className="examples" aria-label={copy.examplesLabel}>
+            <p>{copy.examplesLabel}</p>
+            <div>
+              {EXAMPLE_QUESTIONS[language].map((example) => (
+                <button
+                  key={example}
+                  type="button"
+                  onClick={() => chooseQuestion(example)}
+                >
+                  {example}
+                </button>
+              ))}
+            </div>
+          </div>
+
+          <details className="how-it-works">
+            <summary>{copy.howTitle}</summary>
+            <p>{copy.howBody}</p>
+            <a href="#method">{copy.methodLink}</a>
+          </details>
+        </div>
+
+        <p className="drawer-note">{copy.transparency}</p>
+      </aside>
     </main>
   );
 }
@@ -312,15 +466,16 @@ type SafetyViewProps = {
 };
 
 function SafetyView({ submitted, resultHeadingRef, onReset }: SafetyViewProps) {
-  const { response } = submitted.safety;
+  const copy = MESSAGES[submitted.language];
+  const response = localizeSafetyResponse(submitted.safety.response, submitted.language);
 
   return (
     <main className={`safety-shell safety-${response.urgency}`}>
       <header className="safety-header">
         <button className="text-button" type="button" onClick={() => onReset()}>
-          ← 返回首页
+          {copy.back}
         </button>
-        <p className="eyebrow">安全优先 · 此次未执行哲学检索</p>
+        <p className="eyebrow">{copy.safetyKicker}</p>
         <h1 ref={resultHeadingRef} tabIndex={-1}>
           {response.title}
         </h1>
@@ -329,11 +484,13 @@ function SafetyView({ submitted, resultHeadingRef, onReset }: SafetyViewProps) {
 
       <section className="safety-actions" aria-labelledby="safety-actions-title">
         <p className="panel-number" aria-hidden="true">
-          现在
+          {copy.safetyNow}
         </p>
         <div>
           <h2 id="safety-actions-title">
-            {response.urgency === 'crisis' ? '请立即做这些事' : '建议这样处理'}
+            {response.urgency === 'crisis'
+              ? copy.safetyCrisisTitle
+              : copy.safetyBoundaryTitle}
           </h2>
           <ol>
             {response.actions.map((action) => (
@@ -344,9 +501,7 @@ function SafetyView({ submitted, resultHeadingRef, onReset }: SafetyViewProps) {
       </section>
 
       <p className="safety-closing">{response.closing}</p>
-      <p className="result-disclaimer">
-        本页只提供安全分流信息，不提供医疗、法律或财务专业服务；如有即时危险，请联系当地紧急服务。
-      </p>
+      <p className="result-disclaimer">{copy.safetyDisclaimer}</p>
     </main>
   );
 }
@@ -358,24 +513,26 @@ function ResultView({
   onFeedback,
   onReset,
 }: ResultViewProps) {
-  const { retrieval, answer } = submitted;
+  const { retrieval, answer, language } = submitted;
+  const copy = MESSAGES[language];
   const topCandidate = retrieval.debug.ranking[0];
+  const labels = THEME_LABELS[language];
 
   return (
     <main className="result-shell">
       <header className="result-header">
         <button className="text-button" type="button" onClick={() => onReset()}>
-          ← 重新提问
+          {copy.back}
         </button>
-        <p className="eyebrow">一次独立的思想推演</p>
+        <p className="eyebrow">{copy.resultKicker}</p>
         <h1 ref={resultHeadingRef} tabIndex={-1}>
-          从加缪思想看
+          {copy.resultTitle}
         </h1>
         <p className="submitted-question">{submitted.question}</p>
       </header>
 
       {answer ? (
-        <article className="answer-card" aria-label="思想推演结果">
+        <article className="answer-card" aria-label={copy.answerLabel}>
           {answer.sections.map((section, index) => (
             <section
               key={section.kind}
@@ -388,13 +545,12 @@ function ResultView({
               </div>
             </section>
           ))}
-
           <section className="sources-section" aria-labelledby="sources-title">
             <p className="panel-number" aria-hidden="true">
               06
             </p>
             <div>
-              <h2 id="sources-title">思想来源</h2>
+              <h2 id="sources-title">{copy.sourceTitle}</h2>
               <ul>
                 {answer.sources.map((source) => (
                   <li key={`${source.cardId}-${source.work}-${source.section ?? ''}`}>
@@ -418,39 +574,50 @@ function ResultView({
             —
           </p>
           <div>
-            <h2 id="no-result-title">暂未找到足够贴切的思想依据</h2>
-            <p>请补充更具体的处境、你正在权衡的选择，或最难接受的冲突。</p>
+            <h2 id="no-result-title">{copy.noResultTitle}</h2>
+            <p>{copy.noResultBody}</p>
           </div>
         </section>
       )}
 
       <details className="explanation-details">
-        <summary>为什么找到这些思想</summary>
+        <summary>{copy.whyTitle}</summary>
         {topCandidate ? (
-          <p>
-            问题与“{THEME_LABELS[topCandidate.card.theme]}”主题相关，命中了
-            {Object.keys(topCandidate.fieldHits).join('、') || '思想内容'}字段
-            {retrieval.debug.matchedSynonymTerms.length > 0
-              ? `，并使用了受控扩展词：${retrieval.debug.matchedSynonymTerms.join('、')}`
-              : ''}
-            。
-          </p>
+          language === 'zh' ? (
+            <p>
+              问题与“{labels[topCandidate.card.theme]}”主题相关，命中了
+              {Object.keys(topCandidate.fieldHits).join('、') || '思想内容'}字段
+              {retrieval.debug.matchedSynonymTerms.length > 0
+                ? `，并使用了受控扩展词：${retrieval.debug.matchedSynonymTerms.join('、')}`
+                : ''}
+              。
+            </p>
+          ) : (
+            <p>
+              The question relates to “{labels[topCandidate.card.theme]}” and matched the{' '}
+              {Object.keys(topCandidate.fieldHits).join(', ') || 'thought content'} fields
+              {retrieval.debug.matchedSynonymTerms.length > 0
+                ? `, using controlled expansions for: ${retrieval.debug.matchedSynonymTerms.join(', ')}`
+                : ''}
+              .
+            </p>
+          )
         ) : (
-          <p>当前问题没有命中足够具体的主题词、场景或张力。</p>
+          <p>{copy.whyNoResult}</p>
         )}
       </details>
 
       {retrieval.closestThemes.length > 0 ? (
         <section className="related-themes" aria-labelledby="related-title">
-          <h2 id="related-title">相关主题</h2>
+          <h2 id="related-title">{copy.relatedTitle}</h2>
           <div>
             {retrieval.closestThemes.map((theme) => (
               <button
                 key={theme}
                 type="button"
-                onClick={() => onReset(THEME_QUESTIONS[theme])}
+                onClick={() => onReset(THEME_QUESTIONS[language][theme])}
               >
-                {THEME_LABELS[theme]}
+                {labels[theme]}
               </button>
             ))}
           </div>
@@ -459,30 +626,28 @@ function ResultView({
 
       {answer ? (
         <section className="feedback" aria-labelledby="feedback-title">
-          <h2 id="feedback-title">这次推演有帮助吗？</h2>
+          <h2 id="feedback-title">{copy.feedbackTitle}</h2>
           <div>
             <button
               type="button"
               aria-pressed={feedback === 'helpful'}
               onClick={() => onFeedback('helpful')}
             >
-              有帮助
+              {copy.helpful}
             </button>
             <button
               type="button"
               aria-pressed={feedback === 'not-helpful'}
               onClick={() => onFeedback('not-helpful')}
             >
-              没有帮助
+              {copy.notHelpful}
             </button>
           </div>
-          {feedback ? (
-            <p role="status">已保存在这个浏览器中，不包含你的问题文本。</p>
-          ) : null}
+          {feedback ? <p role="status">{copy.saved}</p> : null}
         </section>
       ) : null}
 
-      <p className="result-disclaimer">{PRODUCT_NOTE}</p>
+      <p className="result-disclaimer">{copy.transparency}</p>
     </main>
   );
 }

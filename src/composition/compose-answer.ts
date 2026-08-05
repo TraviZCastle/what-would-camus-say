@@ -1,4 +1,5 @@
 import type { ThoughtCard } from '../types/content';
+import type { AppLanguage } from '../i18n/language';
 import type { AnswerSection, AnswerSource, ComposedAnswer } from './types';
 
 function stableIndex(seed: string, length: number): number {
@@ -39,29 +40,37 @@ function sectionCharacterCount(sections: readonly AnswerSection[]): number {
   return sections.reduce((total, section) => total + Array.from(section.text).length, 0);
 }
 
-export function composeAnswer(question: string, mainCard: ThoughtCard): ComposedAnswer {
+export function composeAnswer(
+  question: string,
+  mainCard: ThoughtCard,
+  language: AppLanguage = 'zh',
+): ComposedAnswer {
   const seed = `${mainCard.id}|${question}`;
   const tensions = mainCard.tensions;
   const firstTension =
-    tensions[stableIndex(`${seed}|first`, tensions.length)] ?? '现实需要';
+    tensions[stableIndex(`${seed}|first`, tensions.length)] ??
+    (language === 'zh' ? '现实需要' : 'material reality');
   const alternativeTensions = tensions.filter((tension) => tension !== firstTension);
   const secondTension =
     alternativeTensions[stableIndex(`${seed}|second`, alternativeTensions.length)] ??
     mainCard.secondaryThemes[0] ??
-    '个人判断';
+    (language === 'zh' ? '个人判断' : 'personal judgment');
   const perspectiveBlock = selectBlock(mainCard.answerBlocks.perspective, `${seed}|view`);
   let perspective = `${perspectiveBlock} ${mainCard.explanation}`;
 
   const sections: AnswerSection[] = [
     {
       kind: 'dilemma',
-      label: '看见困境',
-      text: `你提出的是：${questionFocus(question)}。其中不只是一个表面选择，也包含「${firstTension}」与「${secondTension}」之间的冲突。`,
+      label: language === 'zh' ? '看见困境' : 'The dilemma',
+      text:
+        language === 'zh'
+          ? `你提出的是：${questionFocus(question)}。其中不只是一个表面选择，也包含「${firstTension}」与「${secondTension}」之间的冲突。`
+          : `Your question is: ${questionFocus(question)}. Beneath the immediate decision is a tension between “${firstTension}” and “${secondTension}.”`,
       traces: [{ cardId: mainCard.id, fields: ['tensions'] }],
     },
     {
       kind: 'perspective',
-      label: '加缪视角',
+      label: language === 'zh' ? '加缪视角' : 'A Camusian perspective',
       text: perspective,
       traces: [
         {
@@ -72,19 +81,19 @@ export function composeAnswer(question: string, mainCard: ThoughtCard): Composed
     },
     {
       kind: 'boundary',
-      label: '必要边界',
+      label: language === 'zh' ? '必要边界' : 'A necessary limit',
       text: selectBlock(mainCard.answerBlocks.boundary, `${seed}|boundary`),
       traces: [{ cardId: mainCard.id, fields: ['answerBlocks.boundary'] }],
     },
     {
       kind: 'action',
-      label: '现实一步',
+      label: language === 'zh' ? '现实一步' : 'One practical step',
       text: selectBlock(mainCard.answerBlocks.actions, `${seed}|action`),
       traces: [{ cardId: mainCard.id, fields: ['answerBlocks.actions'] }],
     },
     {
       kind: 'reflection',
-      label: '留给你的问题',
+      label: language === 'zh' ? '留给你的问题' : 'A question to keep',
       text: selectBlock(mainCard.answerBlocks.reflectionQuestions, `${seed}|reflection`),
       traces: [{ cardId: mainCard.id, fields: ['answerBlocks.reflectionQuestions'] }],
     },

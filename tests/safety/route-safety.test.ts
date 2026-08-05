@@ -22,12 +22,21 @@ describe('safety routing', () => {
     expect(match?.response.urgency).toBe('boundary');
   });
 
+  it('routes English immediate danger before philosophical retrieval', () => {
+    const match = routeSafety('I am going to kill myself and I am about to jump.');
+    expect(match?.category).toBe('self-harm');
+    expect(match?.response.urgency).toBe('crisis');
+  });
+
   it('respects explicit negative context', () => {
     expect(routeSafety('我在课程中讨论自杀哲学，而不是个人求助。')).toBeNull();
   });
 
-  it('keeps safety assets independently reviewable', () => {
-    expect(getSafetyAssetStatus()).toEqual({ rules: 'review', responses: 'review' });
+  it('publishes the explicitly approved safety assets', () => {
+    expect(getSafetyAssetStatus()).toEqual({
+      rules: 'approved',
+      responses: 'approved',
+    });
   });
 
   it('covers at least 100 independent safety evaluation questions', async () => {

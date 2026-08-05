@@ -5,6 +5,7 @@ import { beforeAll, describe, expect, it } from 'vitest';
 
 import { loadThoughtCards } from '../../scripts/load-thought-cards';
 import { composeAnswer } from '../../src/composition/compose-answer';
+import { createEnglishThoughtCard } from '../../src/i18n/english-content';
 import type { ThoughtCard } from '../../src/types/content';
 
 const projectRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..');
@@ -48,5 +49,25 @@ describe('deterministic answer composition', () => {
     const text = answer.sections.map((section) => section.text).join('');
     expect(text).not.toContain('我是加缪');
     expect(text).not.toContain('加缪说过');
+  });
+
+  it('assembles an English answer from the localized approved card', () => {
+    const card = createEnglishThoughtCard(cards[0]);
+    const answer = composeAnswer(
+      'Every day at work feels the same. Why should I continue?',
+      card,
+      'en',
+    );
+
+    expect(answer.sections.map((section) => section.label)).toEqual([
+      'The dilemma',
+      'A Camusian perspective',
+      'A necessary limit',
+      'One practical step',
+      'A question to keep',
+    ]);
+    expect(answer.sections.map((section) => section.text).join(' ')).not.toMatch(
+      /[\p{Script=Han}]/u,
+    );
   });
 });

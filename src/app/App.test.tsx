@@ -4,13 +4,16 @@ import { describe, expect, it } from 'vitest';
 import { App } from './App';
 
 describe('App', () => {
-  it('renders the product identity and transparency statement', () => {
+  it('renders the approved black hero identity and automatic-language question panel', () => {
     const html = renderToStaticMarkup(<App />);
 
-    expect(html).toContain('What Would');
-    expect(html).toContain('Camus Say?');
-    expect(html).toContain('不代表加缪本人，也不是加缪原话');
-    expect(html).toContain('你正在面对什么');
-    expect(html).toContain('正在准备思想索引');
+    expect(html).toContain('What would');
+    expect(html).toContain('Camus say?');
+    expect(html).toContain('It does not represent Camus');
+    expect(html).toContain('What are you facing?');
+    expect(html).toContain('Preparing the thought index');
+    expect(html).toContain('/assets/camus-hero-v1.jpg');
+    expect(html).toContain('Auto-detected: English');
+    expect(html).not.toContain('type="button">中文</button>');
   });
 });

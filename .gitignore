@@ -11,7 +11,7 @@ out/
 coverage/
 playwright-report/
 test-results/
-public/content/search-index.json
+public/content/search-index*.json
 
 # Local tooling and deployment metadata
 .vercel/

@@ -1,7 +1,7 @@
 {
   "version": 1,
-  "status": "review",
-  "reviewer": "ai-draft-agent",
+  "status": "approved",
+  "reviewer": "PlainTerranThomas",
   "reviewedAt": "2026-08-04",
   "rules": [
     {
@@ -28,7 +28,15 @@
         "写好了遗书",
         "从楼上跳下去",
         "用刀伤害自己",
-        "马上要自杀"
+        "马上要自杀",
+        "i want to die",
+        "i want to kill myself",
+        "i am going to kill myself",
+        "i plan to end my life",
+        "i am about to jump",
+        "i took an overdose",
+        "i am hurting myself now",
+        "i wrote a suicide note"
       ],
       "negativeSignals": [
         "电影里有人自杀",
@@ -37,7 +45,11 @@
         "论文研究自杀",
         "新闻报道自杀",
         "没有自杀想法",
-        "我不想死"
+        "我不想死",
+        "a movie about suicide",
+        "research about suicide",
+        "i do not want to die",
+        "i have no suicidal thoughts"
       ],
       "responseKey": "crisis-self-harm"
     },
@@ -65,7 +77,15 @@
         "很想伤人",
         "带刀去找他",
         "正在施暴",
-        "马上动手"
+        "马上动手",
+        "someone is hitting me now",
+        "someone wants to kill me",
+        "i am going to hurt someone",
+        "i plan to attack them",
+        "i am going to kill him",
+        "i am going to kill her",
+        "they are threatening me with a knife",
+        "they are threatening me with a gun"
       ],
       "negativeSignals": [
         "小说里的暴力",
@@ -73,7 +93,10 @@
         "电影里的打斗",
         "游戏里杀人",
         "文学中的报复",
-        "没有伤害任何人的打算"
+        "没有伤害任何人的打算",
+        "violence in a movie",
+        "violence in a novel",
+        "i do not plan to hurt anyone"
       ],
       "responseKey": "crisis-violence"
     },
@@ -96,9 +119,19 @@
         "未成年孩子遭到性侵",
         "威胁我的孩子",
         "孩子被绑架",
-        "婴儿被遗弃"
+        "婴儿被遗弃",
+        "a child is missing",
+        "a child is being hurt",
+        "a minor is in immediate danger",
+        "a child has been kidnapped"
       ],
-      "negativeSignals": ["电影里的孩子失踪", "小说中的儿童", "演练儿童走失"],
+      "negativeSignals": [
+        "电影里的孩子失踪",
+        "小说中的儿童",
+        "演练儿童走失",
+        "a missing child in a movie",
+        "a child in a novel"
+      ],
       "responseKey": "crisis-minor-danger"
     },
     {
@@ -120,13 +153,21 @@
         "转安全账户",
         "投资群催我追加",
         "不让我挂电话并转账",
-        "索要赎金"
+        "索要赎金",
+        "i am being forced to transfer money",
+        "a scammer wants my verification code",
+        "someone is extorting me",
+        "my account is being drained now",
+        "they are demanding a ransom"
       ],
       "negativeSignals": [
         "担心普通消费不划算",
         "小说里的勒索",
         "反诈骗演练",
-        "已经报警处理完毕"
+        "已经报警处理完毕",
+        "fraud in a novel",
+        "an anti fraud exercise",
+        "the police already handled it"
       ],
       "responseKey": "crisis-fraud-coercion"
     },
@@ -149,9 +190,23 @@
         "一侧肢体无力",
         "吞下毒物",
         "从高处坠落",
-        "心跳停止"
+        "心跳停止",
+        "i cannot breathe",
+        "severe chest pain",
+        "heavy bleeding",
+        "someone is unconscious",
+        "a severe allergic reaction",
+        "i swallowed poison",
+        "my lips are turning blue"
       ],
-      "negativeSignals": ["电影里的急救", "急救课程练习", "以前曾经胸痛"],
+      "negativeSignals": [
+        "电影里的急救",
+        "急救课程练习",
+        "以前曾经胸痛",
+        "first aid in a movie",
+        "a first aid class",
+        "i had chest pain years ago"
+      ],
       "responseKey": "crisis-medical-emergency"
     },
     {
@@ -173,9 +228,22 @@
         "避税不被查",
         "合同一定有效吗",
         "必须马上停药吗",
-        "准确预测股价"
+        "准确预测股价",
+        "diagnose me",
+        "tell me exactly what disease i have",
+        "which medicine must i take",
+        "guarantee i will win the lawsuit",
+        "guarantee this investment",
+        "which stock is guaranteed to rise"
       ],
-      "negativeSignals": ["医生已经给我诊断", "律师已经确认", "不需要保证收益"],
+      "negativeSignals": [
+        "医生已经给我诊断",
+        "律师已经确认",
+        "不需要保证收益",
+        "my doctor already diagnosed me",
+        "my lawyer already confirmed it",
+        "i do not need a guaranteed return"
+      ],
       "responseKey": "boundary-professional-advice"
     }
   ]

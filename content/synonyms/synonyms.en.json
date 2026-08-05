@@ -1,0 +1,133 @@
+{
+  "version": 1,
+  "status": "approved",
+  "reviewer": "PlainTerranThomas",
+  "reviewedAt": "2026-08-05",
+  "entries": [
+    {
+      "term": "meaningless",
+      "expansions": ["meaning", "purpose", "emptiness", "why continue"],
+      "themes": ["meaning", "absurd"]
+    },
+    {
+      "term": "purpose",
+      "expansions": ["meaning", "value", "worth", "direction"],
+      "themes": ["meaning"]
+    },
+    {
+      "term": "job",
+      "expansions": ["work", "career", "labor", "workplace"],
+      "themes": ["work"]
+    },
+    {
+      "term": "quit",
+      "expansions": ["leave job", "change career", "stay or leave"],
+      "themes": ["work", "freedom", "action"]
+    },
+    {
+      "term": "burnout",
+      "expansions": ["overwork", "exhaustion", "work stress", "limit"],
+      "themes": ["work", "limits"]
+    },
+    {
+      "term": "choose",
+      "expansions": ["choice", "decision", "responsibility", "consequence"],
+      "themes": ["freedom", "action"]
+    },
+    {
+      "term": "regret",
+      "expansions": ["choice", "decision", "consequence", "fear"],
+      "themes": ["freedom"]
+    },
+    {
+      "term": "unfair",
+      "expansions": ["injustice", "discrimination", "resist", "refuse"],
+      "themes": ["revolt"]
+    },
+    {
+      "term": "resist",
+      "expansions": ["revolt", "refuse", "say no", "protest"],
+      "themes": ["revolt", "limits"]
+    },
+    {
+      "term": "boundary",
+      "expansions": ["limit", "line", "capacity", "say no"],
+      "themes": ["limits"]
+    },
+    {
+      "term": "compromise",
+      "expansions": ["concession", "limit", "conscience", "tradeoff"],
+      "themes": ["limits", "conscience"]
+    },
+    {
+      "term": "lonely",
+      "expansions": ["loneliness", "isolated", "no one understands", "support"],
+      "themes": ["solidarity"]
+    },
+    {
+      "term": "help",
+      "expansions": ["support", "solidarity", "care", "mutual aid"],
+      "themes": ["solidarity"]
+    },
+    {
+      "term": "hope",
+      "expansions": ["future", "uncertainty", "expectation", "disappointment"],
+      "themes": ["hope"]
+    },
+    {
+      "term": "waiting",
+      "expansions": ["uncertainty", "future", "delay", "hope"],
+      "themes": ["hope", "absurd"]
+    },
+    {
+      "term": "happy",
+      "expansions": ["happiness", "joy", "pleasure", "present"],
+      "themes": ["happiness"]
+    },
+    {
+      "term": "postpone",
+      "expansions": ["delay", "later", "present", "unfinished"],
+      "themes": ["happiness", "action"]
+    },
+    {
+      "term": "grief",
+      "expansions": ["loss", "death", "memory", "mourning"],
+      "themes": ["mortality", "solidarity"]
+    },
+    {
+      "term": "aging",
+      "expansions": ["age", "mortality", "finite time", "older"],
+      "themes": ["mortality"]
+    },
+    {
+      "term": "guilt",
+      "expansions": ["conscience", "compromise", "responsibility", "repair"],
+      "themes": ["conscience", "action"]
+    },
+    {
+      "term": "pressure",
+      "expansions": ["expectation", "role", "group", "conscience"],
+      "themes": ["conscience", "freedom"]
+    },
+    {
+      "term": "stuck",
+      "expansions": ["cannot start", "first step", "uncertainty", "action"],
+      "themes": ["action"]
+    },
+    {
+      "term": "overthinking",
+      "expansions": ["analysis paralysis", "delay", "first step", "experiment"],
+      "themes": ["action"]
+    },
+    {
+      "term": "failure",
+      "expansions": ["failed", "worth", "repeat", "try again"],
+      "themes": ["absurd", "hope", "action"]
+    },
+    {
+      "term": "repetition",
+      "expansions": ["routine", "same every day", "loop", "absurd"],
+      "themes": ["absurd", "work"]
+    }
+  ]
+}

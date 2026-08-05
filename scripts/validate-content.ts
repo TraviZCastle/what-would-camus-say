@@ -29,6 +29,9 @@ const sources = SourceCatalogSchema.parse(await readJson('content/sources/source
 const synonyms = SynonymCatalogSchema.parse(
   await readJson('content/synonyms/synonyms.json'),
 );
+const englishSynonyms = SynonymCatalogSchema.parse(
+  await readJson('content/synonyms/synonyms.en.json'),
+);
 const safetyRules = SafetyRuleCatalogSchema.parse(
   await readJson('content/safety/rules.json'),
 );
@@ -149,6 +152,7 @@ if (isProduction) {
   }
 
   if (synonyms.status !== 'approved') errors.push('同义词表尚未 approved');
+  if (englishSynonyms.status !== 'approved') errors.push('英文同义词表尚未 approved');
   if (safetyRules.status !== 'approved') errors.push('安全规则尚未 approved');
   if (safetyResponses.status !== 'approved') errors.push('安全回答文案尚未 approved');
 } else {
