@@ -22,6 +22,7 @@
     "build:index": "node --import tsx scripts/build-index.ts",
     "content:generate:batch02": "node --import tsx scripts/generate-batch-02.ts",
     "content:generate:batch03": "node --import tsx scripts/generate-batch-03.ts",
+    "content:generate:batch04": "node --import tsx scripts/generate-batch-04.ts",
     "evaluate:retrieval": "node --import tsx scripts/evaluate-retrieval.ts",
     "evaluate:safety": "node --import tsx scripts/evaluate-safety.ts",
     "benchmark:retrieval": "pnpm build:index && node --import tsx scripts/benchmark-retrieval.ts",

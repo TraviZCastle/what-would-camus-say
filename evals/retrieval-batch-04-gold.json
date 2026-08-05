@@ -1,0 +1,547 @@
+[
+  {
+    "id": "batch04-meaning-place-after-demolition",
+    "query": "老街拆了以后感觉过去也没了，我现在该怎样判断？",
+    "expectedCardIds": ["meaning-place-after-demolition-b04"]
+  },
+  {
+    "id": "batch04-meaning-friendship-natural-ending",
+    "query": "没有吵架的朋友却慢慢走散了，我现在该怎样判断？",
+    "expectedCardIds": ["meaning-friendship-natural-ending-b04"]
+  },
+  {
+    "id": "batch04-meaning-private-reading",
+    "query": "读书不输出是不是白读，我现在该怎样判断？",
+    "expectedCardIds": ["meaning-private-reading-b04"]
+  },
+  {
+    "id": "batch04-meaning-family-tradition-change",
+    "query": "家里传统没人愿意继续了，我现在该怎样判断？",
+    "expectedCardIds": ["meaning-family-tradition-change-b04"]
+  },
+  {
+    "id": "batch04-meaning-childfree-legacy",
+    "query": "不生孩子会不会什么都留不下，我现在该怎样判断？",
+    "expectedCardIds": ["meaning-childfree-legacy-b04"]
+  },
+  {
+    "id": "batch04-meaning-name-after-divorce",
+    "query": "离婚后要不要改回原来的姓，我现在该怎样判断？",
+    "expectedCardIds": ["meaning-name-after-divorce-b04"]
+  },
+  {
+    "id": "batch04-meaning-care-without-recognition",
+    "query": "一直照顾别人却没人看见，我现在该怎样判断？",
+    "expectedCardIds": ["meaning-care-without-recognition-b04"]
+  },
+  {
+    "id": "batch04-meaning-language-loss",
+    "query": "家里的方言快没人会了，我现在该怎样判断？",
+    "expectedCardIds": ["meaning-language-loss-b04"]
+  },
+  {
+    "id": "batch04-meaning-community-service-routine",
+    "query": "做普通服务工作觉得没有价值，我现在该怎样判断？",
+    "expectedCardIds": ["meaning-community-service-routine-b04"]
+  },
+  {
+    "id": "batch04-meaning-abandoned-research",
+    "query": "多年研究没做完是不是都白费，我现在该怎样判断？",
+    "expectedCardIds": ["meaning-abandoned-research-b04"]
+  },
+  {
+    "id": "batch04-absurd-automated-phone-loop",
+    "query": "自动客服一直让我循环，我现在该怎样判断？",
+    "expectedCardIds": ["absurd-automated-phone-loop-b04"]
+  },
+  {
+    "id": "batch04-absurd-lost-paperwork",
+    "query": "交过的材料总说找不到，我现在该怎样判断？",
+    "expectedCardIds": ["absurd-lost-paperwork-b04"]
+  },
+  {
+    "id": "batch04-absurd-weather-ruined-event",
+    "query": "天气毁了准备很久的活动，我现在该怎样判断？",
+    "expectedCardIds": ["absurd-weather-ruined-event-b04"]
+  },
+  {
+    "id": "batch04-absurd-caregiving-unpredictability",
+    "query": "照护安排每天都被打乱，我现在该怎样判断？",
+    "expectedCardIds": ["absurd-caregiving-unpredictability-b04"]
+  },
+  {
+    "id": "batch04-absurd-software-maintenance",
+    "query": "软件刚修好又坏了很荒谬，我现在该怎样判断？",
+    "expectedCardIds": ["absurd-software-maintenance-b04"]
+  },
+  {
+    "id": "batch04-absurd-waiting-room-time",
+    "query": "不知道要等多久让我很烦躁，我现在该怎样判断？",
+    "expectedCardIds": ["absurd-waiting-room-time-b04"]
+  },
+  {
+    "id": "batch04-absurd-coincidental-opportunity",
+    "query": "突然的巧合机会是不是暗示，我现在该怎样判断？",
+    "expectedCardIds": ["absurd-coincidental-opportunity-b04"]
+  },
+  {
+    "id": "batch04-absurd-repair-breaks-again",
+    "query": "东西刚修好又坏了，我现在该怎样判断？",
+    "expectedCardIds": ["absurd-repair-breaks-again-b04"]
+  },
+  {
+    "id": "batch04-absurd-seasonal-business",
+    "query": "淡旺季变化让我无法安心，我现在该怎样判断？",
+    "expectedCardIds": ["absurd-seasonal-business-b04"]
+  },
+  {
+    "id": "batch04-work-meeting-overload",
+    "query": "每天都在开会没有时间工作，我现在该怎样判断？",
+    "expectedCardIds": ["work-meeting-overload-b04"]
+  },
+  {
+    "id": "batch04-work-emotional-labor",
+    "query": "总在工作中安抚别人很累，我现在该怎样判断？",
+    "expectedCardIds": ["work-emotional-labor-b04"]
+  },
+  {
+    "id": "batch04-work-unwanted-management",
+    "query": "升职当管理但我并不想带人，我现在该怎样判断？",
+    "expectedCardIds": ["work-unwanted-management-b04"]
+  },
+  {
+    "id": "batch04-work-career-break-return",
+    "query": "离开职场多年还能回来吗，我现在该怎样判断？",
+    "expectedCardIds": ["work-career-break-return-b04"]
+  },
+  {
+    "id": "batch04-work-freelance-uncertainty",
+    "query": "自由职业一直不敢下线，我现在该怎样判断？",
+    "expectedCardIds": ["work-freelance-uncertainty-b04"]
+  },
+  {
+    "id": "batch04-work-automation-role-change",
+    "query": "自动化让我担心工作没了，我现在该怎样判断？",
+    "expectedCardIds": ["work-automation-role-change-b04"]
+  },
+  {
+    "id": "batch04-work-night-shift-rhythm",
+    "query": "长期上夜班生活全乱了，我现在该怎样判断？",
+    "expectedCardIds": ["work-night-shift-rhythm-b04"]
+  },
+  {
+    "id": "batch04-work-founder-exit",
+    "query": "离开自己创办的公司很难，我现在该怎样判断？",
+    "expectedCardIds": ["work-founder-exit-b04"]
+  },
+  {
+    "id": "batch04-work-family-business-duty",
+    "query": "家里一定要我接班怎么办，我现在该怎样判断？",
+    "expectedCardIds": ["work-family-business-duty-b04"]
+  },
+  {
+    "id": "batch04-work-internship-exploitation",
+    "query": "实习一直做正式员工的活，我现在该怎样判断？",
+    "expectedCardIds": ["work-internship-exploitation-b04"]
+  },
+  {
+    "id": "batch04-freedom-shared-lease",
+    "query": "合租以后觉得一点都不自由，我现在该怎样判断？",
+    "expectedCardIds": ["freedom-shared-lease-b04"]
+  },
+  {
+    "id": "batch04-freedom-caregiving-move",
+    "query": "想搬走但家里需要我照顾，我现在该怎样判断？",
+    "expectedCardIds": ["freedom-caregiving-move-b04"]
+  },
+  {
+    "id": "batch04-freedom-appearance-choice",
+    "query": "想改变外表但怕别人评价，我现在该怎样判断？",
+    "expectedCardIds": ["freedom-appearance-choice-b04"]
+  },
+  {
+    "id": "batch04-freedom-visa-dependent-career",
+    "query": "签证绑着工作不敢辞职，我现在该怎样判断？",
+    "expectedCardIds": ["freedom-visa-dependent-career-b04"]
+  },
+  {
+    "id": "batch04-freedom-online-anonymity",
+    "query": "匿名发言是不是更自由，我现在该怎样判断？",
+    "expectedCardIds": ["freedom-online-anonymity-b04"]
+  },
+  {
+    "id": "batch04-freedom-changing-beliefs",
+    "query": "以前支持的观点现在变了，我现在该怎样判断？",
+    "expectedCardIds": ["freedom-changing-beliefs-b04"]
+  },
+  {
+    "id": "batch04-freedom-contract-commitment",
+    "query": "长期合同催着我马上签，我现在该怎样判断？",
+    "expectedCardIds": ["freedom-contract-commitment-b04"]
+  },
+  {
+    "id": "batch04-freedom-relationship-space",
+    "query": "伴侣要求共享所有密码，我现在该怎样判断？",
+    "expectedCardIds": ["freedom-relationship-space-b04"]
+  },
+  {
+    "id": "batch04-freedom-leaving-team",
+    "query": "想退出社团但怕大家失望，我现在该怎样判断？",
+    "expectedCardIds": ["freedom-leaving-team-b04"]
+  },
+  {
+    "id": "batch04-revolt-unpaid-wages",
+    "query": "公司一直拖欠工资怎么办，我现在该怎样判断？",
+    "expectedCardIds": ["revolt-unpaid-wages-b04"]
+  },
+  {
+    "id": "batch04-revolt-inaccessible-space",
+    "query": "公共场所没有无障碍设施，我现在该怎样判断？",
+    "expectedCardIds": ["revolt-inaccessible-space-b04"]
+  },
+  {
+    "id": "batch04-revolt-bullying-witness",
+    "query": "看到同学被欺负该不该介入，我现在该怎样判断？",
+    "expectedCardIds": ["revolt-bullying-witness-b04"]
+  },
+  {
+    "id": "batch04-revolt-harassment-documentation",
+    "query": "工作中被持续骚扰怎么留证，我现在该怎样判断？",
+    "expectedCardIds": ["revolt-harassment-documentation-b04"]
+  },
+  {
+    "id": "batch04-revolt-biased-hiring",
+    "query": "招聘时有人因为身份被偏见对待，我现在该怎样判断？",
+    "expectedCardIds": ["revolt-biased-hiring-b04"]
+  },
+  {
+    "id": "batch04-revolt-moderation-appeal",
+    "query": "账号被平台误封怎么申诉，我现在该怎样判断？",
+    "expectedCardIds": ["revolt-moderation-appeal-b04"]
+  },
+  {
+    "id": "batch04-revolt-neighborhood-pollution",
+    "query": "社区一直有污染投诉没用，我现在该怎样判断？",
+    "expectedCardIds": ["revolt-neighborhood-pollution-b04"]
+  },
+  {
+    "id": "batch04-revolt-collective-strategy-disagreement",
+    "query": "集体行动内部因为路线吵起来了，我现在该怎样判断？",
+    "expectedCardIds": ["revolt-collective-strategy-disagreement-b04"]
+  },
+  {
+    "id": "batch04-limits-after-hours-availability",
+    "query": "下班后总被工作消息打扰，我现在该怎样判断？",
+    "expectedCardIds": ["limits-after-hours-availability-b04"]
+  },
+  {
+    "id": "batch04-limits-recurring-friend-crisis",
+    "query": "朋友反复出事全靠我处理，我现在该怎样判断？",
+    "expectedCardIds": ["limits-recurring-friend-crisis-b04"]
+  },
+  {
+    "id": "batch04-limits-family-political-debate",
+    "query": "家里每次聚会都吵政治，我现在该怎样判断？",
+    "expectedCardIds": ["limits-family-political-debate-b04"]
+  },
+  {
+    "id": "batch04-limits-exercise-warning-signs",
+    "query": "运动不舒服还要不要坚持，我现在该怎样判断？",
+    "expectedCardIds": ["limits-exercise-warning-signs-b04"]
+  },
+  {
+    "id": "batch04-limits-study-overwork",
+    "query": "学习到不敢睡觉，我现在该怎样判断？",
+    "expectedCardIds": ["limits-study-overwork-b04"]
+  },
+  {
+    "id": "batch04-limits-creative-revision",
+    "query": "作品一直修改不敢发布，我现在该怎样判断？",
+    "expectedCardIds": ["limits-creative-revision-b04"]
+  },
+  {
+    "id": "batch04-limits-caregiving-privacy",
+    "query": "照顾家人就能看他所有隐私吗，我现在该怎样判断？",
+    "expectedCardIds": ["limits-caregiving-privacy-b04"]
+  },
+  {
+    "id": "batch04-limits-gift-obligation",
+    "query": "收到太贵的礼物觉得有压力，我现在该怎样判断？",
+    "expectedCardIds": ["limits-gift-obligation-b04"]
+  },
+  {
+    "id": "batch04-limits-personal-data-sharing",
+    "query": "为了用应用要交太多个人信息，我现在该怎样判断？",
+    "expectedCardIds": ["limits-personal-data-sharing-b04"]
+  },
+  {
+    "id": "batch04-solidarity-neighbor-language-barrier",
+    "query": "和不同语言的邻居怎么建立关系，我现在该怎样判断？",
+    "expectedCardIds": ["solidarity-neighbor-language-barrier-b04"]
+  },
+  {
+    "id": "batch04-solidarity-workplace-newcomer",
+    "query": "新同事总因没人教的规则出错，我现在该怎样判断？",
+    "expectedCardIds": ["solidarity-workplace-newcomer-b04"]
+  },
+  {
+    "id": "batch04-solidarity-donation-coordination",
+    "query": "灾后想捐东西但怕帮倒忙，我现在该怎样判断？",
+    "expectedCardIds": ["solidarity-donation-coordination-b04"]
+  },
+  {
+    "id": "batch04-solidarity-grief-group",
+    "query": "哀伤小组里大家经历不一样，我现在该怎样判断？",
+    "expectedCardIds": ["solidarity-grief-group-b04"]
+  },
+  {
+    "id": "batch04-solidarity-chronic-illness-peer-support",
+    "query": "想找同病伙伴又怕错误建议，我现在该怎样判断？",
+    "expectedCardIds": ["solidarity-chronic-illness-peer-support-b04"]
+  },
+  {
+    "id": "batch04-solidarity-intergenerational-skill",
+    "query": "年轻人和老人怎样真正互助，我现在该怎样判断？",
+    "expectedCardIds": ["solidarity-intergenerational-skill-b04"]
+  },
+  {
+    "id": "batch04-solidarity-community-garden",
+    "query": "社区花园最后总是几个人维护，我现在该怎样判断？",
+    "expectedCardIds": ["solidarity-community-garden-b04"]
+  },
+  {
+    "id": "batch04-solidarity-mediation-not-neutrality",
+    "query": "调解冲突是不是必须完全中立，我现在该怎样判断？",
+    "expectedCardIds": ["solidarity-mediation-not-neutrality-b04"]
+  },
+  {
+    "id": "batch04-hope-application-wait",
+    "query": "等申请结果期间什么也做不了，我现在该怎样判断？",
+    "expectedCardIds": ["hope-application-wait-b04"]
+  },
+  {
+    "id": "batch04-hope-long-distance-relationship",
+    "query": "异地恋不知道什么时候结束，我现在该怎样判断？",
+    "expectedCardIds": ["hope-long-distance-relationship-b04"]
+  },
+  {
+    "id": "batch04-hope-reputation-rebuild",
+    "query": "犯错后声誉还能重新建立吗，我现在该怎样判断？",
+    "expectedCardIds": ["hope-reputation-rebuild-b04"]
+  },
+  {
+    "id": "batch04-hope-climate-action",
+    "query": "气候问题太大个人做什么都没用，我现在该怎样判断？",
+    "expectedCardIds": ["hope-climate-action-b04"]
+  },
+  {
+    "id": "batch04-hope-injury-rehabilitation",
+    "query": "康复很慢还能相信会变好吗，我现在该怎样判断？",
+    "expectedCardIds": ["hope-injury-rehabilitation-b04"]
+  },
+  {
+    "id": "batch04-hope-small-business-recovery",
+    "query": "小生意低谷后还能恢复吗，我现在该怎样判断？",
+    "expectedCardIds": ["hope-small-business-recovery-b04"]
+  },
+  {
+    "id": "batch04-hope-repeated-treatment",
+    "query": "治疗反复调整还是不稳定，我现在该怎样判断？",
+    "expectedCardIds": ["hope-repeated-treatment-b04"]
+  },
+  {
+    "id": "batch04-hope-learning-after-failure",
+    "query": "学了很久还是失败还能继续吗，我现在该怎样判断？",
+    "expectedCardIds": ["hope-learning-after-failure-b04"]
+  },
+  {
+    "id": "batch04-hope-community-reconciliation",
+    "query": "社区闹翻以后还能重新合作吗，我现在该怎样判断？",
+    "expectedCardIds": ["hope-community-reconciliation-b04"]
+  },
+  {
+    "id": "batch04-happiness-rainy-day",
+    "query": "下雨计划全取消怎么过好一天，我现在该怎样判断？",
+    "expectedCardIds": ["happiness-rainy-day-b04"]
+  },
+  {
+    "id": "batch04-happiness-morning-coffee",
+    "query": "忙的时候喝杯咖啡都内疚，我现在该怎样判断？",
+    "expectedCardIds": ["happiness-morning-coffee-b04"]
+  },
+  {
+    "id": "batch04-happiness-music-without-output",
+    "query": "只听音乐不做事是不是浪费时间，我现在该怎样判断？",
+    "expectedCardIds": ["happiness-music-without-output-b04"]
+  },
+  {
+    "id": "batch04-happiness-repair-old-object",
+    "query": "修旧东西的快乐有什么意义，我现在该怎样判断？",
+    "expectedCardIds": ["happiness-repair-old-object-b04"]
+  },
+  {
+    "id": "batch04-happiness-walking-commute",
+    "query": "每天通勤像被浪费掉的时间，我现在该怎样判断？",
+    "expectedCardIds": ["happiness-walking-commute-b04"]
+  },
+  {
+    "id": "batch04-happiness-shared-silence",
+    "query": "两个人没话说是不是关系淡了，我现在该怎样判断？",
+    "expectedCardIds": ["happiness-shared-silence-b04"]
+  },
+  {
+    "id": "batch04-happiness-celebration-during-grief",
+    "query": "失去亲人后开心会不会很不应该，我现在该怎样判断？",
+    "expectedCardIds": ["happiness-celebration-during-grief-b04"]
+  },
+  {
+    "id": "batch04-happiness-seasonal-cooking",
+    "query": "怎样从普通做饭里感到幸福，我现在该怎样判断？",
+    "expectedCardIds": ["happiness-seasonal-cooking-b04"]
+  },
+  {
+    "id": "batch04-happiness-unexpected-free-hour",
+    "query": "突然空出时间不知道怎么休息，我现在该怎样判断？",
+    "expectedCardIds": ["happiness-unexpected-free-hour-b04"]
+  },
+  {
+    "id": "batch04-mortality-recording-parent-stories",
+    "query": "父母老了想记录他们的故事，我现在该怎样判断？",
+    "expectedCardIds": ["mortality-recording-parent-stories-b04"]
+  },
+  {
+    "id": "batch04-mortality-selling-family-home",
+    "query": "卖掉住了很多年的老房子，我现在该怎样判断？",
+    "expectedCardIds": ["mortality-selling-family-home-b04"]
+  },
+  {
+    "id": "batch04-mortality-visiting-grave",
+    "query": "该不该去墓地看逝去的人，我现在该怎样判断？",
+    "expectedCardIds": ["mortality-visiting-grave-b04"]
+  },
+  {
+    "id": "batch04-mortality-birthday-age-anxiety",
+    "query": "快到整岁生日很焦虑，我现在该怎样判断？",
+    "expectedCardIds": ["mortality-birthday-age-anxiety-b04"]
+  },
+  {
+    "id": "batch04-mortality-disappearing-craft",
+    "query": "做了一辈子的手艺快没人学了，我现在该怎样判断？",
+    "expectedCardIds": ["mortality-disappearing-craft-b04"]
+  },
+  {
+    "id": "batch04-mortality-child-growing-up",
+    "query": "孩子长得太快让我舍不得，我现在该怎样判断？",
+    "expectedCardIds": ["mortality-child-growing-up-b04"]
+  },
+  {
+    "id": "batch04-mortality-practical-will",
+    "query": "想写遗嘱但家人觉得不吉利，我现在该怎样判断？",
+    "expectedCardIds": ["mortality-practical-will-b04"]
+  },
+  {
+    "id": "batch04-mortality-old-messages",
+    "query": "总在看逝者以前的聊天记录，我现在该怎样判断？",
+    "expectedCardIds": ["mortality-old-messages-b04"]
+  },
+  {
+    "id": "batch04-mortality-garden-cycle",
+    "query": "花园枯萎让我觉得所有照料白费，我现在该怎样判断？",
+    "expectedCardIds": ["mortality-garden-cycle-b04"]
+  },
+  {
+    "id": "batch04-mortality-chosen-unfinished",
+    "query": "主动放弃没做完的事很羞愧，我现在该怎样判断？",
+    "expectedCardIds": ["mortality-chosen-unfinished-b04"]
+  },
+  {
+    "id": "batch04-conscience-customer-data",
+    "query": "公司想把客户数据拿去做别的事，我现在该怎样判断？",
+    "expectedCardIds": ["conscience-customer-data-b04"]
+  },
+  {
+    "id": "batch04-conscience-misleading-marketing",
+    "query": "营销文案让我夸大效果，我现在该怎样判断？",
+    "expectedCardIds": ["conscience-misleading-marketing-b04"]
+  },
+  {
+    "id": "batch04-conscience-junior-credit",
+    "query": "下属做的成果都算在我头上，我现在该怎样判断？",
+    "expectedCardIds": ["conscience-junior-credit-b04"]
+  },
+  {
+    "id": "batch04-conscience-family-health-secret",
+    "query": "家人让我隐瞒会影响别人健康的事，我现在该怎样判断？",
+    "expectedCardIds": ["conscience-family-health-secret-b04"]
+  },
+  {
+    "id": "batch04-conscience-impaired-driver",
+    "query": "朋友喝酒后还要开车怎么办，我现在该怎样判断？",
+    "expectedCardIds": ["conscience-impaired-driver-b04"]
+  },
+  {
+    "id": "batch04-conscience-supplier-gift",
+    "query": "供应商送贵重礼物该不该收，我现在该怎样判断？",
+    "expectedCardIds": ["conscience-supplier-gift-b04"]
+  },
+  {
+    "id": "batch04-conscience-editorial-manipulation",
+    "query": "编辑让我剪掉改变语境的内容，我现在该怎样判断？",
+    "expectedCardIds": ["conscience-editorial-manipulation-b04"]
+  },
+  {
+    "id": "batch04-conscience-research-data",
+    "query": "研究结果不好能不能删掉异常数据，我现在该怎样判断？",
+    "expectedCardIds": ["conscience-research-data-b04"]
+  },
+  {
+    "id": "batch04-conscience-unqualified-referral",
+    "query": "朋友不够资格却让我推荐，我现在该怎样判断？",
+    "expectedCardIds": ["conscience-unqualified-referral-b04"]
+  },
+  {
+    "id": "batch04-action-ask-for-raise",
+    "query": "想谈加薪但一直不敢开口，我现在该怎样判断？",
+    "expectedCardIds": ["action-ask-for-raise-b04"]
+  },
+  {
+    "id": "batch04-action-book-appointment",
+    "query": "担心身体问题却一直不敢预约，我现在该怎样判断？",
+    "expectedCardIds": ["action-book-appointment-b04"]
+  },
+  {
+    "id": "batch04-action-moving-plan",
+    "query": "想搬家但事情太多不知道开始，我现在该怎样判断？",
+    "expectedCardIds": ["action-moving-plan-b04"]
+  },
+  {
+    "id": "batch04-action-end-recurring-meeting",
+    "query": "例会早就没用但一直没人取消，我现在该怎样判断？",
+    "expectedCardIds": ["action-end-recurring-meeting-b04"]
+  },
+  {
+    "id": "batch04-action-public-apology",
+    "query": "公开犯错后该怎样道歉，我现在该怎样判断？",
+    "expectedCardIds": ["action-public-apology-b04"]
+  },
+  {
+    "id": "batch04-action-written-no",
+    "query": "当面总说不出口怎样拒绝，我现在该怎样判断？",
+    "expectedCardIds": ["action-written-no-b04"]
+  },
+  {
+    "id": "batch04-action-start-mutual-aid",
+    "query": "想发起互助但不知道第一步，我现在该怎样判断？",
+    "expectedCardIds": ["action-start-mutual-aid-b04"]
+  },
+  {
+    "id": "batch04-action-publish-imperfect-draft",
+    "query": "草稿已经写完却一直不敢发，我现在该怎样判断？",
+    "expectedCardIds": ["action-publish-imperfect-draft-b04"]
+  },
+  {
+    "id": "batch04-action-emergency-contacts",
+    "query": "独居应该准备哪些紧急联系人，我现在该怎样判断？",
+    "expectedCardIds": ["action-emergency-contacts-b04"]
+  }
+]

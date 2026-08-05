@@ -57,4 +57,19 @@ describe('thought-card content schema', () => {
     }
     expect(batchCards.every((card) => card.status === 'approved')).toBe(true);
   });
+
+  it('uses Batch 04 to bring every primary theme to 25 cards', async () => {
+    const cards = await loadThoughtCards(projectRoot);
+    const batchCards = cards.filter((card) => card.id.endsWith('-b04'));
+
+    expect(batchCards).toHaveLength(109);
+    expect(cards).toHaveLength(300);
+    for (const theme of THEME_IDS) {
+      expect(
+        cards.filter((card) => card.theme === theme),
+        theme,
+      ).toHaveLength(25);
+    }
+    expect(batchCards.every((card) => card.status === 'approved')).toBe(true);
+  });
 });

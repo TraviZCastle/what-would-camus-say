@@ -42,4 +42,13 @@ describe('retrieval gold coverage', () => {
     expect(batchItems).toHaveLength(96);
     expect(batchItems.every((item) => item.query.length >= 10)).toBe(true);
   });
+
+  it('covers every Batch 04 card with a natural-language query', async () => {
+    const gold = await loadRetrievalGold(projectRoot);
+    const batchItems = gold.filter((item) => item.id.startsWith('batch04-'));
+
+    expect(gold.length).toBeGreaterThanOrEqual(327);
+    expect(batchItems).toHaveLength(109);
+    expect(batchItems.every((item) => item.query.length >= 10)).toBe(true);
+  });
 });

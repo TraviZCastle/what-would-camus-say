@@ -12,7 +12,10 @@
   {
     "id": "meaning-silence-01",
     "query": "人生没有终极意义，那具体生活还有价值吗",
-    "expectedCardIds": ["meaning-world-silence-001"]
+    "expectedCardIds": [
+      "meaning-world-silence-001",
+      "meaning-small-commitments-value-b02"
+    ]
   },
   {
     "id": "meaning-silence-02",
