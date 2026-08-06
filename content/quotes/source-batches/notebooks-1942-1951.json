@@ -1,0 +1,149 @@
+{
+  "id": "notebooks-1942-1951-source-batch",
+  "version": 1,
+  "status": "approved",
+  "source": {
+    "work": "Notebooks, 1942–1951",
+    "edition": "Translated and annotated by Justin O'Brien, Alfred A. Knopf, 1965",
+    "language": "en",
+    "sourceType": "primary"
+  },
+  "rightsStatus": "cleared",
+  "reviewer": "product-owner",
+  "reviewedAt": "2026-08-05",
+  "entries": [
+    {
+      "id": "notebooks-two-speech-and-meaning",
+      "sourceText": "If our speech has no meaning, nothing has meaning.",
+      "translationZh": "如果我们的言说没有意义，那么一切都没有意义。",
+      "themes": ["meaning", "conscience"],
+      "keywords": ["speech", "meaning", "language", "言说", "意义", "语言"]
+    },
+    {
+      "id": "notebooks-two-effort-daily",
+      "sourceText": "There remains an amazing effort, daily, insistent.",
+      "translationZh": "仍然存在一种惊人的努力，日复一日，持续不断。",
+      "themes": ["work", "action", "absurd"],
+      "keywords": ["effort", "daily", "insistent", "努力", "日常", "持续"]
+    },
+    {
+      "id": "notebooks-two-continual-effort-create",
+      "sourceText": "Only by a continual effort can I create.",
+      "translationZh": "只有通过持续不断的努力，我才能创造。",
+      "themes": ["work", "action"],
+      "keywords": ["effort", "create", "continue", "努力", "创造", "持续"]
+    },
+    {
+      "id": "notebooks-two-hidden-effort",
+      "sourceText": "The effort of the hidden, without hope or bitterness.",
+      "translationZh": "隐而不彰的努力，既不怀抱希望，也不心存苦涩。",
+      "themes": ["work", "hope", "limits"],
+      "keywords": ["hidden", "effort", "bitterness", "隐秘", "努力", "苦涩"]
+    },
+    {
+      "id": "notebooks-two-end-of-revolt",
+      "sourceText": "At the end of the most terrible revolt, admit that you are nothing.",
+      "translationZh": "在最可怕的反抗尽头，承认自己什么也不是。",
+      "themes": ["revolt", "limits", "meaning"],
+      "keywords": ["revolt", "nothing", "admit", "反抗", "虚无", "承认"]
+    },
+    {
+      "id": "notebooks-two-limit-of-man",
+      "sourceText": "No one can say that he has reached the limit of man.",
+      "translationZh": "没有人能够断言自己已经抵达人的极限。",
+      "themes": ["limits", "freedom", "mortality"],
+      "keywords": ["limit", "human", "reach", "极限", "人", "抵达"]
+    },
+    {
+      "id": "notebooks-two-relation-to-others",
+      "sourceText": "We are made to live in relation to others.",
+      "translationZh": "我们生来就是要在与他人的关系中生活。",
+      "themes": ["solidarity", "meaning"],
+      "keywords": ["others", "relation", "live", "他人", "关系", "生活"]
+    },
+    {
+      "id": "notebooks-two-serve-mankind",
+      "sourceText": "One serves mankind all together or not at all.",
+      "translationZh": "要么服务于全体人类，要么根本谈不上服务。",
+      "themes": ["solidarity", "conscience", "action"],
+      "keywords": ["mankind", "serve", "together", "人类", "服务", "共同"]
+    },
+    {
+      "id": "notebooks-two-duties-of-friendship",
+      "sourceText": "The duties of friendship help to endure the pleasures of society.",
+      "translationZh": "友谊的责任帮助我们承受社会生活的欢乐。",
+      "themes": ["solidarity", "limits"],
+      "keywords": ["friendship", "duty", "society", "友谊", "责任", "社会"]
+    },
+    {
+      "id": "notebooks-two-death-shapes-love",
+      "sourceText": "Death gives its shape to love as it does to life—transforming it into fate.",
+      "translationZh": "死亡赋予爱以形状，也赋予生命以形状，并把它转化为命运。",
+      "themes": ["mortality", "solidarity", "meaning"],
+      "keywords": ["death", "love", "fate", "死亡", "爱", "命运"]
+    },
+    {
+      "id": "notebooks-two-adversary-right",
+      "sourceText": "It is the ability to admit that the adversary is right.",
+      "translationZh": "那是一种承认对手也可能正确的能力。",
+      "themes": ["conscience", "limits", "solidarity"],
+      "keywords": ["adversary", "right", "admit", "对手", "正确", "承认"]
+    },
+    {
+      "id": "notebooks-two-love-and-justice",
+      "sourceText": "Love is injustice, but justice is not enough.",
+      "translationZh": "爱是不公正的，但公正并不足够。",
+      "themes": ["conscience", "solidarity", "limits"],
+      "keywords": ["love", "justice", "enough", "爱", "公正", "足够"]
+    },
+    {
+      "id": "notebooks-two-fighting-for-beauty",
+      "sourceText": "For we are fighting for beauty too, aren't we?",
+      "translationZh": "因为我们也在为美而斗争，不是吗？",
+      "themes": ["revolt", "happiness", "action"],
+      "keywords": ["fight", "beauty", "value", "斗争", "美", "价值"]
+    },
+    {
+      "id": "notebooks-two-value-and-freedom",
+      "sourceText": "Whoever greatly loves a value is thereby an enemy of freedom.",
+      "translationZh": "凡是过度热爱某种价值的人，也因此成为自由的敌人。",
+      "themes": ["freedom", "limits", "conscience"],
+      "keywords": ["value", "freedom", "enemy", "价值", "自由", "敌人"]
+    },
+    {
+      "id": "notebooks-two-gestapo-truth",
+      "sourceText": "The truth is that I could never believe in the Gestapo until I got kicked in the belly myself.",
+      "translationZh": "事实是，直到我亲自挨了盖世太保的一脚，我才相信它的存在。",
+      "themes": ["revolt", "conscience", "mortality"],
+      "keywords": ["oppression", "violence", "truth", "压迫", "暴力", "真相"]
+    },
+    {
+      "id": "notebooks-two-creating-in-solitude",
+      "sourceText": "You begin by creating in solitude and think it's hard.",
+      "translationZh": "你从孤独中的创造开始，并觉得这很艰难。",
+      "themes": ["action", "work", "freedom"],
+      "keywords": ["create", "solitude", "hard", "创造", "孤独", "艰难"]
+    },
+    {
+      "id": "notebooks-two-war-ends-solitude",
+      "sourceText": "For most men, war is the end of solitude.",
+      "translationZh": "对大多数人而言，战争是孤独的终结。",
+      "themes": ["solidarity", "mortality", "revolt"],
+      "keywords": ["war", "solitude", "others", "战争", "孤独", "他人"]
+    },
+    {
+      "id": "notebooks-two-definitive-solitude",
+      "sourceText": "For me it is the definitive solitude.",
+      "translationZh": "对我而言，它却是最终的孤独。",
+      "themes": ["meaning", "mortality", "freedom"],
+      "keywords": ["solitude", "definitive", "self", "孤独", "最终", "自我"]
+    },
+    {
+      "id": "notebooks-two-beauty-departure",
+      "sourceText": "For the Greeks, beauty is a point of departure.",
+      "translationZh": "对希腊人而言，美是一个出发点。",
+      "themes": ["happiness", "meaning", "action"],
+      "keywords": ["beauty", "begin", "Greek", "美", "开始", "希腊"]
+    }
+  ]
+}

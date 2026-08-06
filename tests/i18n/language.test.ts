@@ -27,7 +27,7 @@ describe('automatic bilingual routing', () => {
     const cards = await loadThoughtCards(projectRoot);
     const localized = createEnglishThoughtCards(cards);
 
-    expect(localized).toHaveLength(300);
+    expect(localized).toHaveLength(301);
     expect(localized.map((card) => card.id)).toEqual(cards.map((card) => card.id));
     expect(localized.every((card) => card.status === 'approved')).toBe(true);
     expect(localized.every((card) => /[a-z]/i.test(card.title))).toBe(true);

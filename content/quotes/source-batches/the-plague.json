@@ -1,0 +1,142 @@
+{
+  "id": "the-plague-source-batch",
+  "version": 1,
+  "status": "approved",
+  "source": {
+    "work": "The Plague",
+    "edition": "English translation by Stuart Gilbert; EPUB pagination unavailable",
+    "language": "en",
+    "sourceType": "primary"
+  },
+  "rightsStatus": "cleared",
+  "reviewer": "product-owner",
+  "reviewedAt": "2026-08-05",
+  "entries": [
+    {
+      "id": "plague-cultivating-habits",
+      "sourceText": "The truth is that everyone is bored, and devotes himself to cultivating habits.",
+      "translationZh": "事实是，人人都感到无聊，并把自己投入到习惯的培养之中。",
+      "themes": ["absurd", "work"],
+      "keywords": ["bored", "habit", "routine", "无聊", "习惯", "重复"]
+    },
+    {
+      "id": "plague-formed-habits",
+      "sourceText": "You can get through the days there without trouble, once you have formed habits.",
+      "translationZh": "一旦形成习惯，你就能在那里顺利地度过每一天。",
+      "themes": ["absurd", "work", "action"],
+      "keywords": ["days", "habit", "routine", "日常", "习惯", "重复"]
+    },
+    {
+      "id": "plague-without-memories-hope",
+      "sourceText": "Without memories, without hope, they lived for the moment only.",
+      "translationZh": "没有记忆，也没有希望，他们只为眼前这一刻而活。",
+      "themes": ["hope", "happiness", "mortality"],
+      "keywords": ["memory", "hope", "present", "记忆", "希望", "当下"]
+    },
+    {
+      "id": "plague-here-and-now",
+      "sourceText": "Indeed, the here and now had come to mean everything to them.",
+      "translationZh": "的确，此时此地已经成了他们的一切。",
+      "themes": ["meaning", "happiness", "mortality"],
+      "keywords": ["present", "now", "meaning", "当下", "此刻", "意义"]
+    },
+    {
+      "id": "plague-do-your-job",
+      "sourceText": "The thing was to do your job as it should be done.",
+      "translationZh": "重要的是把自己的工作做到它应有的样子。",
+      "themes": ["work", "action", "conscience"],
+      "keywords": ["job", "duty", "work", "工作", "职责", "行动"]
+    },
+    {
+      "id": "plague-loving-and-work",
+      "sourceText": "You get married, you go on loving a bit longer, you work.",
+      "translationZh": "人们结婚，再爱上一阵子，然后工作。",
+      "themes": ["work", "solidarity"],
+      "keywords": ["marriage", "love", "work", "婚姻", "爱", "工作"]
+    },
+    {
+      "id": "plague-forget-to-love",
+      "sourceText": "And you work so hard that it makes you forget to love.",
+      "translationZh": "你如此拼命工作，以至于忘记了去爱。",
+      "themes": ["work", "solidarity", "limits"],
+      "keywords": ["overwork", "love", "forget", "过劳", "爱", "遗忘"]
+    },
+    {
+      "id": "plague-not-giving-up",
+      "sourceText": "But it's no reason for giving up the struggle.",
+      "translationZh": "但这并不是放弃斗争的理由。",
+      "themes": ["revolt", "action", "hope"],
+      "keywords": ["struggle", "give up", "resist", "斗争", "放弃", "反抗"]
+    },
+    {
+      "id": "plague-love-what-we-cannot-understand",
+      "sourceText": "But perhaps we should love what we cannot understand.",
+      "translationZh": "也许，我们应该去爱那些自己无法理解的事物。",
+      "themes": ["solidarity", "meaning", "limits"],
+      "keywords": ["love", "understand", "unknown", "爱", "理解", "未知"]
+    },
+    {
+      "id": "plague-freedom-from-deprivation",
+      "sourceText": "And in his corner Rambert savored that bitter sense of freedom which comes of total deprivation.",
+      "translationZh": "在自己的角落里，朗贝尔品尝着彻底失去之后那种苦涩的自由感。",
+      "themes": ["freedom", "limits", "mortality"],
+      "keywords": ["freedom", "deprivation", "loss", "自由", "剥夺", "失去"]
+    },
+    {
+      "id": "plague-die-for-an-idea",
+      "sourceText": "Well, personally, I've seen enough of people who die for an idea.",
+      "translationZh": "就我个人而言，我已经看够了那些为一种观念而死的人。",
+      "themes": ["limits", "mortality", "conscience"],
+      "keywords": ["idea", "death", "ideology", "观念", "死亡", "意识形态"]
+    },
+    {
+      "id": "plague-common-decency",
+      "sourceText": "There's no question of heroism in all this. It's a matter of common decency.",
+      "translationZh": "这一切无关英雄主义，只关乎普通人的正派。",
+      "themes": ["conscience", "solidarity", "action"],
+      "keywords": ["heroism", "decency", "duty", "英雄主义", "正派", "责任"]
+    },
+    {
+      "id": "plague-righting-common-decency",
+      "sourceText": "The only means of righting a plague is—common decency.",
+      "translationZh": "纠正一场瘟疫的唯一办法，是普通人的正派。",
+      "themes": ["conscience", "solidarity", "action"],
+      "keywords": ["plague", "decency", "repair", "瘟疫", "正派", "修复"]
+    },
+    {
+      "id": "plague-shameful-happy-alone",
+      "sourceText": "But it may be shameful to be happy by oneself.",
+      "translationZh": "但一个人独自幸福，也许是可耻的。",
+      "themes": ["happiness", "solidarity", "conscience"],
+      "keywords": ["happy", "alone", "shame", "幸福", "独自", "羞耻"]
+    },
+    {
+      "id": "plague-bit-for-happiness",
+      "sourceText": "Perhaps because I, too, would like to do my bit for happiness.",
+      "translationZh": "也许是因为，我也愿意为幸福尽自己的一份力。",
+      "themes": ["happiness", "action", "solidarity"],
+      "keywords": ["happiness", "contribute", "help", "幸福", "贡献", "帮助"]
+    },
+    {
+      "id": "plague-fight-at-your-side",
+      "sourceText": "That, too, is why this epidemic has taught me nothing new, except that I must fight it at your side.",
+      "translationZh": "所以，这场疫病没有教给我什么新东西，只让我明白必须与你并肩对抗它。",
+      "themes": ["revolt", "solidarity", "action"],
+      "keywords": ["fight", "side", "epidemic", "并肩", "对抗", "疫病"]
+    },
+    {
+      "id": "plague-thinking-of-death",
+      "sourceText": "And since they could not be thinking of their death all the time, they thought of nothing.",
+      "translationZh": "因为他们不可能一直想着自己的死亡，于是便什么也不想。",
+      "themes": ["mortality", "absurd", "meaning"],
+      "keywords": ["death", "thought", "nothing", "死亡", "思考", "虚无"]
+    },
+    {
+      "id": "plague-more-to-admire",
+      "sourceText": "There are more things to admire in men than to despise.",
+      "translationZh": "在人身上，值得赞美的东西多于值得蔑视的东西。",
+      "themes": ["solidarity", "hope", "conscience"],
+      "keywords": ["admire", "despise", "humanity", "赞美", "蔑视", "人性"]
+    }
+  ]
+}

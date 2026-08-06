@@ -1,6 +1,6 @@
 # 内容审阅与批准记录
 
-审阅对象：[seed-cards.json](./cards/seed-cards.json)、[phase5-batch-02.json](./cards/phase5-batch-02.json)、[phase5-batch-03.json](./cards/phase5-batch-03.json) 与 [phase5-batch-04.json](./cards/phase5-batch-04.json)。当前 300 张卡片已全部依据产品决定标为 `approved`。
+审阅对象：[seed-cards.json](./cards/seed-cards.json)、[phase5-batch-02.json](./cards/phase5-batch-02.json)、[phase5-batch-03.json](./cards/phase5-batch-03.json)、[phase5-batch-04.json](./cards/phase5-batch-04.json) 与 [phase5-targeted-additions.json](./cards/phase5-targeted-additions.json)。当前 301 张卡片已全部依据产品决定标为 `approved`。
 
 第一批审核记录：`PlainTerranThomas` 于 2026-08-04 批准数据文件顺序中的前 5 张卡片。
 
@@ -16,12 +16,14 @@ Phase 5 第四批记录：沿用上述产品决定，按主题缺口新增 109 �
 
 双语变更记录：产品于 2026-08-05 明确批准根据用户问题自动切换中文与英文、不提供手动语言开关且不使用 AI API。英文索引据此共享全部已批准卡片 ID、来源和思想边界；英文同义词与安全触发词作为独立版本资产记录。
 
+结果页引文记录：产品于 2026-08-05 先要求结尾引句必须来自加缪作品，随后明确允许使用所提供的英文译本内容，并要求页面只保留书名。结果页现维护 80 条候选；法文原文与英文译本短引文均保留来源语言、本地化译文、主题、关键词和内部版本信息，反思问题不再作为视觉引句。
+
 每张卡片至少检查：
 
 1. `principle` 是否准确表达对应作品的思想，而非借加缪之名表达一般建议。
 2. `explanation`、`answerBlocks` 是否只是可追溯的现实推演，没有补充无来源事实。
 3. `boundary`、`counterMisreadings` 与 `negativeSignals` 是否足以阻止极端化和安全误用。
-4. `sources` 的作品与章节定位是否准确；当前没有任何直接引文。
+4. `sources` 的作品定位是否准确；思想卡片正文没有直接引文，结果页短引文只来自独立审核的引文文件，来源版本与译者保留在数据层，页面只显示书名。
 5. `rightsStatus` 是否适用于计划部署的司法辖区与所用版本。
 
 ## 卡片索引

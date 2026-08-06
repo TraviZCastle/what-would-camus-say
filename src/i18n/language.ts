@@ -1,7 +1,5 @@
 export type AppLanguage = 'zh' | 'en';
 
-const SESSION_LANGUAGE_KEY = 'camus-language';
-
 export function detectQuestionLanguage(
   value: string,
   fallback: AppLanguage,
@@ -14,19 +12,6 @@ export function detectQuestionLanguage(
   return fallback;
 }
 
-export function getInitialLanguage(): AppLanguage {
-  if (typeof window === 'undefined') return 'zh';
-
-  try {
-    const stored = window.sessionStorage.getItem(SESSION_LANGUAGE_KEY);
-    if (stored === 'zh' || stored === 'en') return stored;
-  } catch {
-    // A browser may disable session storage; language detection still works in memory.
-  }
-
-  return window.navigator.language.toLocaleLowerCase().startsWith('zh') ? 'zh' : 'en';
-}
-
 export function applyDocumentLanguage(language: AppLanguage): void {
   if (typeof document === 'undefined') return;
   document.documentElement.lang = language === 'zh' ? 'zh-CN' : 'en';
@@ -37,11 +22,5 @@ export function applyDocumentLanguage(language: AppLanguage): void {
       language === 'zh'
         ? '从加缪思想出发，重新审视现实困境的本地双语网页工具。'
         : "A private, bilingual thought exercise grounded in Albert Camus's works.";
-  }
-
-  try {
-    window.sessionStorage.setItem(SESSION_LANGUAGE_KEY, language);
-  } catch {
-    // The selected language remains available in React state.
   }
 }

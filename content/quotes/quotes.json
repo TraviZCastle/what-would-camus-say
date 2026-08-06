@@ -1,1 +1,147 @@
-[]
+[
+  {
+    "id": "absurd-first-truth-en",
+    "status": "approved",
+    "sourceText": "L'absurde est le concept essentiel et la première vérité.",
+    "sourceLanguage": "fr",
+    "translations": {
+      "en": "The absurd is the essential concept and the first truth.",
+      "zh": "荒诞是首要的概念，也是最初的真理。"
+    },
+    "themes": ["absurd", "meaning"],
+    "keywords": ["absurd", "meaning", "荒诞", "意义"],
+    "placements": ["homepage"],
+    "source": {
+      "work": "《西西弗神话》",
+      "section": "An Absurd Reasoning",
+      "edition": "The Myth of Sisyphus, Vintage International, 2018",
+      "language": "en",
+      "sourceType": "primary",
+      "locator": "Short attributed line used as the homepage epigraph",
+      "url": "https://www.penguinrandomhouse.com/books/23470/the-myth-of-sisyphus-by-albert-camus/9780525564454/"
+    },
+    "rightsStatus": "cleared",
+    "reviewer": "product-owner",
+    "reviewedAt": "2026-08-05"
+  },
+  {
+    "id": "imagine-sisyphus-happy",
+    "status": "approved",
+    "sourceText": "Il faut imaginer Sisyphe heureux.",
+    "sourceLanguage": "fr",
+    "translations": {
+      "en": "One must imagine Sisyphus happy.",
+      "zh": "我们必须想象西西弗是幸福的。"
+    },
+    "themes": ["absurd", "meaning", "work", "happiness", "mortality"],
+    "keywords": ["Sisyphus", "struggle", "work", "happiness", "西西弗", "劳作", "幸福"],
+    "placements": ["result"],
+    "source": {
+      "work": "Le Mythe de Sisyphe",
+      "section": "Partie IV · Le mythe de Sisyphe",
+      "edition": "Gallimard, 1994 (ISBN 2-07-032288-2)",
+      "language": "fr",
+      "sourceType": "primary",
+      "locator": "p. 168"
+    },
+    "rightsStatus": "cleared",
+    "reviewer": "product-owner",
+    "reviewedAt": "2026-08-05"
+  },
+  {
+    "id": "create-live-twice",
+    "status": "approved",
+    "sourceText": "Créer, c'est vivre deux fois.",
+    "sourceLanguage": "fr",
+    "translations": {
+      "en": "To create is to live twice.",
+      "zh": "创造，就是活两次。"
+    },
+    "themes": ["action", "freedom", "work"],
+    "keywords": ["create", "creation", "work", "创造", "行动", "工作"],
+    "placements": ["result"],
+    "source": {
+      "work": "Le Mythe de Sisyphe",
+      "section": "Partie III · La création absurde · Philosophie et roman",
+      "edition": "Gallimard, 1994 (ISBN 2-07-032288-2)",
+      "language": "fr",
+      "sourceType": "primary",
+      "locator": "p. 130"
+    },
+    "rightsStatus": "cleared",
+    "reviewer": "product-owner",
+    "reviewedAt": "2026-08-05"
+  },
+  {
+    "id": "generosity-to-the-present",
+    "status": "approved",
+    "sourceText": "La vraie générosité envers l'avenir consiste à tout donner au présent.",
+    "sourceLanguage": "fr",
+    "translations": {
+      "en": "Real generosity toward the future lies in giving all to the present.",
+      "zh": "对未来真正的慷慨，是把一切都献给现在。"
+    },
+    "themes": ["hope", "happiness", "action"],
+    "keywords": ["future", "present", "generosity", "未来", "当下", "慷慨"],
+    "placements": ["result"],
+    "source": {
+      "work": "L'Homme révolté",
+      "section": "La pensée de midi · Au-delà du nihilisme",
+      "edition": "Gallimard, 1951",
+      "language": "fr",
+      "sourceType": "primary",
+      "locator": "p. 289"
+    },
+    "rightsStatus": "cleared",
+    "reviewer": "product-owner",
+    "reviewedAt": "2026-08-05"
+  },
+  {
+    "id": "intelligence-knows-boundaries",
+    "status": "approved",
+    "sourceText": "Et c'est bien là le génie : l'intelligence qui connaît ses frontières.",
+    "sourceLanguage": "fr",
+    "translations": {
+      "en": "That is intelligence at its best: knowing its own boundaries.",
+      "zh": "真正的才智，是懂得自身的边界。"
+    },
+    "themes": ["limits", "freedom", "conscience"],
+    "keywords": ["boundary", "limit", "intelligence", "边界", "限度", "判断"],
+    "placements": ["result"],
+    "source": {
+      "work": "Le Mythe de Sisyphe",
+      "section": "Partie II · L'homme absurde · Le don juanisme",
+      "edition": "Gallimard, 1994 (ISBN 2-07-032288-2)",
+      "language": "fr",
+      "sourceType": "primary",
+      "locator": "p. 100"
+    },
+    "rightsStatus": "cleared",
+    "reviewer": "product-owner",
+    "reviewedAt": "2026-08-05"
+  },
+  {
+    "id": "revolt-invokes-value",
+    "status": "approved",
+    "sourceText": "Toute valeur n'entraîne pas la révolte, mais tout mouvement de révolte invoque tacitement une valeur.",
+    "sourceLanguage": "fr",
+    "translations": {
+      "en": "Not every value leads to revolt, but every act of revolt tacitly invokes a value.",
+      "zh": "并非每一种价值都会引发反抗，但每一次反抗都在默默诉诸一种价值。"
+    },
+    "themes": ["revolt", "solidarity", "conscience", "limits"],
+    "keywords": ["revolt", "value", "resistance", "反抗", "价值", "不公"],
+    "placements": ["result"],
+    "source": {
+      "work": "L'Homme révolté",
+      "section": "Partie I · L'homme révolté",
+      "edition": "Gallimard, 1951, collection nrf",
+      "language": "fr",
+      "sourceType": "primary",
+      "locator": "p. 22"
+    },
+    "rightsStatus": "cleared",
+    "reviewer": "product-owner",
+    "reviewedAt": "2026-08-05"
+  }
+]

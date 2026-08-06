@@ -60,10 +60,13 @@ const COPY = {
       'What Would Camus Say 是一个本地运行的双语思想检索工具。它把现实问题与经过审核的思想卡片建立联系，再用固定结构拼装答案；它不会调用模型自由写作，也不代表加缪本人。',
     processTitle: '一次回答如何形成',
     steps: [
-      ['先检查安全边界', '危机与专业结论请求在检索前被独立分流，不会被哲学化处理。'],
+      [
+        '先检查安全边界',
+        '抽象的自杀哲学讨论可以进入思想检索；明确的个人意图、计划与即时危险仍优先分流。',
+      ],
       [
         '自动判断问题语言',
-        '页面初始语言跟随浏览器，输入达到可判断长度后自动选择中文或英文索引。',
+        '输入界面保持英文；提交后自动选择中文或英文索引，并只在结果页使用问题语言。',
       ],
       [
         '再做浏览器内检索',
@@ -77,12 +80,11 @@ const COPY = {
     contentTitle: '思想卡片与审核',
     content: [
       '每张卡片分别记录原则、解释、必要边界、可能误读、适用情境、回答组件和来源。中英文索引共享同一批准卡片 ID 与思想边界。',
-      '当前回答不收录直接引语，也不使用“加缪说过”式转述。界面中的文字是基于卡片的系统推演，不是作者原话。',
+      '回答正文不收录直接引语，也不使用“加缪说过”式转述。结果末尾的短引句只来自独立审核的引文库，所用版本与译者保留在数据层，页面仅显示作品名；其余正文仍是基于卡片的系统推演。',
     ],
     privacyTitle: '你的问题如何处理',
     privacy: [
       '问题默认不保存，不写入网址，不发送给服务器、分析服务或错误监控。查询、分流与回答都只在当前浏览器内完成。',
-      '“有帮助 / 没有帮助”只按思想卡片 ID 保存在这个浏览器的 localStorage 中，不包含问题文本。',
     ],
     boundaryTitle: '现实安全与专业边界',
     boundary:
@@ -93,7 +95,7 @@ const COPY = {
     primary: '原始作品',
     scholarship: '研究资料',
     footer: '返回并写下一个现实问题',
-    note: '基于加缪作品与思想研究进行的系统推演，不代表加缪本人，也不是加缪原话。',
+    note: '回答正文是系统推演，不代表加缪本人；结尾短引句来自独立审核的作品引文库。',
   },
   en: {
     back: '← Return to the question',
@@ -105,11 +107,11 @@ const COPY = {
     steps: [
       [
         'Safety comes first',
-        'Crisis situations and requests for professional conclusions are routed before philosophy is retrieved.',
+        'Abstract philosophical questions about suicide can be retrieved; explicit personal intent, plans, or immediate danger are routed first.',
       ],
       [
         'The question language is detected',
-        'The page begins with the browser language, then automatically selects the Chinese or English index once the input is clear enough.',
+        'The input interface stays in English. Submission selects the Chinese or English index, and only the result adopts the question language.',
       ],
       [
         'Retrieval runs in the browser',
@@ -123,12 +125,11 @@ const COPY = {
     contentTitle: 'Thought cards and review',
     content: [
       'Each card records a principle, explanation, necessary limit, common misreadings, situations, response blocks, and sources. The Chinese and English indexes share the same approved card IDs and philosophical boundaries.',
-      'Current responses contain no direct quotations and never use “Camus said” attribution. The interface presents a systematic interpretation, not the author’s words.',
+      'The answer prose contains no direct quotations and never uses “Camus said” attribution. Its closing quotation comes only from the separately reviewed library; edition and translator metadata stay in the catalog while the result names only the work.',
     ],
     privacyTitle: 'How your question is handled',
     privacy: [
       'The question is not saved, written into the URL, or sent to a server, analytics service, or error monitor. Retrieval, routing, and composition happen in this browser.',
-      'Helpful / not helpful feedback stores only the card ID in localStorage and never includes the question text.',
     ],
     boundaryTitle: 'Safety and professional limits',
     boundary:
@@ -139,7 +140,7 @@ const COPY = {
     primary: 'Primary work',
     scholarship: 'Scholarship',
     footer: 'Return and describe a real-life question',
-    note: "A systematic interpretation grounded in Camus's works and scholarship. It does not represent Camus and does not use his words.",
+    note: 'The answer prose is an interpretation, not Camus speaking; the closing line comes from the separately reviewed quotation library.',
   },
 } as const;
 

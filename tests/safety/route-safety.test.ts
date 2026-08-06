@@ -32,6 +32,23 @@ describe('safety routing', () => {
     expect(routeSafety('我在课程中讨论自杀哲学，而不是个人求助。')).toBeNull();
   });
 
+  it('treats suicide as a philosophical subject when no personal danger is present', () => {
+    expect(routeSafety('自杀是唯一严肃的哲学问题，这句话对加缪意味着什么？')).toBeNull();
+    expect(routeSafety('《西西弗神话》如何讨论“想自杀”与荒诞之间的关系？')).toBeNull();
+    expect(
+      routeSafety('How does Camus treat suicide as a philosophical question?'),
+    ).toBeNull();
+  });
+
+  it('keeps explicit current danger ahead of philosophical context', () => {
+    expect(
+      routeSafety('我知道加缪讨论自杀哲学，但我已经有自杀计划，准备今晚执行。')?.category,
+    ).toBe('self-harm');
+    expect(routeSafety('我在读《西西弗神话》，但我现在想自杀。')?.category).toBe(
+      'self-harm',
+    );
+  });
+
   it('publishes the explicitly approved safety assets', () => {
     expect(getSafetyAssetStatus()).toEqual({
       rules: 'approved',

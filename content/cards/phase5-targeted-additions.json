@@ -1,0 +1,68 @@
+[
+  {
+    "id": "absurd-suicide-philosophical-question-001",
+    "version": 1,
+    "status": "approved",
+    "title": "自杀为何是严肃的哲学问题",
+    "theme": "absurd",
+    "secondaryThemes": ["meaning", "mortality"],
+    "principle": "对加缪而言，自杀问题检验的是：当世界不给出终极意义时，生命是否仍值得继续；荒诞推理既拒绝用死亡取消冲突，也拒绝用超越性答案逃避冲突。",
+    "explanation": "《西西弗神话》把自杀置于论证的开端，不是为了赞美死亡，而是追问人能否在没有终极保证的处境中保持清醒并继续生活。荒诞存在于人对意义的要求与世界沉默之间；毁掉提出要求的人，只会取消这场张力，并没有在哲学上回答它。",
+    "boundary": "这张卡片只处理抽象的哲学讨论。问题一旦包含个人自伤意图、具体计划或即时危险，现实安全与可信赖的支持必须先于思想检索。",
+    "tensions": ["生命与终极意义", "荒诞与自杀", "清醒与逃避"],
+    "counterMisreadings": ["承认荒诞就等于赞成自杀", "拒绝自杀必须依赖虚假的终极希望"],
+    "keywords": [
+      "自杀",
+      "哲学问题",
+      "哲学命题",
+      "生命是否值得",
+      "西西弗神话",
+      "荒诞推理",
+      "继续生活"
+    ],
+    "aliases": [
+      "自杀是唯一严肃的哲学问题是什么意思",
+      "加缪为什么谈自杀",
+      "加缪如何看待自杀",
+      "哲学自杀是什么",
+      "为什么不自杀"
+    ],
+    "situations": ["讨论《西西弗神话》中自杀问题的哲学位置", "理解荒诞为何不必导向自杀"],
+    "negativeSignals": ["我现在想自杀", "已经有自杀计划", "准备跳楼", "正在伤害自己"],
+    "answerBlocks": {
+      "perspective": [
+        "加缪把自杀放在开端，是因为它迫使哲学先回答生命是否值得继续；他的推演不是以死亡解决荒诞，而是在没有终极答案的情况下保持清醒，并以继续生活保存反抗、自由与经验的可能。"
+      ],
+      "boundary": [
+        "把自杀作为哲学命题讨论，不等于把现实中的自伤危险抽象化；个人意图、计划或即时风险出现时，应先寻求现实支持。"
+      ],
+      "actions": [
+        "把问题拆成三项分别判断：世界是否提供终极意义、缺少终极意义是否等于没有任何具体价值、继续生活还能保留哪些经验与行动。"
+      ],
+      "reflectionQuestions": [
+        "如果没有终极保证，什么仍足以让继续生活成为一种清醒的反抗？"
+      ]
+    },
+    "sources": [
+      {
+        "work": "《西西弗神话》",
+        "section": "荒诞推理：自杀与荒诞",
+        "language": "fr",
+        "sourceType": "primary"
+      },
+      {
+        "work": "Albert Camus (Stanford Encyclopedia of Philosophy)",
+        "section": "Suicide, Absurdity, and Happiness: The Myth of Sisyphus",
+        "language": "en",
+        "sourceType": "scholarship",
+        "url": "https://plato.stanford.edu/entries/camus/"
+      }
+    ],
+    "directQuoteIds": [],
+    "rightsStatus": "cleared",
+    "safetyTags": ["philosophical-suicide", "self-harm-boundary"],
+    "reviewer": "product-owner",
+    "reviewedAt": "2026-08-05",
+    "reviewNotes": "依据产品对抽象哲学讨论与现实自伤风险分流的明确决定新增；原创概述，不使用直接引语。"
+  }
+]

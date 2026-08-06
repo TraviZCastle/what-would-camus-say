@@ -1,0 +1,156 @@
+{
+  "id": "notebooks-1935-1942-source-batch",
+  "version": 1,
+  "status": "approved",
+  "source": {
+    "work": "Notebooks, 1935–1942",
+    "edition": "Translated by Philip Thody, Modern Library, 1963",
+    "language": "en",
+    "sourceType": "primary"
+  },
+  "rightsStatus": "cleared",
+  "reviewer": "product-owner",
+  "reviewedAt": "2026-08-05",
+  "entries": [
+    {
+      "id": "notebooks-one-life-is-short",
+      "sourceText": "Life is short, and it is a sin to waste one's time.",
+      "translationZh": "生命短暂，浪费时间是一种过错。",
+      "themes": ["mortality", "action"],
+      "keywords": ["life", "short", "time", "生命", "短暂", "时间"]
+    },
+    {
+      "id": "notebooks-one-art-confession",
+      "sourceText": "A work of art is a confession, and I must bear witness.",
+      "translationZh": "一件艺术作品就是一场告白，而我必须作证。",
+      "themes": ["action", "conscience", "meaning"],
+      "keywords": ["art", "confession", "witness", "艺术", "告白", "见证"]
+    },
+    {
+      "id": "notebooks-one-eternity-here",
+      "sourceText": "Eternity is here while I was waiting for it.",
+      "translationZh": "当我等待永恒时，永恒已经在这里。",
+      "themes": ["hope", "happiness", "meaning"],
+      "keywords": ["eternity", "wait", "present", "永恒", "等待", "当下"]
+    },
+    {
+      "id": "notebooks-one-travel-and-fear",
+      "sourceText": "What gives value to travel is fear.",
+      "translationZh": "赋予旅行价值的是恐惧。",
+      "themes": ["freedom", "meaning"],
+      "keywords": ["travel", "fear", "value", "旅行", "恐惧", "价值"]
+    },
+    {
+      "id": "notebooks-one-extreme-solitude",
+      "sourceText": "Look for the extreme experience in solitude.",
+      "translationZh": "在孤独中寻找极致的体验。",
+      "themes": ["meaning", "freedom"],
+      "keywords": ["solitude", "experience", "extreme", "孤独", "体验", "极致"]
+    },
+    {
+      "id": "notebooks-one-solitude-luxury",
+      "sourceText": "Solitude, a luxury of the rich.",
+      "translationZh": "孤独，是富人的奢侈品。",
+      "themes": ["solidarity", "conscience", "limits"],
+      "keywords": ["solitude", "wealth", "privilege", "孤独", "财富", "特权"]
+    },
+    {
+      "id": "notebooks-one-silent-solitude",
+      "sourceText": "But the soul also offers us one source of greatness: silent solitude.",
+      "translationZh": "但灵魂也为我们提供一种伟大的来源：沉默的孤独。",
+      "themes": ["meaning", "freedom"],
+      "keywords": ["soul", "solitude", "silence", "灵魂", "孤独", "沉默"]
+    },
+    {
+      "id": "notebooks-one-write-create-love",
+      "sourceText": "Why do I need to write or create, to love or suffer?",
+      "translationZh": "我为什么需要写作或创造，需要去爱或受苦？",
+      "themes": ["meaning", "action", "solidarity"],
+      "keywords": ["write", "create", "love", "写作", "创造", "爱"]
+    },
+    {
+      "id": "notebooks-one-winter-spring",
+      "sourceText": "Every winter ends in a spring.",
+      "translationZh": "每一个冬天都终结于春天。",
+      "themes": ["hope", "mortality"],
+      "keywords": ["winter", "spring", "change", "冬天", "春天", "变化"]
+    },
+    {
+      "id": "notebooks-one-love-saves-absurdity",
+      "sourceText": "Absurdity is king, but love saves us from it.",
+      "translationZh": "荒诞为王，但爱把我们从中拯救出来。",
+      "themes": ["absurd", "solidarity", "meaning"],
+      "keywords": ["absurdity", "love", "save", "荒诞", "爱", "拯救"]
+    },
+    {
+      "id": "notebooks-one-resisting-relaxing",
+      "sourceText": "To keep going to the end means not only resisting but also relaxing.",
+      "translationZh": "坚持走到最后，不仅意味着抵抗，也意味着放松。",
+      "themes": ["revolt", "limits", "action"],
+      "keywords": ["resist", "relax", "continue", "抵抗", "放松", "坚持"]
+    },
+    {
+      "id": "notebooks-one-create-within",
+      "sourceText": "But our task now is to create a new man within ourselves.",
+      "translationZh": "但我们现在的任务，是在自身内部创造一个新人。",
+      "themes": ["action", "freedom", "meaning"],
+      "keywords": ["task", "create", "self", "任务", "创造", "自我"]
+    },
+    {
+      "id": "notebooks-one-body-limits",
+      "sourceText": "The body, a true path to culture, teaches us where our limits lie.",
+      "translationZh": "身体这条通向文化的真实道路，教会我们限度所在。",
+      "themes": ["limits", "mortality", "happiness"],
+      "keywords": ["body", "limit", "culture", "身体", "限度", "文化"]
+    },
+    {
+      "id": "notebooks-one-reveal-to-loved",
+      "sourceText": "We do not need to reveal ourselves to others, but only to those we love.",
+      "translationZh": "我们不必向所有人袒露自己，只需向我们所爱的人袒露。",
+      "themes": ["solidarity", "freedom", "limits"],
+      "keywords": ["reveal", "love", "others", "袒露", "爱", "他人"]
+    },
+    {
+      "id": "notebooks-one-blood-and-liberty",
+      "sourceText": "We must be sparing of other people's blood and liberty.",
+      "translationZh": "我们必须珍惜他人的鲜血与自由。",
+      "themes": ["limits", "conscience", "freedom"],
+      "keywords": ["blood", "liberty", "others", "鲜血", "自由", "他人"]
+    },
+    {
+      "id": "notebooks-one-need-to-be-right",
+      "sourceText": "The need to be right—the sign of a vulgar mind.",
+      "translationZh": "总想证明自己正确，是庸俗心灵的标志。",
+      "themes": ["conscience", "limits"],
+      "keywords": ["right", "argument", "judgment", "正确", "争论", "判断"]
+    },
+    {
+      "id": "notebooks-one-dreams-to-action",
+      "sourceText": "We must learn to live out our dreams—and to transform them into action.",
+      "translationZh": "我们必须学会活出自己的梦想，并把它们转化为行动。",
+      "themes": ["action", "hope", "freedom"],
+      "keywords": ["dream", "action", "transform", "梦想", "行动", "转化"]
+    },
+    {
+      "id": "notebooks-one-happiness-without-ambiguity",
+      "sourceText": "For the first time I can understand the meaning of the word happiness without any ambiguity.",
+      "translationZh": "我第一次能够毫无歧义地理解“幸福”这个词的含义。",
+      "themes": ["happiness", "meaning"],
+      "keywords": ["happiness", "understand", "meaning", "幸福", "理解", "意义"]
+    },
+    {
+      "id": "notebooks-one-liberty-and-death",
+      "sourceText": "The only liberty possible is a liberty as regards death.",
+      "translationZh": "唯一可能的自由，是面对死亡时的自由。",
+      "themes": ["freedom", "mortality", "absurd"],
+      "keywords": ["liberty", "death", "possible", "自由", "死亡", "可能"]
+    },
+    {
+      "id": "notebooks-one-action-participation",
+      "sourceText": "It is neither an action nor a gesture, but a participation.",
+      "translationZh": "这既不是一个行动，也不是一种姿态，而是一种参与。",
+      "themes": ["action", "solidarity"],
+      "keywords": ["action", "gesture", "participation", "行动", "姿态", "参与"]
+    }
+  ]
+}

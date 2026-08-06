@@ -5,12 +5,14 @@ import { fileURLToPath } from 'node:url';
 
 import {
   DirectQuoteCollectionSchema,
+  EnglishDirectQuoteBatchSchema,
   SafetyResponseCatalogSchema,
   SafetyRuleCatalogSchema,
   SourceCatalogSchema,
   SynonymCatalogSchema,
   THEME_IDS,
 } from '../src/content/schema';
+import { expandEnglishQuoteBatch } from '../src/content/expand-quote-batch';
 import { loadThoughtCards } from './load-thought-cards';
 
 const projectRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
@@ -22,9 +24,20 @@ async function readJson(relativePath: string): Promise<unknown> {
 }
 
 const cards = await loadThoughtCards(projectRoot);
-const quotes = DirectQuoteCollectionSchema.parse(
-  await readJson('content/quotes/quotes.json'),
+const quoteBatches = await Promise.all(
+  [
+    'content/quotes/source-batches/the-stranger.json',
+    'content/quotes/source-batches/the-plague.json',
+    'content/quotes/source-batches/notebooks-1935-1942.json',
+    'content/quotes/source-batches/notebooks-1942-1951.json',
+  ].map(async (relativePath) =>
+    EnglishDirectQuoteBatchSchema.parse(await readJson(relativePath)),
+  ),
 );
+const quotes = [
+  ...DirectQuoteCollectionSchema.parse(await readJson('content/quotes/quotes.json')),
+  ...quoteBatches.flatMap(expandEnglishQuoteBatch),
+];
 const sources = SourceCatalogSchema.parse(await readJson('content/sources/sources.json'));
 const synonyms = SynonymCatalogSchema.parse(
   await readJson('content/synonyms/synonyms.json'),
@@ -149,7 +162,15 @@ if (isProduction) {
   for (const quote of quotes) {
     if (quote.status !== 'approved') errors.push(`${quote.id} 尚未 approved`);
     if (quote.rightsStatus === 'unknown') errors.push(`${quote.id} 的权利状态未知`);
+    if (quote.placements.includes('result') && quote.sourceText.split(/\s+/u).length > 25)
+      errors.push(`${quote.id} 的结果页短引文超过 25 个词`);
   }
+
+  const resultQuoteCount = quotes.filter((quote) =>
+    quote.placements.includes('result'),
+  ).length;
+  if (resultQuoteCount < 80)
+    errors.push(`结果页直接引文不足 80 条：当前 ${resultQuoteCount} 条`);
 
   if (synonyms.status !== 'approved') errors.push('同义词表尚未 approved');
   if (englishSynonyms.status !== 'approved') errors.push('英文同义词表尚未 approved');

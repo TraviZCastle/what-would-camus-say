@@ -12,14 +12,6 @@ function selectBlock(values: readonly string[], seed: string): string {
   return values[stableIndex(seed, values.length)] ?? '';
 }
 
-function questionFocus(question: string): string {
-  const normalized = question
-    .replace(/\s+/g, ' ')
-    .trim()
-    .replace(/[。？！?!]+$/u, '');
-  return normalized.length > 48 ? `${normalized.slice(0, 48)}…` : normalized;
-}
-
 function collectSources(cards: readonly ThoughtCard[]): AnswerSource[] {
   const seen = new Set<string>();
   const sources: AnswerSource[] = [];
@@ -56,7 +48,7 @@ export function composeAnswer(
     mainCard.secondaryThemes[0] ??
     (language === 'zh' ? '个人判断' : 'personal judgment');
   const perspectiveBlock = selectBlock(mainCard.answerBlocks.perspective, `${seed}|view`);
-  let perspective = `${perspectiveBlock} ${mainCard.explanation}`;
+  let perspective = perspectiveBlock;
 
   const sections: AnswerSection[] = [
     {
@@ -64,8 +56,8 @@ export function composeAnswer(
       label: language === 'zh' ? '看见困境' : 'The dilemma',
       text:
         language === 'zh'
-          ? `你提出的是：${questionFocus(question)}。其中不只是一个表面选择，也包含「${firstTension}」与「${secondTension}」之间的冲突。`
-          : `Your question is: ${questionFocus(question)}. Beneath the immediate decision is a tension between “${firstTension}” and “${secondTension}.”`,
+          ? `这个处境的核心张力，在于「${firstTension}」与「${secondTension}」之间；它不只是一个需要立即作答的表面选择。`
+          : `The central tension lies between “${firstTension}” and “${secondTension}”; this is more than an immediate choice demanding a quick answer.`,
       traces: [{ cardId: mainCard.id, fields: ['tensions'] }],
     },
     {
@@ -75,7 +67,7 @@ export function composeAnswer(
       traces: [
         {
           cardId: mainCard.id,
-          fields: ['answerBlocks.perspective', 'explanation'],
+          fields: ['answerBlocks.perspective'],
         },
       ],
     },
@@ -98,6 +90,20 @@ export function composeAnswer(
       traces: [{ cardId: mainCard.id, fields: ['answerBlocks.reflectionQuestions'] }],
     },
   ];
+
+  if (sectionCharacterCount(sections) < 180) {
+    perspective = `${perspective} ${mainCard.explanation}`;
+    sections[1] = {
+      ...sections[1],
+      text: perspective,
+      traces: [
+        {
+          cardId: mainCard.id,
+          fields: ['answerBlocks.perspective', 'explanation'],
+        },
+      ],
+    };
+  }
 
   if (sectionCharacterCount(sections) < 180) {
     perspective = `${perspective} ${mainCard.principle}`;

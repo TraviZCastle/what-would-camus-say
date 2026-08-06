@@ -1,0 +1,142 @@
+{
+  "id": "the-stranger-source-batch",
+  "version": 1,
+  "status": "approved",
+  "source": {
+    "work": "The Stranger",
+    "edition": "English translation by Stuart Gilbert; EPUB pagination unavailable",
+    "language": "en",
+    "sourceType": "primary"
+  },
+  "rightsStatus": "cleared",
+  "reviewer": "product-owner",
+  "reviewedAt": "2026-08-05",
+  "entries": [
+    {
+      "id": "stranger-mother-died-today",
+      "sourceText": "Mother died today. Or, maybe, yesterday; I can't be sure.",
+      "translationZh": "母亲今天去世了。也许是昨天，我不能确定。",
+      "themes": ["mortality", "absurd"],
+      "keywords": ["death", "mother", "uncertainty", "死亡", "母亲", "不确定"]
+    },
+    {
+      "id": "stranger-need-not-have-said",
+      "sourceText": "Afterwards it struck me I needn't have said that.",
+      "translationZh": "后来我忽然想到，那句话其实没有必要说。",
+      "themes": ["conscience", "freedom"],
+      "keywords": ["regret", "apology", "judgment", "后悔", "道歉", "判断"]
+    },
+    {
+      "id": "stranger-not-really-dead",
+      "sourceText": "For the present, it's almost as if Mother weren't really dead.",
+      "translationZh": "此刻，这几乎像是母亲并没有真的死去。",
+      "themes": ["mortality", "meaning"],
+      "keywords": ["grief", "death", "mother", "哀伤", "死亡", "母亲"]
+    },
+    {
+      "id": "stranger-effort-making-a-move",
+      "sourceText": "I wanted to be in bed, only it was such an effort making a move.",
+      "translationZh": "我想躺到床上去，只是连动一下都如此费力。",
+      "themes": ["work", "action", "absurd"],
+      "keywords": ["effort", "exhaustion", "move", "疲惫", "行动", "倦怠"]
+    },
+    {
+      "id": "stranger-others-worse-off",
+      "sourceText": "There were others in the world worse off than I.",
+      "translationZh": "世上还有处境比我更糟的人。",
+      "themes": ["solidarity", "conscience"],
+      "keywords": ["others", "suffering", "comparison", "他人", "痛苦", "比较"]
+    },
+    {
+      "id": "stranger-measured-steps",
+      "sourceText": "He was walking with carefully measured steps, economizing every gesture.",
+      "translationZh": "他谨慎地衡量每一步，节省着每一个动作。",
+      "themes": ["limits", "action"],
+      "keywords": ["measure", "restraint", "step", "限度", "克制", "一步"]
+    },
+    {
+      "id": "stranger-fear-not-despair",
+      "sourceText": "I explained that it wasn't despair I felt, but fear—which was natural enough.",
+      "translationZh": "我解释说，我感到的不是绝望，而是恐惧——这再自然不过。",
+      "themes": ["hope", "mortality", "meaning"],
+      "keywords": ["fear", "despair", "death", "恐惧", "绝望", "死亡"]
+    },
+    {
+      "id": "stranger-exaggerated-unknown",
+      "sourceText": "One always has exaggerated ideas about what one doesn't know.",
+      "translationZh": "人总会夸大自己不了解的事物。",
+      "themes": ["meaning", "conscience"],
+      "keywords": ["unknown", "knowledge", "judgment", "未知", "认知", "判断"]
+    },
+    {
+      "id": "stranger-changing-sky",
+      "sourceText": "All my time is spent in watching the slowly changing colors of the sky, as day moves on to night.",
+      "translationZh": "我把全部时间用于观看天空缓慢变色，看白昼转入黑夜。",
+      "themes": ["happiness", "mortality", "meaning"],
+      "keywords": ["sky", "present", "time", "天空", "当下", "时间"]
+    },
+    {
+      "id": "stranger-ready-for-it",
+      "sourceText": "When something happens to me I want to be ready for it.",
+      "translationZh": "当事情降临到我身上时，我希望自己已经准备好。",
+      "themes": ["action", "mortality"],
+      "keywords": ["ready", "event", "prepare", "准备", "行动", "意外"]
+    },
+    {
+      "id": "stranger-something-thankful",
+      "sourceText": "Mother used to say that however miserable one is, there's always something to be thankful for.",
+      "translationZh": "母亲常说，无论一个人多么不幸，总还有值得感激的事。",
+      "themes": ["hope", "happiness"],
+      "keywords": ["miserable", "thankful", "hope", "不幸", "感激", "希望"]
+    },
+    {
+      "id": "stranger-manner-of-death",
+      "sourceText": "Once you're up against it, the precise manner of your death has obviously small importance.",
+      "translationZh": "一旦真正面对死亡，死亡的具体方式显然就不那么重要了。",
+      "themes": ["mortality", "absurd"],
+      "keywords": ["death", "finitude", "inevitable", "死亡", "有限", "必然"]
+    },
+    {
+      "id": "stranger-sure-what-did-not-interest",
+      "sourceText": "Though I mightn't be so sure about what interested me, I was absolutely sure about what didn't interest me.",
+      "translationZh": "即使我不确定自己对什么感兴趣，我却完全确定什么不能引起我的兴趣。",
+      "themes": ["freedom", "meaning"],
+      "keywords": ["interest", "certainty", "refusal", "兴趣", "确定", "拒绝"]
+    },
+    {
+      "id": "stranger-certainties-and-hair",
+      "sourceText": "And yet none of his certainties was worth one strand of a woman's hair.",
+      "translationZh": "然而，他所有的确定性都抵不上一根女人的头发。",
+      "themes": ["meaning", "freedom", "conscience"],
+      "keywords": ["certainty", "life", "value", "确定性", "生命", "价值"]
+    },
+    {
+      "id": "stranger-benign-indifference",
+      "sourceText": "I laid my heart open to the benign indifference of the universe.",
+      "translationZh": "我向宇宙温和的冷漠敞开了心扉。",
+      "themes": ["absurd", "meaning"],
+      "keywords": ["universe", "indifference", "world", "宇宙", "冷漠", "世界"]
+    },
+    {
+      "id": "stranger-happy-still",
+      "sourceText": "To feel it so like myself, indeed, so brotherly, made me realize that I'd been happy, and that I was happy still.",
+      "translationZh": "感到它如此像我、如此亲近，使我明白自己曾经幸福，而且依然幸福。",
+      "themes": ["happiness", "solidarity", "meaning"],
+      "keywords": ["happy", "brotherly", "belonging", "幸福", "亲近", "归属"]
+    },
+    {
+      "id": "stranger-start-life-again",
+      "sourceText": "And I, too, felt ready to start life all over again.",
+      "translationZh": "而我也感到自己已经准备好重新开始生活。",
+      "themes": ["action", "hope"],
+      "keywords": ["start", "life", "again", "开始", "生活", "重新"]
+    },
+    {
+      "id": "stranger-gaze-and-wait",
+      "sourceText": "I put my hands behind my head, gaze up, and wait.",
+      "translationZh": "我把双手枕在脑后，向上凝望，等待。",
+      "themes": ["hope", "limits", "action"],
+      "keywords": ["wait", "patience", "uncertainty", "等待", "耐心", "不确定"]
+    }
+  ]
+}

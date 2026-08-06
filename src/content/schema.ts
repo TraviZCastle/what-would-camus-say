@@ -80,9 +80,15 @@ export const ThoughtCardCollectionSchema = z.array(ThoughtCardSchema);
 export const DirectQuoteSchema = z.strictObject({
   id: z.string().regex(/^[a-z0-9]+(?:-[a-z0-9]+)*$/),
   status: ReviewStatusSchema,
-  text: z.string().min(1),
-  originalText: z.string().min(1),
-  language: z.string().min(2),
+  sourceText: z.string().min(1),
+  sourceLanguage: z.string().min(2),
+  translations: z.strictObject({
+    en: z.string().min(1),
+    zh: z.string().min(1),
+  }),
+  themes: z.array(ThemeIdSchema).min(1),
+  keywords: z.array(z.string().min(1)).min(1),
+  placements: z.array(z.enum(['homepage', 'result'])).min(1),
   source: SourceRefSchema,
   rightsStatus: RightsStatusSchema,
   reviewer: z.string().min(1),
@@ -90,6 +96,25 @@ export const DirectQuoteSchema = z.strictObject({
 });
 
 export const DirectQuoteCollectionSchema = z.array(DirectQuoteSchema);
+
+export const EnglishDirectQuoteBatchSchema = z.strictObject({
+  id: z.string().regex(/^[a-z0-9]+(?:-[a-z0-9]+)*$/),
+  version: z.int().positive(),
+  status: ReviewStatusSchema,
+  source: SourceRefSchema,
+  rightsStatus: RightsStatusSchema,
+  reviewer: z.string().min(1),
+  reviewedAt: z.string().regex(/^\d{4}-\d{2}-\d{2}$/),
+  entries: z.array(
+    z.strictObject({
+      id: z.string().regex(/^[a-z0-9]+(?:-[a-z0-9]+)*$/),
+      sourceText: z.string().min(1),
+      translationZh: z.string().min(1),
+      themes: z.array(ThemeIdSchema).min(1),
+      keywords: z.array(z.string().min(1)).min(1),
+    }),
+  ),
+});
 
 export const SourceCatalogEntrySchema = z.strictObject({
   id: z.string().regex(/^[a-z0-9]+(?:-[a-z0-9]+)*$/),

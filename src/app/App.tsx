@@ -2,17 +2,11 @@ import { useEffect, useRef, useState, type FormEvent, type RefObject } from 'rea
 
 import { composeAnswer } from '../composition/compose-answer';
 import type { ComposedAnswer } from '../composition/types';
-import {
-  EXAMPLE_QUESTIONS,
-  MESSAGES,
-  THEME_LABELS,
-  THEME_QUESTIONS,
-  localizeSafetyResponse,
-} from '../i18n/messages';
+import { selectDirectQuote, translateDirectQuote } from '../content/direct-quotes';
+import { EXAMPLE_QUESTIONS, MESSAGES, localizeSafetyResponse } from '../i18n/messages';
 import {
   applyDocumentLanguage,
   detectQuestionLanguage,
-  getInitialLanguage,
   type AppLanguage,
 } from '../i18n/language';
 import { loadSearchIndex } from '../retrieval/client';
@@ -34,12 +28,10 @@ type RegularSubmittedResult = {
 type SafetySubmittedResult = {
   kind: 'safety';
   language: AppLanguage;
-  question: string;
   safety: SafetyMatch;
 };
 
 type SubmittedResult = RegularSubmittedResult | SafetySubmittedResult;
-type FeedbackValue = 'helpful' | 'not-helpful';
 
 function characterLength(value: string): number {
   return Array.from(value).length;
@@ -64,7 +56,7 @@ export function App() {
   const [hash, setHash] = useState(
     typeof window === 'undefined' ? '' : window.location.hash,
   );
-  const [language, setLanguage] = useState<AppLanguage>(getInitialLanguage);
+  const [language, setLanguage] = useState<AppLanguage>('en');
 
   useEffect(() => {
     const updateHash = () => setHash(window.location.hash);
@@ -94,15 +86,15 @@ function ProductApp({ language, onLanguageChange }: ProductAppProps) {
   const [question, setQuestion] = useState('');
   const [inputError, setInputError] = useState('');
   const [submitted, setSubmitted] = useState<SubmittedResult | null>(null);
-  const [feedback, setFeedback] = useState<FeedbackValue | null>(null);
-  const [drawerOpen, setDrawerOpen] = useState(false);
+  const [questionPageOpen, setQuestionPageOpen] = useState(false);
   const questionRef = useRef<HTMLTextAreaElement>(null);
-  const drawerRef = useRef<HTMLElement>(null);
-  const openDrawerRef = useRef<HTMLButtonElement>(null);
+  const openQuestionPageRef = useRef<HTMLButtonElement>(null);
   const resultHeadingRef = useRef<HTMLHeadingElement>(null);
   const copy = MESSAGES[language];
-  const index = indexes[language] ?? null;
-  const indexError = indexErrors[language] ?? '';
+  const inputCopy = MESSAGES.en;
+  const questionLanguage = detectQuestionLanguage(question, 'en');
+  const index = indexes[questionLanguage] ?? null;
+  const indexError = indexErrors[questionLanguage] ?? '';
 
   useEffect(() => {
     let active = true;
@@ -133,29 +125,18 @@ function ProductApp({ language, onLanguageChange }: ProductAppProps) {
     if (indexes[otherLanguage] || indexErrors[otherLanguage]) return;
 
     let active = true;
-    const preload = () => {
-      loadSearchIndex(otherLanguage)
-        .then((loadedIndex) => {
-          if (active) {
-            setIndexes((current) => ({ ...current, [otherLanguage]: loadedIndex }));
-          }
-        })
-        .catch(() => {
-          // A failed background preload is retried when that language becomes active.
-        });
-    };
-
-    const windowWithIdle = window as Window & {
-      requestIdleCallback?: (callback: () => void) => number;
-      cancelIdleCallback?: (id: number) => void;
-    };
-    const idleId = windowWithIdle.requestIdleCallback?.(preload);
-    const timeoutId = idleId === undefined ? window.setTimeout(preload, 700) : undefined;
+    loadSearchIndex(otherLanguage)
+      .then((loadedIndex) => {
+        if (active) {
+          setIndexes((current) => ({ ...current, [otherLanguage]: loadedIndex }));
+        }
+      })
+      .catch(() => {
+        // A failed background preload is retried if that language is submitted.
+      });
 
     return () => {
       active = false;
-      if (idleId !== undefined) windowWithIdle.cancelIdleCallback?.(idleId);
-      if (timeoutId !== undefined) window.clearTimeout(timeoutId);
     };
   }, [indexErrors, indexes, language]);
 
@@ -164,55 +145,34 @@ function ProductApp({ language, onLanguageChange }: ProductAppProps) {
   }, [submitted]);
 
   useEffect(() => {
-    if (!drawerOpen) return;
-    const previousOverflow = document.body.style.overflow;
-    document.body.style.overflow = 'hidden';
+    if (!questionPageOpen) return;
     const frame = requestAnimationFrame(() => questionRef.current?.focus());
     const handleKeyDown = (event: KeyboardEvent) => {
       if (event.key === 'Escape') {
-        setDrawerOpen(false);
-        requestAnimationFrame(() => openDrawerRef.current?.focus());
-      }
-      if (event.key === 'Tab' && drawerRef.current) {
-        const focusable = Array.from(
-          drawerRef.current.querySelectorAll<HTMLElement>(
-            'button:not(:disabled), textarea:not(:disabled), summary, a[href]',
-          ),
-        ).filter((element) => element.offsetParent !== null);
-        const first = focusable[0];
-        const last = focusable.at(-1);
-        if (event.shiftKey && document.activeElement === first) {
-          event.preventDefault();
-          last?.focus();
-        } else if (!event.shiftKey && document.activeElement === last) {
-          event.preventDefault();
-          first?.focus();
-        }
+        setQuestionPageOpen(false);
+        requestAnimationFrame(() => openQuestionPageRef.current?.focus());
       }
     };
     document.addEventListener('keydown', handleKeyDown);
     return () => {
       cancelAnimationFrame(frame);
-      document.body.style.overflow = previousOverflow;
       document.removeEventListener('keydown', handleKeyDown);
     };
-  }, [drawerOpen]);
+  }, [questionPageOpen]);
 
   function updateQuestion(value: string) {
     setQuestion(value);
     if (inputError) setInputError('');
-    const detected = detectQuestionLanguage(value, language);
-    if (detected !== language) onLanguageChange(detected);
   }
 
-  function openDrawer(nextQuestion?: string) {
+  function openQuestionPage(nextQuestion?: string) {
     if (nextQuestion !== undefined) updateQuestion(nextQuestion);
-    setDrawerOpen(true);
+    setQuestionPageOpen(true);
   }
 
-  function closeDrawer() {
-    setDrawerOpen(false);
-    requestAnimationFrame(() => openDrawerRef.current?.focus());
+  function closeQuestionPage() {
+    setQuestionPageOpen(false);
+    requestAnimationFrame(() => openQuestionPageRef.current?.focus());
   }
 
   function chooseQuestion(value: string) {
@@ -222,11 +182,8 @@ function ProductApp({ language, onLanguageChange }: ProductAppProps) {
 
   function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
-    const submittedLanguage = detectQuestionLanguage(question, language);
-    if (submittedLanguage !== language) {
-      onLanguageChange(submittedLanguage);
-    }
-    const validationError = validateQuestion(question, submittedLanguage);
+    const submittedLanguage = detectQuestionLanguage(question, 'en');
+    const validationError = validateQuestion(question, 'en');
     if (validationError) {
       setInputError(validationError);
       questionRef.current?.focus();
@@ -236,12 +193,11 @@ function ProductApp({ language, onLanguageChange }: ProductAppProps) {
     const trimmedQuestion = question.trim();
     const safety = routeSafety(trimmedQuestion);
     if (safety) {
-      setDrawerOpen(false);
-      setFeedback(null);
+      onLanguageChange(submittedLanguage);
+      setQuestionPageOpen(false);
       setSubmitted({
         kind: 'safety',
         language: submittedLanguage,
-        question: trimmedQuestion,
         safety,
       });
       return;
@@ -257,8 +213,8 @@ function ProductApp({ language, onLanguageChange }: ProductAppProps) {
     const answer = retrieval.mainCard
       ? composeAnswer(trimmedQuestion, retrieval.mainCard, submittedLanguage)
       : null;
-    setDrawerOpen(false);
-    setFeedback(null);
+    onLanguageChange(submittedLanguage);
+    setQuestionPageOpen(false);
     setSubmitted({
       kind: 'answer',
       language: submittedLanguage,
@@ -269,26 +225,11 @@ function ProductApp({ language, onLanguageChange }: ProductAppProps) {
   }
 
   function reset(nextQuestion = '') {
+    onLanguageChange('en');
     setSubmitted(null);
     setQuestion(nextQuestion);
     setInputError('');
-    setFeedback(null);
-    if (nextQuestion) {
-      const detected = detectQuestionLanguage(nextQuestion, language);
-      if (detected !== language) onLanguageChange(detected);
-    }
-    setDrawerOpen(true);
-  }
-
-  function recordFeedback(value: FeedbackValue) {
-    setFeedback(value);
-    const cardId = submitted?.kind === 'answer' ? submitted.retrieval.mainCard?.id : null;
-    if (!cardId) return;
-    try {
-      localStorage.setItem(`camus-feedback:${cardId}`, value);
-    } catch {
-      // Feedback remains available for this view even if local storage is unavailable.
-    }
+    setQuestionPageOpen(true);
   }
 
   if (submitted) {
@@ -301,97 +242,38 @@ function ProductApp({ language, onLanguageChange }: ProductAppProps) {
     ) : (
       <ResultView
         submitted={submitted}
-        feedback={feedback}
         resultHeadingRef={resultHeadingRef}
-        onFeedback={recordFeedback}
         onReset={reset}
       />
     );
   }
 
-  return (
-    <main className="hero-page">
-      <section className="hero-stage" aria-labelledby="hero-title" inert={drawerOpen}>
+  if (questionPageOpen) {
+    return (
+      <main className="question-page" aria-labelledby="question-title">
         <img
-          className="hero-portrait"
+          className="question-page-portrait"
           src="/assets/camus-hero-v1.jpg"
-          alt={copy.heroAlt}
+          alt=""
+          aria-hidden="true"
         />
-        <header className="hero-topbar">
-          <strong>WWCS / 01</strong>
-          <span>{copy.principles}</span>
+        <div className="question-page-shade" aria-hidden="true" />
+
+        <header className="question-page-topbar">
+          <button type="button" onClick={closeQuestionPage}>
+            {inputCopy.questionBack}
+          </button>
+          <strong>What Would Camus Say?</strong>
         </header>
 
-        <div className="hero-copy">
-          <p className="hero-kicker">{copy.heroKicker}</p>
-          <h1 id="hero-title">
-            What would <em>Camus say?</em>
-          </h1>
-          <p className="hero-intro">{copy.heroIntro}</p>
-          <button
-            ref={openDrawerRef}
-            className="hero-cta"
-            type="button"
-            onClick={() => openDrawer()}
-            aria-haspopup="dialog"
-            aria-expanded={drawerOpen}
-          >
-            <span>{copy.heroAction}</span>
-            <span aria-hidden="true">↗</span>
-          </button>
-        </div>
+        <section className="question-page-content">
+          <p className="question-page-kicker">{inputCopy.questionKicker}</p>
+          <h1 id="question-title">{inputCopy.questionTitle}</h1>
+          <p className="question-page-intro">{inputCopy.questionIntro}</p>
 
-        <div className="ember-system" aria-hidden="true">
-          <span className="ember" />
-          <span className="smoke smoke-one" />
-          <span className="smoke smoke-two" />
-          <span className="smoke smoke-three" />
-        </div>
-
-        <p className="hero-edition">
-          {copy.edition}
-          <strong>{copy.productNote}</strong>
-        </p>
-      </section>
-
-      <button
-        className="drawer-scrim"
-        type="button"
-        aria-label={copy.closePanel}
-        data-open={drawerOpen}
-        onClick={closeDrawer}
-        tabIndex={-1}
-      />
-      <aside
-        ref={drawerRef}
-        className="question-drawer"
-        role="dialog"
-        aria-modal="true"
-        aria-labelledby="question-title"
-        data-open={drawerOpen}
-        inert={!drawerOpen}
-      >
-        <header className="drawer-header">
-          <span>{copy.drawerLabel}</span>
-          <span className="auto-language" aria-live="polite">
-            {language === 'zh' ? '自动识别：中文' : 'Auto-detected: English'}
-          </span>
-          <button
-            className="drawer-close"
-            type="button"
-            onClick={closeDrawer}
-            aria-label={copy.closePanel}
-          >
-            ×
-          </button>
-        </header>
-
-        <div className="drawer-content">
-          <h2 id="question-title">{copy.questionTitle}</h2>
-          <p>{copy.questionIntro}</p>
           <form className="question-form" onSubmit={handleSubmit} noValidate>
             <label className="sr-only" htmlFor="question">
-              {copy.questionLabel}
+              {inputCopy.questionLabel}
             </label>
             <textarea
               ref={questionRef}
@@ -400,11 +282,11 @@ function ProductApp({ language, onLanguageChange }: ProductAppProps) {
               onChange={(event) => updateQuestion(event.target.value)}
               aria-describedby="question-help question-error"
               aria-invalid={Boolean(inputError)}
-              placeholder={copy.placeholder}
-              rows={6}
+              placeholder={inputCopy.placeholder}
+              rows={5}
             />
-            <div className="form-meta">
-              <span id="question-help">{copy.countHint}</span>
+            <div className="question-page-meta">
+              <span id="question-help">{inputCopy.questionPrivacy}</span>
               <span
                 className={characterLength(question.trim()) > 300 ? 'count-error' : ''}
               >
@@ -419,43 +301,84 @@ function ProductApp({ language, onLanguageChange }: ProductAppProps) {
               type="submit"
               disabled={!index && !indexError}
             >
-              {index ? copy.start : indexError ? copy.loadFailed : copy.loading}
+              <span>
+                {index
+                  ? inputCopy.start
+                  : indexError
+                    ? inputCopy.loadFailed
+                    : inputCopy.loading}
+              </span>
+              <span aria-hidden="true">↗</span>
             </button>
           </form>
 
-          <div className="examples" aria-label={copy.examplesLabel}>
-            <p>{copy.examplesLabel}</p>
+          <div className="question-page-examples" aria-label={inputCopy.examplesLabel}>
+            <p>{inputCopy.examplesLabel}</p>
             <div>
-              {EXAMPLE_QUESTIONS[language].map((example) => (
+              {EXAMPLE_QUESTIONS.en.map((example, indexNumber) => (
                 <button
                   key={example}
                   type="button"
                   onClick={() => chooseQuestion(example)}
                 >
+                  <span aria-hidden="true">0{indexNumber + 1}</span>
                   {example}
                 </button>
               ))}
             </div>
           </div>
+        </section>
+      </main>
+    );
+  }
 
-          <details className="how-it-works">
-            <summary>{copy.howTitle}</summary>
-            <p>{copy.howBody}</p>
-            <a href="#method">{copy.methodLink}</a>
-          </details>
+  return (
+    <main className="hero-page">
+      <section className="hero-stage" aria-labelledby="hero-title">
+        <img
+          className="hero-portrait"
+          src="/assets/camus-hero-v1.jpg"
+          alt={copy.heroAlt}
+        />
+        <header className="hero-topbar">
+          <strong>What Would Camus Say?</strong>
+          <blockquote>
+            <p>“{copy.headerQuote}”</p>
+            <cite>{copy.headerQuoteSource}</cite>
+          </blockquote>
+        </header>
+
+        <div className="hero-copy">
+          <p className="hero-kicker">{copy.heroKicker}</p>
+          <h1 id="hero-title">
+            What would <em>Camus say?</em>
+          </h1>
+          <p className="hero-intro">{copy.heroIntro}</p>
+          <button
+            ref={openQuestionPageRef}
+            className="hero-cta"
+            type="button"
+            onClick={() => openQuestionPage()}
+          >
+            <span>{copy.heroAction}</span>
+            <span aria-hidden="true">↗</span>
+          </button>
         </div>
 
-        <p className="drawer-note">{copy.transparency}</p>
-      </aside>
+        <div className="ember-system" aria-hidden="true">
+          <span className="ember" />
+          <span className="smoke smoke-one" />
+          <span className="smoke smoke-two" />
+          <span className="smoke smoke-three" />
+        </div>
+      </section>
     </main>
   );
 }
 
 type ResultViewProps = {
   submitted: RegularSubmittedResult;
-  feedback: FeedbackValue | null;
   resultHeadingRef: RefObject<HTMLHeadingElement | null>;
-  onFeedback: (value: FeedbackValue) => void;
   onReset: (nextQuestion?: string) => void;
 };
 
@@ -506,17 +429,21 @@ function SafetyView({ submitted, resultHeadingRef, onReset }: SafetyViewProps) {
   );
 }
 
-function ResultView({
-  submitted,
-  feedback,
-  resultHeadingRef,
-  onFeedback,
-  onReset,
-}: ResultViewProps) {
-  const { retrieval, answer, language } = submitted;
+function ResultView({ submitted, resultHeadingRef, onReset }: ResultViewProps) {
+  const { answer, language } = submitted;
   const copy = MESSAGES[language];
-  const topCandidate = retrieval.debug.ranking[0];
-  const labels = THEME_LABELS[language];
+  const prose = answer
+    ? answer.sections
+        .filter((section) => section.kind !== 'reflection')
+        .map((section) => section.text)
+        .join(' ')
+    : '';
+  const directQuote = submitted.retrieval.mainCard
+    ? selectDirectQuote(submitted.retrieval.mainCard, submitted.question)
+    : null;
+  const translatedQuote = directQuote
+    ? translateDirectQuote(directQuote, language)
+    : null;
 
   return (
     <main className="result-shell">
@@ -531,42 +458,29 @@ function ResultView({
         <p className="submitted-question">{submitted.question}</p>
       </header>
 
+      <figure className="result-portrait">
+        <img src="/assets/camus-hero-v1.jpg" alt={copy.heroAlt} />
+      </figure>
+
       {answer ? (
-        <article className="answer-card" aria-label={copy.answerLabel}>
-          {answer.sections.map((section, index) => (
-            <section
-              key={section.kind}
-              className={`answer-section answer-section-${section.kind}`}
-            >
-              <span>{String(index + 1).padStart(2, '0')}</span>
-              <div>
-                <h2>{section.label}</h2>
-                <p>{section.text}</p>
-              </div>
-            </section>
-          ))}
-          <section className="sources-section" aria-labelledby="sources-title">
-            <p className="panel-number" aria-hidden="true">
-              06
-            </p>
-            <div>
-              <h2 id="sources-title">{copy.sourceTitle}</h2>
-              <ul>
-                {answer.sources.map((source) => (
-                  <li key={`${source.cardId}-${source.work}-${source.section ?? ''}`}>
-                    {source.url ? (
-                      <a href={source.url} target="_blank" rel="noreferrer">
-                        {source.work}
-                      </a>
-                    ) : (
-                      source.work
-                    )}
-                    {source.section ? ` · ${source.section}` : ''}
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </section>
+        <article className="answer-card answer-editorial" aria-label={copy.answerLabel}>
+          <div className="answer-prose">
+            <p>{prose}</p>
+          </div>
+
+          {directQuote ? (
+            <blockquote className="answer-pullquote">
+              <p className="quote-source-text" lang={directQuote.sourceLanguage}>
+                {directQuote.sourceText}
+              </p>
+              {translatedQuote && translatedQuote !== directQuote.sourceText ? (
+                <p className="quote-translation">{translatedQuote}</p>
+              ) : null}
+              <footer>
+                <cite>Albert Camus · {directQuote.source.work}</cite>
+              </footer>
+            </blockquote>
+          ) : null}
         </article>
       ) : (
         <section className="no-result" aria-labelledby="no-result-title">
@@ -579,75 +493,6 @@ function ResultView({
           </div>
         </section>
       )}
-
-      <details className="explanation-details">
-        <summary>{copy.whyTitle}</summary>
-        {topCandidate ? (
-          language === 'zh' ? (
-            <p>
-              问题与“{labels[topCandidate.card.theme]}”主题相关，命中了
-              {Object.keys(topCandidate.fieldHits).join('、') || '思想内容'}字段
-              {retrieval.debug.matchedSynonymTerms.length > 0
-                ? `，并使用了受控扩展词：${retrieval.debug.matchedSynonymTerms.join('、')}`
-                : ''}
-              。
-            </p>
-          ) : (
-            <p>
-              The question relates to “{labels[topCandidate.card.theme]}” and matched the{' '}
-              {Object.keys(topCandidate.fieldHits).join(', ') || 'thought content'} fields
-              {retrieval.debug.matchedSynonymTerms.length > 0
-                ? `, using controlled expansions for: ${retrieval.debug.matchedSynonymTerms.join(', ')}`
-                : ''}
-              .
-            </p>
-          )
-        ) : (
-          <p>{copy.whyNoResult}</p>
-        )}
-      </details>
-
-      {retrieval.closestThemes.length > 0 ? (
-        <section className="related-themes" aria-labelledby="related-title">
-          <h2 id="related-title">{copy.relatedTitle}</h2>
-          <div>
-            {retrieval.closestThemes.map((theme) => (
-              <button
-                key={theme}
-                type="button"
-                onClick={() => onReset(THEME_QUESTIONS[language][theme])}
-              >
-                {labels[theme]}
-              </button>
-            ))}
-          </div>
-        </section>
-      ) : null}
-
-      {answer ? (
-        <section className="feedback" aria-labelledby="feedback-title">
-          <h2 id="feedback-title">{copy.feedbackTitle}</h2>
-          <div>
-            <button
-              type="button"
-              aria-pressed={feedback === 'helpful'}
-              onClick={() => onFeedback('helpful')}
-            >
-              {copy.helpful}
-            </button>
-            <button
-              type="button"
-              aria-pressed={feedback === 'not-helpful'}
-              onClick={() => onFeedback('not-helpful')}
-            >
-              {copy.notHelpful}
-            </button>
-          </div>
-          {feedback ? <p role="status">{copy.saved}</p> : null}
-        </section>
-      ) : null}
-
-      <p className="result-disclaimer">{copy.transparency}</p>
     </main>
   );
 }

@@ -46,7 +46,7 @@ describe('English BM25 retrieval', () => {
     const synonyms = SynonymCatalogSchema.parse(englishSynonymsJson);
     const index = buildSearchIndex(cards, synonyms);
 
-    expect(index.cardCount).toBe(300);
+    expect(index.cardCount).toBe(301);
     for (const item of cases) {
       const result = retrieveThoughtCards(index, item.query);
       expect(result.noResult, item.query).toBe(false);

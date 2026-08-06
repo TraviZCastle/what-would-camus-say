@@ -53,11 +53,8 @@ describe('deterministic answer composition', () => {
 
   it('assembles an English answer from the localized approved card', () => {
     const card = createEnglishThoughtCard(cards[0]);
-    const answer = composeAnswer(
-      'Every day at work feels the same. Why should I continue?',
-      card,
-      'en',
-    );
+    const question = 'Every day at work feels the same. Why should I continue?';
+    const answer = composeAnswer(question, card, 'en');
 
     expect(answer.sections.map((section) => section.label)).toEqual([
       'The dilemma',
@@ -69,5 +66,18 @@ describe('deterministic answer composition', () => {
     expect(answer.sections.map((section) => section.text).join(' ')).not.toMatch(
       /[\p{Script=Han}]/u,
     );
+    expect(answer.sections.map((section) => section.text).join(' ')).not.toContain(
+      question,
+    );
+    expect(answer.sections[0].text).not.toContain('Your question is');
+  });
+
+  it('does not repeat the original Chinese question in the result copy', () => {
+    const question = '每天重复上班，我不知道为什么还要继续。';
+    const answer = composeAnswer(question, cards[0], 'zh');
+    const text = answer.sections.map((section) => section.text).join(' ');
+
+    expect(text).not.toContain(question);
+    expect(answer.sections[0].text).not.toContain('你提出的是');
   });
 });
