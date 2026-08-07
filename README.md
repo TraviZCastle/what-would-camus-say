@@ -49,6 +49,20 @@ pnpm benchmark:retrieval
 
 `pnpm build` 和 `pnpm validate:production` 会执行严格生产门槛：至少 300 张已审核卡片、每个主题至少 15 张、同义词表、安全规则与安全回答文案均已审核，且权利状态明确。通过后构建输出到 `dist/`，可部署到任意 HTTPS 静态托管服务。
 
+## 发布与维护
+
+- 项目名：What Would Camus Say
+- 本地目录：`/Users/test/Documents/ForFun/what-would-camus-say`
+- GitHub：`https://github.com/TraviZCastle/what-would-camus-say`
+- Vercel：团队 `chengzhangcs-9520s-projects`，项目 `what-would-camus-say`
+- 生产地址：`https://what-would-camus-say.vercel.app`
+- 应用环境变量：无；用户问题始终只在浏览器内处理
+- Git 提交作者：`PlainTerranThomas <PlainTerranThomas@users.noreply.github.com>`
+
+Vercel 已连接 GitHub 的 `main` 分支。日常发布流程是先运行 `pnpm validate:production && pnpm test:e2e`，再提交并推送 `main`；Vercel 会从 Git 提交自动构建和发布 Production。
+
+仓库使用独立的可写 Deploy Key 推送，私钥仅保存在本机 `/Users/test/.ssh/what-would-camus-say_deploy_key`，指纹为 `SHA256:gjwrArqFtb/fiWJjtKNPT4zZyGUEp+E4B1i/NhTKOag`。由于当前网络不开放 SSH 22 端口，仓库级 `core.sshCommand` 固定通过 `ssh.github.com:443` 连接；不要将私钥、`.vercel/` 或 `.env.local` 提交到 Git。
+
 ## 架构边界
 
 - 纯静态 Vite + React + TypeScript 双语应用。
