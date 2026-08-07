@@ -83,6 +83,20 @@ test('mobile portrait fills the stage as a right-side background with balanced c
     page.getByRole('button', { name: 'Describe your dilemma' }),
   ).toBeInViewport();
   await expect(page.locator('.hero-copy')).toBeInViewport();
+  const headerQuote = page.locator('.hero-topbar blockquote p');
+  const quoteLayout = await headerQuote.evaluate((element) => ({
+    clientWidth: element.clientWidth,
+    scrollWidth: element.scrollWidth,
+    whiteSpace: getComputedStyle(element).whiteSpace,
+  }));
+  expect(quoteLayout.whiteSpace).toBe('nowrap');
+  expect(quoteLayout.scrollWidth).toBeLessThanOrEqual(quoteLayout.clientWidth + 1);
+  expect(
+    await page.evaluate(
+      () =>
+        document.documentElement.scrollWidth <= document.documentElement.clientWidth + 1,
+    ),
+  ).toBe(true);
 
   await openQuestionPage(page);
   await page.setViewportSize({ width: 390, height: 667 });
@@ -109,10 +123,14 @@ test('Chinese input keeps the form in English and produces a Chinese traceable r
   await page.getByRole('button', { name: 'Bring it to Camus' }).click();
 
   await expect(page.locator('html')).toHaveAttribute('lang', 'zh-CN');
-  await expect(page.getByRole('heading', { level: 1 })).toHaveText('从加缪思想看');
+  await expect(page.getByRole('heading', { level: 1 })).toHaveText(
+    'Through a Camusian lens',
+  );
   const article = page.getByRole('article', { name: '思想推演结果' });
   await expect(article).toBeVisible();
-  await expect(article.locator('.answer-prose > p')).toBeVisible();
+  const proseParagraphs = article.locator('.answer-prose > p');
+  await expect(proseParagraphs).toHaveCount(4);
+  await expect(proseParagraphs.first()).toBeVisible();
   await expect(page.locator('.result-portrait img')).toBeVisible();
   await expect(article.locator('blockquote')).toBeVisible();
   await expect(article.locator('.quote-source-text')).toHaveAttribute('lang', /en|fr/);
@@ -146,7 +164,9 @@ test('an abstract question about suicide receives a direct Camus-grounded answer
   await expect(page.locator('html')).toHaveAttribute('lang', 'en');
   await page.getByRole('button', { name: 'Bring it to Camus' }).click();
 
-  await expect(page.getByRole('heading', { level: 1 })).toHaveText('从加缪思想看');
+  await expect(page.getByRole('heading', { level: 1 })).toHaveText(
+    'Through a Camusian lens',
+  );
   await expect(page.getByRole('article', { name: '思想推演结果' })).toContainText(
     '加缪把自杀放在开端',
   );
@@ -171,7 +191,9 @@ test('English input uses the English index and English deterministic answer', as
     page.getByRole('article', { name: 'Thought exercise result' }),
   ).toBeVisible();
   const article = page.getByRole('article', { name: 'Thought exercise result' });
-  await expect(article.locator('.answer-prose > p')).toBeVisible();
+  const proseParagraphs = article.locator('.answer-prose > p');
+  await expect(proseParagraphs).toHaveCount(4);
+  await expect(proseParagraphs.first()).toBeVisible();
   const resultPortrait = page.locator('.result-portrait');
   const resultPortraitImage = resultPortrait.locator('img');
   await expect(resultPortraitImage).toBeVisible();

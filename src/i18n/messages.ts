@@ -25,7 +25,7 @@ export const MESSAGES = {
       '回答正文是基于加缪作品与思想研究的系统推演，不代表加缪本人；结尾短引句来自独立审核的作品引文库。',
     back: '← 重新提问',
     resultKicker: '重新审视你的问题',
-    resultTitle: '从加缪思想看',
+    resultTitle: 'Through a Camusian lens',
     answerLabel: '思想推演结果',
     noResultTitle: '暂未找到足够贴切的思想依据',
     noResultBody: '请补充更具体的处境、你正在权衡的选择，或最难接受的冲突。',

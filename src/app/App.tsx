@@ -432,12 +432,11 @@ function SafetyView({ submitted, resultHeadingRef, onReset }: SafetyViewProps) {
 function ResultView({ submitted, resultHeadingRef, onReset }: ResultViewProps) {
   const { answer, language } = submitted;
   const copy = MESSAGES[language];
-  const prose = answer
+  const proseParagraphs = answer
     ? answer.sections
         .filter((section) => section.kind !== 'reflection')
         .map((section) => section.text)
-        .join(' ')
-    : '';
+    : [];
   const directQuote = submitted.retrieval.mainCard
     ? selectDirectQuote(submitted.retrieval.mainCard, submitted.question)
     : null;
@@ -465,7 +464,9 @@ function ResultView({ submitted, resultHeadingRef, onReset }: ResultViewProps) {
       {answer ? (
         <article className="answer-card answer-editorial" aria-label={copy.answerLabel}>
           <div className="answer-prose">
-            <p>{prose}</p>
+            {proseParagraphs.map((paragraph, index) => (
+              <p key={`${index}-${paragraph}`}>{paragraph}</p>
+            ))}
           </div>
 
           {directQuote ? (
