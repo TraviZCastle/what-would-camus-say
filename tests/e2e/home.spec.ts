@@ -6,6 +6,21 @@ async function openQuestionPage(page: Page) {
   await expect(page.getByRole('heading', { name: 'State the question.' })).toBeVisible();
 }
 
+async function expectQuestionPageToFitViewport(page: Page) {
+  const dimensions = await page.evaluate(() => ({
+    clientHeight: document.documentElement.clientHeight,
+    scrollHeight: document.documentElement.scrollHeight,
+    pageBottom: document.querySelector('.question-page')?.getBoundingClientRect().bottom,
+    examplesBottom: document
+      .querySelector('.question-page-examples')
+      ?.getBoundingClientRect().bottom,
+  }));
+
+  expect(dimensions.scrollHeight).toBeLessThanOrEqual(dimensions.clientHeight + 1);
+  expect(dimensions.pageBottom).toBeLessThanOrEqual(dimensions.clientHeight + 1);
+  expect(dimensions.examplesBottom).toBeLessThanOrEqual(dimensions.clientHeight + 1);
+}
+
 test('homepage uses the approved black portrait and opens a restrained question page', async ({
   page,
 }) => {
@@ -43,6 +58,7 @@ test('homepage uses the approved black portrait and opens a restrained question 
   await expect(page.getByLabel('Real-life dilemma')).toBeFocused();
   await expect(page.getByRole('button', { name: 'Bring it to Camus' })).toBeEnabled();
   await expect(page.getByRole('dialog')).toHaveCount(0);
+  await expectQuestionPageToFitViewport(page);
 });
 
 test('mobile portrait fills the stage as a right-side background with balanced controls', async ({
@@ -69,11 +85,14 @@ test('mobile portrait fills the stage as a right-side background with balanced c
   await expect(page.locator('.hero-copy')).toBeInViewport();
 
   await openQuestionPage(page);
+  await page.setViewportSize({ width: 390, height: 667 });
   const questionPortrait = page.locator('.question-page-portrait');
   await expect(questionPortrait).toHaveCSS('position', 'fixed');
   await expect(questionPortrait).toHaveCSS('object-fit', 'cover');
   await expect(questionPortrait).toHaveCSS('object-position', '60% 50%');
   await expect(page.getByRole('button', { name: 'Bring it to Camus' })).toBeInViewport();
+  await expect(page.locator('.question-page-examples button').last()).toBeInViewport();
+  await expectQuestionPageToFitViewport(page);
 });
 
 test('Chinese input keeps the form in English and produces a Chinese traceable result', async ({
