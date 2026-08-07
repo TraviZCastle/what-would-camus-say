@@ -55,7 +55,8 @@ pnpm benchmark:retrieval
 - 本地目录：`/Users/test/Documents/ForFun/what-would-camus-say`
 - GitHub：`https://github.com/TraviZCastle/what-would-camus-say`
 - Vercel：团队 `chengzhangcs-9520s-projects`，项目 `what-would-camus-say`
-- 生产地址：`https://what-would-camus-say.vercel.app`
+- 生产地址：`https://camusian.vercel.app`
+- 旧地址：`https://what-would-camus-say.vercel.app`（307 重定向到生产地址）
 - 应用环境变量：无；用户问题始终只在浏览器内处理
 - Git 提交作者：`PlainTerranThomas <PlainTerranThomas@users.noreply.github.com>`
 
